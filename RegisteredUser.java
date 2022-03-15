@@ -4,10 +4,21 @@ public class RegisteredUser extends User {
     private ArrayList <Booking> booking;
     private ArrayList <Account> friends;
 
-    @Override
-    public void checkIfRegisterd(String firstName, String lastName) {
-        // TODO Auto-generated method stub
-        
+    public RegisteredUser(String firstName, 
+                          String lastName, 
+                          String username, 
+                          String password, 
+                          String email, 
+                          Date dob, 
+                          String address){
+
     }
+
+    public void searchFlights() {
+
+    }
+
+    public void filterResults() {}
+
     
 }

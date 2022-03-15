@@ -8,6 +8,8 @@ public abstract class User {
         this.lastName = lastName;
     }
 
-    public abstract void checkIfRegisterd(String firstName, String lastName);
+    public void checkIfRegisterd(String firstName, String lastName){
+        
+    }
     
 }
