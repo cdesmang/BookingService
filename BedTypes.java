@@ -1,3 +1,7 @@
-public class BedTypes {
+public enum BedTypes {
     
+    QUEEN,
+    KING,
+    TWIN_XL,
+    FULL
 }
