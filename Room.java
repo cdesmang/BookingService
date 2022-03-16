@@ -37,19 +37,27 @@ public class Room {
     }
     
     //setters
-    public void setFloor (Room room, int floor) {
+    public void setFloor (int floor) {
 
     }
 
-    public void setRoomNum(Room room, int num) {
+    public void setRoomNum (int num) {
 
     }
 
-    public void setNumBeds (Room Room, int num) {
+    public void setNumBeds (int num) {
 
     }
 
-    public void setPullout (Room room, boolean pullout) {
+    public void setPullout (boolean pullout) {
+
+    }
+
+    public void setBedtype (BedTypes bed) {
+
+    }
+
+    public void setAvailibility (boolean avail) {
 
     }
 }
