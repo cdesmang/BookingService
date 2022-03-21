@@ -1,18 +1,13 @@
 import java.util.*;
 public class Account {
-    public String userName;
+    public String username;
     private String password;
     private String email;
     private Date dob;
     private String address;
     
 
-    public Account(String fullName, 
-                   String username, 
-                   String password, 
-                   String email, 
-                   Date dob, 
-                   String address) {
+    public Account(String fullName, String username, String password, String email, Date dob, String address) {
 
     }
 
@@ -20,8 +15,7 @@ public class Account {
 
     }
 
-    public void deleteAccount (String username, 
-                               String password){
+    public void deleteAccount (String username, String password){
 
     }
 

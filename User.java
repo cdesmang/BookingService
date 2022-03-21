@@ -1,15 +1,35 @@
+import java.util.ArrayList;
+
 public abstract class User {
-    private String firstName;
-    private String lastName;
+    public String fullName;
+    protected String userType;
 
-    public User(String firstName, String lastName)
-    {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    protected ArrayList<FilterOptions> filters = new  ArrayList<FilterOptions>();
+
+    /**
+     * The user constructor
+     */
+    public User(String fullName){
+        this.fullName = fullName;
     }
 
-    public void checkIfRegisterd(String firstName, String lastName){
-        
+
+
+
+    /**
+     * Gets the username
+     * @return Returns the full name
+     */
+    public String getFullName(){
+        return this.fullName;
     }
+
     
+    /**
+     * Gets the type
+     * @return Returns the type of user
+     */
+    public String getType(){
+        return this.userType;
+    }
 }
