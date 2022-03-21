@@ -1,0 +1,145 @@
+[
+    {
+        "id": "7638d685-3d96-4bb6-a059-97f7f6086997",
+        "name": "Hilton",
+        "phoneNumber": "9806729943",
+        "address": {
+            "street_address": "4198 Palm Tree Beach Lane",
+            "city": "Miami",
+            "state": "FL",
+            "zip": "33101"
+        },
+        "rooms": [
+            {
+                "num": "410",
+                "dates_booked": ["10/25/2022", "10/26/2022", "10/27/2022", "11/01/2022", "12/22/2022", "12/23/2022", "12/24/2022", "12/25/2022", "12/26/2022"],
+                "room_type": "Standard",
+                "numBeds": 2,
+                "bedSize": "Queen",
+                "pullout": false
+            },
+            {
+                "num": "223",
+                "dates_booked": ["5/12/2022", "5/13/2022", "6/01/2022", "7/01/2022", "7/02/2022", "7/03/2022", "9/25/2022"],
+                "room_type": "Deluxe",
+                "numBeds": 1,
+                "bedSize": "King",
+                "pullout": true
+            },
+            {
+                "num": "111",
+                "dates_booked": ["10/24/2022", "10/27/2022", "10/28/2022", "11/11/2022", "1/01/2023"],
+                "room_type": "Suite",
+                "numBeds": 2,
+                "bedSize": "Queen",
+                "pullout": true
+            },
+            {
+                "num": "303",
+                "dates_booked": ["7/03/2022", "7/04/2022", "7/05/2022"],
+                "room_type": "Standard",
+                "numBeds": 1,
+                "bedSize": "King",
+                "pullout": false
+            }
+        ],
+        "amenities": [
+            { "pool": true },
+            { "gym": true},
+            { "wifi": true },
+            { "valet": false },
+            { "compBreakfast": true },
+            { "shuttle": false }            
+        ]
+    },
+    {
+        "id": "87e78cb5-b9ce-4491-b520-5447bd8f6cdd",
+        "name": "Ritz-Carlton",
+        "phoneNumber": "3391460029",
+        "address": {
+            "street_address": "2943 Johnson Street",
+            "city": "Denver",
+            "state": "CO",
+            "zip": "80202"
+        },
+        "rooms": [
+            {
+                "num": "918",
+                "dates_booked": ["5/11/2023", "5/12/2023", "5/13/2023", "5/15/2023", "5/16/2023", "5/17/2023", "5/19/2023", "6/05/2023"],
+                "room_type": "Suite",
+                "numBeds": 2,
+                "bedSize": "Queen",
+                "pullout": true
+            },
+            {
+                "num": "731",
+                "dates_booked": ["4/14/2022", "7/18/2022", "7/20/2022", "10/23/2022", "10/24/2022", "10/25/2022", "10/30/2022", "10/31/2022"],
+                "room_type": "Suite",
+                "numBeds": 1,
+                "bedSize": "King",
+                "pullout": false
+            }
+        ],
+        "amenities": [
+            { "pool": true },
+            { "gym": true},
+            { "wifi": true },
+            { "valet": true },
+            { "compBreakfast": true },
+            { "shuttle": true }            
+        ]
+    },
+    {
+        "id": "49830313-4f43-453c-983b-0019bac184d4",
+        "name": "Embassy Suites",
+        "phoneNumber": "9806729943",
+        "address": {
+            "street_address": "3131 Blossom Drive",
+            "city": "Orlando",
+            "state": "FL",
+            "zip": "32805"
+        },
+        "rooms": [
+            {
+                "num": "220",
+                "dates_booked": ["8/17/2022", "8/26/2022", "9/13/2022", "11/07/2022", "11/08/2022", "11/09/2022", "12/12/2022", "12/23/2022", "12/24/2022"],
+                "room_type": "Standard",
+                "numBeds": 2,
+                "bedSize": "Full",
+                "pullout": false
+            },
+            {
+                "num": "113",
+                "dates_booked": ["7/04/2022", "10/31/2022", "11/22/2022", "12/24/2022", "12/25/2022", "12/31/2022", "1/01/2023"],
+                "room_type": "Deluxe",
+                "numBeds": "1",
+                "bedSize": "King",
+                "pullout": false
+            },
+            {
+                "num": "553",
+                "dates_booked": ["3/31/2022", "7/09/2022", "11/13/2022", "2/14/2023", "3/17/2023", "11/25/2023"],
+                "room_type": "Standard",
+                "numBeds": 2,
+                "bedSize": "Full",
+                "pullout": true
+            },
+            {
+                "num": "661",
+                "dates_booked": ["9/13/2022", "12/07/2022"],
+                "room_type": "Suite",
+                "numBeds": 1,
+                "bedSize": "King",
+                "pullout": true
+            }
+        ],
+        "amenities": [
+            { "pool": true },
+            { "gym": false},
+            { "wifi": true },
+            { "valet": false },
+            { "compBreakfast": true },
+            { "shuttle": false }            
+        ]
+    }
+]
