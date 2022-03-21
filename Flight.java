@@ -1,3 +1,10 @@
+/**
+ * an object type Flight that has attributes:
+ * departure and arrival time
+ * aeparture and arrival location
+ * number of tickets
+ * type of flight (nonstop, round, etc.)
+ */
 public class Flight {
 
     private String departureTime;

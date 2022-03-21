@@ -9,7 +9,7 @@ public class Booking {
     }
     
     /**
-     * like a to string method
+     * Prints out the booking (a ticket)
      */
     public void printBooking(){
 

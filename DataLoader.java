@@ -1,3 +1,7 @@
+/**
+ * Loads information from JSON files
+ */
+
 import java.util.*;
 public class DataLoader {
 
