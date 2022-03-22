@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class FlightSystem {
     private User currentUser;
 
-    public ArrayList<Flight> getAlFlights () {
+    public ArrayList<Flight> getAllFlights () {
         ArrayList<Flight> temp = new ArrayList<Flight>();
         return temp;
     }
