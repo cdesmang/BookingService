@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-public class UI {
-    
-}
-=======
+
 /**
  * User Interface 
  * @author Christina Desmangles
