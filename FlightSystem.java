@@ -5,8 +5,11 @@ public class FlightSystem {
     private User currentUser;
     private Flights flights;
 
+    public FlightSystem() {
+        
+    }
     public ArrayList<Flight> getAllFlights () {
-        ArrayList<Flight> temp = Flights.getInstance();
+        ArrayList<Flight> temp) = Flights.getInstance();
     }
 
     public User getCurrentUser (){
