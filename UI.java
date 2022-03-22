@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> d5b94ba4d88e74d6aea750b93cb4146e67b01dbd
 /**
  * User Interface 
  * @author Christina Desmangles
@@ -48,4 +52,4 @@ import javax.lang.model.util.ElementScanner6;
     }
     
 }
->>>>>>> c556b1ee72f1f84f1b0b3f3d897029009740fe9f
+
