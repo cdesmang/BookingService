@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class UI {
 
     private static final Scanner key = new Scanner(System.in);
-    private static FlightSystem flightSystem = new FlightSystem();
+    private static FlightSystem flightSystem = FlightSystem.getInstance();
 
     /**
      * main method- interacts with user and runs code
@@ -67,23 +67,24 @@ public class UI {
 
 
     private static ArrayList<Flights> getFlights(){
+
         System.out.println("Please enter your departure location in the format \"city, State\"");
         String dLString = key.nextLine();
         Location dLoc = parseLoc(dLString);
-        System.out.println("Please enter your departure date in the format\"MM/DD/YYYY\"");
-        String dDate= key.nextLine();
+        System.out.println("Getting departure date information:");
+        Date dDate= getDate();
         System.out.println("Please enter your arrival location in the format \"city, State\"");
         String aLString= key.nextLine();
         Location aLoc = parseLoc(aLString);
-        System.out.println("Please enter your arrival date in the format\"MM/DD/YYYY\"");
-        String aDate= key.nextLine();
+        System.out.println("Getting arrival date information:");
+        Date aDate = getDate();
         flightSystem.getAllFlights(dLoc, aLoc, dDate, aDate);
     }
 
     /**
-     * 
-     * @param location 
-     * @return
+     * Converts a string entered by user to a location type
+     * @param location User input of location(string)
+     * @return Location type version of user input
      */
     private static Location parseLoc(String location){
         String[] splitLoc= location.split(",");
@@ -91,6 +92,33 @@ public class UI {
         return temp;
     }
 
+    /**
+     * Converts a string entered by the user to a date type
+     * @return Date type of user input
+     */
+    private static Date getDate(){
+        String[] tempS;
+        int [] tempI = new int[3];
+        while (tempI[0]==0|| tempI[1]==0){
+            System.out.println("Enter a date: MM/DD/YYYY");
+            String x = key.nextLine();
+            tempS= x.split("/");
+            for (int i = 0; i<3; i++){
+                tempI[i] = Integer.parseInt(tempS[i]);
+            }
+            if(tempI[0] >= 13) //invalid month
+                System.out.println("Invalid Month");
+                tempI[0] = 0;
+            if(tempI[1] >= 32) //invalid day
+                System.out.println("Invalid Day");
+                tempI[1] = 0;
+        }
+        Date created= new Date (tempI[0], tempI[1], tempI[2]);
+        return created;
+    }
+
+
+    
 
 
 
