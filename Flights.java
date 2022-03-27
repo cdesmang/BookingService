@@ -1,17 +1,23 @@
+/**
+ * creates an array list of all flights
+ * @author Christina Desmangles
+ */
+import java.util.ArrayList;
 public class Flights {
 
     private static ArrayList<Flight> flights;
+    private static DataLoader DL = new DataLoader();
 
-    private Flights()
-    {
-        this.flights = new ArrayList<Flight>();
-
-    }
-    public static Flights getInstance()
+    private Flights(){}
+    /**
+     * accesses Data loader to get ALL of the flights 
+     * @return an array list holding all flights
+     */
+    public static ArrayList<Flight> getInstance()
     {
         if(flights == null)
         {
-            flights = new Flight();
+            flights = DL.getAllFlights();
         }
         return flights;
     }

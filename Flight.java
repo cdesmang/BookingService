@@ -84,13 +84,11 @@ public class Flight {
     }
     public void setDestination(Location destination)
     {
-        this.destination.city = destination.city;
-        this.destination.state = destination.state;
+        this.destination = destination;
     }
     public void setDepartLocation(Location departLoc)
     {
-        this.departLoc.city = departLoc.city;
-        this.departLoc.state = departLoc.state;
+        this.departLoc = departLoc;
     }
     public void setDepartTime(String departTime)
     {
