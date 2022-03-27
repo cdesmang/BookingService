@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class UI {
 
     private static final Scanner key = new Scanner(System.in);
-    private static FlightSystem flightSystem = FlightSystem.getInstance();
+    private static FlightSystem flightSystem = new FlightSystem();
 
     /**
      * main method- interacts with user and runs code
@@ -66,7 +66,7 @@ public class UI {
     }
 
 
-    private static ArrayList<Flights> getFlights(){
+    private static ArrayList<Flight> getFlights(){
 
         System.out.println("Please enter your departure location in the format \"city, State\"");
         String dLString = key.nextLine();

@@ -3,10 +3,11 @@ import java.util.ArrayList;
 
 public class FlightSystem {
     private static User currentUser;
-    private static ArrayList<Flight> flights = Flights.getInstance();
+    private static Flights flights;
 
-    public FlightSystem() {
-         
+    public FlightSystem(String uType, String username, String password) {
+         currentUser= ;
+         flights.getInstance();
     }
 
     /**
@@ -20,14 +21,14 @@ public class FlightSystem {
     }*/
 
     public static ArrayList<Flight> getAllFlights (Location dLoc,Location aLoc, Date dDate, Date aDate) {
-        ArrayList<Flight> temp = new ArrayList<Flight>();
+        ArrayList<Flight> temp;
         return temp;
     }
 
-    public ArrayList<Flight>searchFlights (ArrayList<Flight> broad){
+   /* public ArrayList<Flight>searchFlights (ArrayList<Flight> broad){
         ArrayList<Flight> temp = new ArrayList<Flight>();
         return temp;
-    }
+    }*/
 
     public User getCurrentUser (){
         return currentUser;
@@ -35,6 +36,11 @@ public class FlightSystem {
 
 
     public boolean login(){
+        return true;
+    }
+    public boolean logout(){
+        // the registered user = current user ( to update any information that is changed )
+        // current user = guest 
         return true;
     }
 
