@@ -1,25 +1,15 @@
 import java.util.ArrayList;
 
 public abstract class User {
-    public String fullName;
     protected String userType; // "registered" or "guest"
     protected ArrayList<FilterOptions> filters = new  ArrayList<FilterOptions>();
 
     /**
      * The user constructor
      */
-    public User(String firstName, String lastName){
-        this.fullName = firstName + " " + lastName;
-    }
+    public User(){}
 
 
-    /**
-     * Gets the username
-     * @return Returns the full name
-     */
-    public String getFullName(){
-        return this.fullName;
-    }
     
     /**
      * @param filter to be added to the fliters arrayList

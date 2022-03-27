@@ -5,22 +5,26 @@ public class RegisteredUser extends User {
      * the number of seats to book will be one more than the length of this arraylist
      */
     private ArrayList<Friend> friends;
+    private String fullName;
     private String email;
     private Date dob;
     private String address;
     private String username;
     private String password;
+    public ArrayList<Booking> bookings;
+
+    
 
     public int seatsToBook;
 
     public RegisteredUser(String firstName, String lastName, String username, String password, String email, Date dob, String address){
-        super(firstName,lastName);
         fullName = firstName + " " + lastName;
         this.username = username;
         this.password = password;
         this.email = email;
         this.dob = dob;
         this.address = address;
+        this.userType = "registered";
     }
 
     public void addFriend (Friend friendusername) {
@@ -37,8 +41,11 @@ public class RegisteredUser extends User {
         return friends;
     }
 
-    public void logout() {
-
-    }
-
+    /**
+     * a booking has a :
+     * full name
+     * flight booking (can be null) - where to where, time and date, flight number, seat number
+     * hotel booking (can be null) - hotel name, place, date, room number(s)
+     * 
+    */
 }
