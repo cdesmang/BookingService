@@ -1,9 +1,13 @@
+/**
+ * Allows interaction between UI and backend classes
+ * @author Christina Desmangles
+ */
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FlightSystem {
     private static User currentUser;
-    private static Flights flights;
+    private static ArrayList<Flight> flights;
     private Users users= new Users();
 
     public FlightSystem(String uType, String username, String password) {
@@ -16,10 +20,13 @@ public class FlightSystem {
          /* IF THE CURRENT USER = NULL THEN IN THE UI THERE SHOULD BE A PRINT STATEMENT SAYING THAT THE USERNAME
             OR PASSWORD IS INCORRECT
           */
-
     }
 
-    public static ArrayList<Flight> getAllFlights (Location dLoc,Location aLoc, Date dDate, Date aDate) {
+    public static ArrayList<Flight> getAllFlights (String[] dLoc,String[] aLoc, Date dDate, Date aDate) {
+        String dCity = dLoc[0];
+        String dState = dLoc[1];
+        String aCity = aLoc[0];
+        String aState = aLoc[1];
         ArrayList<Flight> temp;
         return temp;
     }

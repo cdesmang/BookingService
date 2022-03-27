@@ -1,5 +1,5 @@
 /**
- * creates an array list of all flights
+ * Everything having to do with flights
  * @author Christina Desmangles
  */
 import java.util.ArrayList;
@@ -20,6 +20,34 @@ public class Flights {
             flights = DL.getAllFlights();
         }
         return flights;
+    }
+
+    public static ArrayList<Flight> searchFlight(String dCity, String dState, String aCity, String aState, Date dDate, Date aDate){
+        int i = 0;
+        ArrayList<Flight> temp = new ArrayList<Flight>();
+        while(flights.get(i) != null){
+            if (checkDL(dCity,dState,i) && checkAL(aCity, aState, i) && checkDD(dDate, i) && checkAD(aDate, i)){
+                temp.add(flights.get(i));
+                i++;
+            }
+        }
+        return temp;
+    }
+
+    private static boolean checkDL(String city, String state,int i){
+        return flights.get(i).getDepartCity().toUpperCase() == city.toUpperCase() && flights.get(i).getDepartState().toUpperCase() == state.toUpperCase();
+    }
+
+    private static boolean checkAL(String city, String state,int i){
+        return flights.get(i).getDestinationCity().toUpperCase() == city.toUpperCase() && flights.get(i).getDestinationS().toUpperCase() == state.toUpperCase();
+    }
+
+    private static boolean checkDD(Date date, int i){
+        return flights.get(i).getDepartDate() == date;
+    }
+
+    private static boolean checkAD(Date date, int i){
+        return flights.get(i).getArrivalDate() == date;
     }
     
 }

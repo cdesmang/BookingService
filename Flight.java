@@ -12,13 +12,15 @@ public class Flight {
  private UUID flightID;
  private int flightNum;
  private String airline;
- private Location destination;
- private Location departLoc;
+ private String arrCity;
+ private String arrState;
+ public String depCity;
+ public String depState;
  private String flightDuration;
  private String departTime;
  private String arrivalTime;
- private Date departDate;
- private Date arrivalDate;
+ public Date departDate;
+ public Date arrivalDate;
  private Seat[][] seats;
 
     public Flight(UUID flightID, int flightNum, String airline, Location destination, Location departLoc, String flightDuration, String departTime, String arrivalTime, Date departDate, Date arrivalDate, Seat[][] seats)
@@ -37,13 +39,21 @@ public class Flight {
     {
         return airline;
     }
-    public Location getDestination() 
+    public String getDestinationCity() 
     {
-        return destination;
+        return arrCity;
     }
-    public Location getDepartLocation() 
+    public String getDestinationS() 
     {
-        return departLoc;
+        return arrState;
+    }
+    public String getDepartCity() 
+    {
+        return depCity;
+    }
+    public String getDepartState() 
+    {
+        return depState;
     }
     public String getFlightDuration() 
     {
@@ -82,13 +92,21 @@ public class Flight {
     {
         this.airline = airline;
     }
-    public void setDestination(Location destination)
+    public void setDestinationC(String city)
     {
-        this.destination = destination;
+        this.arrCity = city;
     }
-    public void setDepartLocation(Location departLoc)
+    public void setDestinationS(String state)
     {
-        this.departLoc = departLoc;
+        this.arrState = state;
+    }
+    public void setDepartC(String city)
+    {
+        this.depCity = city;
+    }
+    public void setDepartS(String state)
+    {
+        this.depState = state;
     }
     public void setDepartTime(String departTime)
     {
