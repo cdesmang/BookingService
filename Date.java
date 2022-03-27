@@ -1,11 +1,8 @@
-
-
 /**
  * Creates a date
  * @author David Eta
  * 
  */
-import java.util.HashMap;
 
 public class Date {
     

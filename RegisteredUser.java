@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 public class RegisteredUser extends User {
 
     private ArrayList <Booking> booking;
@@ -16,15 +16,19 @@ public class RegisteredUser extends User {
     public void filterResults() {}
 
     public void addBooking (Booking booked) {
-
+        booking.add(booked);
     }
 
-    public void addFriend (String friendusername) {
-
+    public void removeBooking (Booking booked) {
+        booking.remove(booked);
     }
 
-    public void removeFriend(String friendusername) {
+    public void addFriend (Friend friendusername) {
+        friends.add(friendusername);
+    }
 
+    public void removeFriend(Friend friendusername) {
+        friends.remove(friendusername);
     }
 
     // maybe we should have a find account method so the user can just enter the username of their friend???
