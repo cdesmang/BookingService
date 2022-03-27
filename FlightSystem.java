@@ -3,12 +3,12 @@ import java.util.ArrayList;
 
 public class FlightSystem {
     private User currentUser;
-    private Flights flights;
+    private Flights flights = new FlightSystem();
 
     public FlightSystem() {
         
     }
-    public ArrayList<Flight> getAllFlights (String dLoc, String aLoc, Date dDate, Date aDate) {
+    public static ArrayList<Flight> getAllFlights (Location dLoc,Location aLoc, Date dDate, Date aDate) {
         ArrayList<Flight> temp = flights.getInstance();
         return temp;
     }
