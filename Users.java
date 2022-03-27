@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class Users {
 
 
-    private ArrayList<User> users;
+    private ArrayList<RegisteredUser> users;
 
     public User getAllUsers() {
         return users.get(0);
@@ -12,11 +12,24 @@ public class Users {
         return true;
     }
 
-    public User searchUser(String keyWord) {
-        return users.get(0);
+    public User searchUser(String username, String password) {
+        User search = null;
+        int i = 0;
+        boolean run = true;
+        while(run){
+            if(username == users.get(i-1).getUsername() && password == users.get(i-1).getPassword()){
+                search = users.get(i);
+                run = false;
+            }else if (users.get(i) != null){
+                run = false;
+            }else{
+                i++;
+            }
+        }
+        return search;
     } 
 
-    public void addUser(User user) {
+    public void addUser(RegisteredUser user) {
         users.add(user);
     }
 

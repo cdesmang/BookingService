@@ -41,6 +41,13 @@ public class RegisteredUser extends User {
         return friends;
     }
 
+    public String getUsername(){
+        return this.username;
+    }
+
+    public String getPassword(){
+        return this.password;
+    }
     /**
      * a booking has a :
      * full name

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class UI {
 
     private static final Scanner key = new Scanner(System.in);
-    private static FlightSystem flightSystem = new FlightSystem();
+    private static FlightSystem flightSystem;
 
     /**
      * main method- interacts with user and runs code
@@ -54,6 +54,7 @@ public class UI {
      * will eventually force them to switch to registered user if they want to book
      */
     public static void guestSearch(){
+        flightSystem= new FlightSystem("guest", "none" ,"none");
          getFlights();
 
     }
