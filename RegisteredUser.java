@@ -1,16 +1,10 @@
 import java.util.*;
 public class RegisteredUser extends User {
-    protected Account account;
-    private ArrayList <Booking> booking;
-    private ArrayList <Account> friends;
 
-    public RegisteredUser(String firstName, 
-                          String lastName, 
-                          String username, 
-                          String password, 
-                          String email, 
-                          Date dob, 
-                          String address){
+    private ArrayList <Booking> booking;
+    private ArrayList <Friend> friends;
+
+    public RegisteredUser(String firstName, String lastName, String username, String password, String email, Date dob, String address){
         super(firstName,lastName);
 
     }
@@ -25,11 +19,11 @@ public class RegisteredUser extends User {
 
     }
 
-    public void addFriend (Account friend) {
+    public void addFriend (String friendusername) {
 
     }
 
-    public void removeFriend(Account friend) {
+    public void removeFriend(String friendusername) {
 
     }
 
