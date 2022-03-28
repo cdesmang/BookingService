@@ -5,12 +5,6 @@
 import java.util.ArrayList;
 
 public class FlightSystem {
-<<<<<<< HEAD
-    private User currentUser;
-
-    public ArrayList<Flight> getAllFlights () {
-        ArrayList<Flight> temp = Flights.getInstance();
-=======
     private static User currentUser;
     private static Flights flights;
     private static Users users= new Users();
@@ -41,7 +35,6 @@ public class FlightSystem {
         String aCity = aLoc[0];
         String aState = aLoc[1];
         ArrayList<Flight> temp = flights.searchFlight(dCity, dState, aCity, aState, dDate, aDate);
->>>>>>> c95c199c4c4c31b47d43db7d5f51c2fa6c5993e5
         return temp;
     }
 

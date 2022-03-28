@@ -18,10 +18,6 @@ public class Users {
         return true;
     }
 
-<<<<<<< HEAD
-    public User searchUser(String keyWord) {
-        
-=======
     public User searchUser(String username, String password) {
         User search = null;
         int i = 0;
@@ -37,7 +33,6 @@ public class Users {
             }
         }
         return search;
->>>>>>> c95c199c4c4c31b47d43db7d5f51c2fa6c5993e5
     } 
 
     public void addUser(RegisteredUser user) {

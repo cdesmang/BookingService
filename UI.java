@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-public class UI {
-    
-}
-=======
->>>>>>> c95c199c4c4c31b47d43db7d5f51c2fa6c5993e5
 
 /**
  * User Interface 
