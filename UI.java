@@ -69,14 +69,25 @@ public class UI {
      */
     public static void registeredSearch(String username, String password){
         flightSystem = new FlightSystem("registered", username, password);
-        if (flightSystem.getCurrentUser()== null){
+        int count = 0;
+
+        while(count < 3){
             System.out.println("Invalid username or password!");
+            System.out.println("Please re-enter your username:");
+            String x = key.nextLine();
+            System.out.println("Please re-enter your password:");
+            String y = key.nextLine();
+            flightSystem= new FlightSystem("registered", x, y);
+
         }
 
 
     }
 
-
+    /**
+     * Connects to flights class to find all flights that fit the given parameters
+     * @return an arraylist with all flights 
+     */
     private static ArrayList<Flight> getFlights(){
 
         System.out.println("Please enter your departure location in the format \"city, State\"");
