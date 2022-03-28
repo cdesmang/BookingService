@@ -12,9 +12,6 @@ public class RegisteredUser extends User {
     private String username;
     private String password;
     public ArrayList<Booking> bookings;
-
-    
-
     public int seatsToBook;
 
     public RegisteredUser(String firstName, String lastName, String username, String password, String email, Date dob, String address){

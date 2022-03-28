@@ -9,7 +9,6 @@ public abstract class User {
      */
     public User(){}
 
-
     
     /**
      * @param filter to be added to the fliters arrayList
@@ -25,15 +24,13 @@ public abstract class User {
         filters.remove(filter) ;
     }
 
-
     /**
      * Gets the type
      * @return Returns the type of user
      */
     public void filterResults(){
         return;
-    }
-    
+    }  
     
     /**
      * Gets the type

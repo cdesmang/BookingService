@@ -1,11 +1,14 @@
+import java.util.ArrayList;
+
+
 public class Booking {
-    private Flight flight;
-    private Hotel hotel;
-    private Boolean isBooked;
+    private ArrayList<Flight> flights;
+    private ArrayList<Hotel> reservations;
 
 
-    public Booking() {
-
+    public Booking(ArrayList<Flight> flights, ArrayList<Hotel> reservations) {
+        this.flights = flights;
+        this.reservations = reservations;
     }
     
     /**
@@ -13,5 +16,21 @@ public class Booking {
      */
     public void printBooking(){
 
+    }
+
+    public void addFlight(Flight flight) {
+        flights.add(flight);
+    }
+
+    public void removeFlight(Flight flight) {
+        flights.remove(flight);
+    }
+
+    public void addReservation(Hotel hotel) {
+        reservations.add(hotel);
+    }
+
+    public void removeReservation(Hotel hotel) {
+        reservations.remove(hotel);
     }
 }
