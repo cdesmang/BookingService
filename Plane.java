@@ -15,5 +15,9 @@ public class Plane {
         return selected;
     }
 
+    // first class = 0 row
+    // business class = 1-2 row
+    // economy class = 3-6 row
+    
 
 }

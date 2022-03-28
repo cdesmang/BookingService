@@ -1,39 +1,58 @@
-import java.util.*;
+import java.util.ArrayList;
 public class RegisteredUser extends User {
-    protected Account account;
-    private ArrayList <Booking> booking;
-    private ArrayList <Account> friends;
 
-    public RegisteredUser(String firstName, 
-                          String lastName, 
-                          String username, 
-                          String password, 
-                          String email, 
-                          Date dob, 
-                          String address){
-        super(firstName,lastName);
-
-    }
-
-    public void searchFlights() {
-
-    }
-
-    public void filterResults() {}
-
-    public void addBooking (Booking booked) {
-
-    }
-
-    public void addFriend (Account friend) {
-
-    }
-
-    public void removeFriend(Account friend) {
-
-    }
-
-    // maybe we should have a find account method so the user can just enter the username of their friend???
+    /**
+     * the number of seats to book will be one more than the length of this arraylist
+     */
+    private ArrayList<Friend> friends;
+    private String fullName;
+    private String email;
+    private Date dob;
+    private String address;
+    private String username;
+    private String password;
+    public ArrayList<Booking> bookings;
 
     
+
+    public int seatsToBook;
+
+    public RegisteredUser(String firstName, String lastName, String username, String password, String email, Date dob, String address){
+        fullName = firstName + " " + lastName;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.dob = dob;
+        this.address = address;
+        this.userType = "registered";
+    }
+
+    public void addFriend (Friend friendusername) {
+        friends.add(friendusername);
+        seatsToBook++;
+    }
+
+    public void removeFriend(Friend friendusername) {
+        friends.remove(friendusername);
+        seatsToBook--;
+    }
+
+    public ArrayList<Friend> getFriends() {
+        return friends;
+    }
+
+    public String getUsername(){
+        return this.username;
+    }
+
+    public String getPassword(){
+        return this.password;
+    }
+    /**
+     * a booking has a :
+     * full name
+     * flight booking (can be null) - where to where, time and date, flight number, seat number
+     * hotel booking (can be null) - hotel name, place, date, room number(s)
+     * 
+    */
 }
