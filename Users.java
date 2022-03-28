@@ -13,7 +13,7 @@ public class Users {
     }
 
     public User searchUser(String keyWord) {
-        return users.get(0);
+        
     } 
 
     public void addUser(User user) {

@@ -14,8 +14,10 @@
             "zip": "75043"
         },
         "bookings": [
-            "54607d51-a338-4fc7-9a3f-f5aae296b704",
-            "021ffd7e-73dc-4606-8ef7-f2e72daa6c48"
+            {
+                "flight_ID": "8c724731-ab3e-4848-a02e-5d2a33e52926",
+                "seat": "2J"
+            }
         ]
     },
     {
@@ -33,24 +35,73 @@
             "zip": "98112"
         },
         "bookings": [
-            "74807b2c-ae26-4cb0-b525-429f83520f18",
-            "81af1ab4-b252-4f11-a597-8c8a564cca83"
+            {
+                "flight_ID": "553a168f-d59a-4843-bdd4-2bb6900da600",
+                "seat": "7A"
+            }
+        ],
+        "hotels": [
+            {
+                "hotel_ID": "7638d685-3d96-4bb6-a059-97f7f6086997",
+                "room": 303,
+                "begin_date": "June 29, 2022",
+                "end_date": "June 31, 2022"
+            }
         ],
         "friends": [
             {
                 "first_name": "Annabelle",
                 "last_name": "Pritchett",
-                "bookings": ["74807b2c-ae26-4cb0-b525-429f83520f18"]
+                "bookings": [
+                    {
+                        "flight_ID": "553a168f-d59a-4843-bdd4-2bb6900da600",
+                        "seat": "6B"
+                    }
+                ],
+                "hotels": [
+                    {
+                        "hotel_ID": "7638d685-3d96-4bb6-a059-97f7f6086997",
+                        "room": 410,
+                        "begin_date": "June 29, 2022",
+                        "end_date": "June 31, 2022"
+                    }
+                ]
             },
             {
                 "first_name": "John",
                 "last_name": "Pritchett",
-                "bookings": ["74807b2c-ae26-4cb0-b525-429f83520f18"]
+                "bookings": [
+                    {
+                        "flight_ID": "553a168f-d59a-4843-bdd4-2bb6900da600",
+                        "seat": "6A"
+                    }
+                ],
+                "hotels": [
+                    {
+                        "hotel_ID": "7638d685-3d96-4bb6-a059-97f7f6086997",
+                        "room": 410,
+                        "begin_date": "June 29, 2022",
+                        "end_date": "June 31, 2022"
+                    }
+                ]
             },
             {
                 "first_name": "Teresa",
                 "last_name": "Matthews",
-                "bookings": ["4a4bb461-bbdb-405c-ab6d-822df0c4b5ed"]
+                "bookings": [
+                    {
+                        "flight_ID": "0c634af1-265b-4f8a-8ab2-63d6d3735f80",
+                        "seat": "6A"
+                    }
+                ],
+                "hotels": [
+                    {
+                        "hotel_ID": "87e78cb5-b9ce-4491-b520-5447bd8f6cdd",
+                        "room": 731,
+                        "begin_date": "February 4, 2023",
+                        "end_date": "February 11, 2023"
+                    }
+                ]
             }
         ]
     },
@@ -69,14 +120,47 @@
             "zip": "28277"
         },
         "bookings": [
-            "159f63bc-9d09-44eb-b7d3-8910460ccb25",
-            "4a4bb461-bbdb-405c-ab6d-822df0c4b5ed"
+            {
+                "flight_ID": "",
+                "seat": ""
+            }
+        ],
+        "hotels": [
+            {
+                "hotelID": "",
+                "room": "",
+                "begin_date": "",
+                "end_date": ""
+            }
         ],
         "friends": [
             {
                 "first_name": "Thomas",
                 "last_name": "Paynee",
-                "bookings": ["39a101ce-8ac9-4b5e-8400-ea9df9bd47b3", "74807b2c-ae26-4cb0-b525-429f83520f18"]
+                "bookings": [
+                    {
+                        "flight_ID": "0c634af1-265b-4f8a-8ab2-63d6d3735f80",
+                        "seat": "2E"
+                    },
+                    {
+                        "flight_ID": "a9d866db-bacf-44be-934b-1b2169fdbaf8",
+                        "seat": "1C"
+                    }
+                ],
+                "hotels": [
+                    {
+                        "hotel_ID": "",
+                        "room": "",
+                        "begin_date": "",
+                        "end_date": ""
+                    },
+                    {
+                        "hotel_ID": "",
+                        "room": "",
+                        "begin_date": "",
+                        "end_date": ""
+                    }
+                ]
             }
         ]
     },
@@ -95,7 +179,18 @@
             "zip": "32806"
         },
         "bookings": [
-            "39a101ce-8ac9-4b5e-8400-ea9df9bd47b3"
+            {
+                "flight_ID": "",
+                "seat": ""
+            }
+        ],
+        "hotels": [
+            {
+                "hotel_ID": "",
+                "room": "",
+                "begin_date": "",
+                "end_date": ""
+            }
         ]
     },
     {
@@ -113,13 +208,37 @@
             "zip": "75088"
         },
         "bookings": [
-            "021ffd7e-73dc-4606-8ef7-f2e72daa6c48"
+            {
+                "flight_ID": "d9a1cca2-8bad-4ad0-a936-71e606d7f622",
+                "seat": "3C"
+            }
+        ],
+        "hotels": [
+            {
+                "hotel_ID": "",
+                "room": "",
+                "begin_date": "",
+                "end_date": ""
+            }
         ],
         "friends": [
             {
                 "first_name": "Alexis",
                 "last_name": "Johnson",
-                "bookings": ["159f63bc-9d09-44eb-b7d3-8910460ccb25"]
+                "bookings": [
+                    {
+                        "flight_ID": "",
+                        "seat": ""
+                    }
+                ],
+                "hotels": [
+                    {
+                        "hotel_ID": "",
+                        "room": "",
+                        "begin_date": "",
+                        "end_date": ""
+                    }
+                ]
             }
         ]
     }

@@ -3,10 +3,10 @@ import java.util.ArrayList;
 
 public class FlightSystem {
     private User currentUser;
-    private Flights flights;
 
     public ArrayList<Flight> getAllFlights () {
         ArrayList<Flight> temp = Flights.getInstance();
+        return temp;
     }
 
     public User getCurrentUser (){
