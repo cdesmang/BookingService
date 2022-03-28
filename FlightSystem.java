@@ -9,6 +9,12 @@ public class FlightSystem {
     private static Flights flights;
     private static Users users= new Users();
 
+    /**
+     * Constructs a new instance of Flightsystem and intializes the current user based on user type
+     * @param uType- user type(guest or registered)
+     * @param username- for registered users (username)
+     * @param password- for registered users (password)
+     */
     public FlightSystem(String uType, String username, String password) {
          flights = Flights.getInstance();
          if (uType.toUpperCase()=="GUEST"){
@@ -19,8 +25,8 @@ public class FlightSystem {
          /*
           * if the current user is null this means to the UI that the username or password is incorrect
           */
-
     }
+
     /**
      * Searches for all relevant flights using data given from user
      * @param dLoc departure location given by user
@@ -50,6 +56,9 @@ public class FlightSystem {
         // the registered user = current user ( to update any information that is changed )
         // current user = guest 
         String username = currentUser.getUsername();
+        String password = currentUser.getPassword();
+        User temp =  users.searchUser(username, password);
+
         return true;
     }
 

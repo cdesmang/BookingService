@@ -8,8 +8,12 @@ import java.util.ArrayList;
 public class Users {
 
 
-    private ArrayList<RegisteredUser> users;
+    private ArrayList<User> users;
+    private static DataLoader DL = new DataLoader();
 
+    public Users(){
+        users= DL.getAllUsers();
+    }
     public User getAllUsers() {
         return users.get(0);
     }
@@ -23,10 +27,10 @@ public class Users {
         int i = 0;
         boolean run = true;
         while(run){
-            if(username == users.get(i-1).getUsername() && password == users.get(i-1).getPassword()){
+            if(username == users.get(i).getUsername() && password == users.get(i).getPassword()){
                 search = users.get(i);
                 run = false;
-            }else if (users.get(i) != null){
+            }else if (users.get(i) == null){
                 run = false;
             }else{
                 i++;
@@ -34,6 +38,8 @@ public class Users {
         }
         return search;
     } 
+
+
 
     public void addUser(RegisteredUser user) {
         users.add(user);

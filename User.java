@@ -42,4 +42,8 @@ public abstract class User {
     public String getType(){
         return this.userType;
     }
+
+    public abstract String getUsername();
+    public abstract String getPassword();
+        // For guest users both will be "none"
 }

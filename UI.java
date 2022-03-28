@@ -28,7 +28,8 @@ public class UI {
                 String name = key.nextLine();
                 System.out.println("Please enter your password");
                 String pass = key.nextLine();
-                registeredSearch(name, pass);
+                int error = registeredSearch(name, pass);
+                if()
             }
             else if (login == "EXIT") {
                 System.out.println("Goodbye!");
@@ -65,9 +66,10 @@ public class UI {
     }
 
     /**
-     * runs program if user selects that they are registered or would like to register
+     * runs program if user selects that they are registered
      */
-    public static void registeredSearch(String username, String password){
+    public static int registeredSearch(String username, String password){
+        int error = 0;
         flightSystem = new FlightSystem("registered", username, password);
         int count = 0;
 
@@ -78,11 +80,24 @@ public class UI {
             System.out.println("Please re-enter your password:");
             String y = key.nextLine();
             flightSystem= new FlightSystem("registered", x, y);
-
+            if (flightSystem.getCurrentUser() != null) {
+                System.out.println("Welcome, "+flightSystem.)
+                count = 3;
+            }else {
+                System.out.println((count+1)+" / 3 failed attempts!");
+                if (count == 2){
+                    System.out.println("Exiting system... Goodbye!");
+                    error = 1;
+                    count = 3;
+                }
+                
+            }
+            count++;
         }
-
-
+        return error;
     }
+
+
 
     /**
      * Connects to flights class to find all flights that fit the given parameters
