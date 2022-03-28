@@ -16,9 +16,10 @@ public class FlightSystem {
          } else{
              currentUser = users.searchUser(username,password);
          }
-         /* IF THE CURRENT USER = NULL THEN IN THE UI THERE SHOULD BE A PRINT STATEMENT SAYING THAT THE USERNAME
-            OR PASSWORD IS INCORRECT
+         /*
+          * if the current user is null this means to the UI that the username or password is incorrect
           */
+
     }
     /**
      * Searches for all relevant flights using data given from user
@@ -48,6 +49,7 @@ public class FlightSystem {
     public boolean logout(){
         // the registered user = current user ( to update any information that is changed )
         // current user = guest 
+        String username = currentUser.getUsername();
         return true;
     }
 
