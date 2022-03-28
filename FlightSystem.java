@@ -10,21 +10,34 @@ public class FlightSystem {
     private static Users users= new Users();
 
     /**
-     * Constructs a new instance of Flightsystem and intializes the current user based on user type
-     * @param uType- user type(guest or registered)
-     * @param username- for registered users (username)
-     * @param password- for registered users (password)
+     * Constructs a new instance of Flightsystem and intializes the current user based on user type (overloaded for different types)
      */
-    public FlightSystem(String uType, String username, String password) {
+    public FlightSystem(){
+        flights = Flights.getInstance();
+        currentUser =new GuestUser();
+    }
+    /**
+     * Overloaded constructor version for registered users
+     * @param username- registered account username
+     * @param password- registered account password
+     */
+    public FlightSystem (String username, String password){
+        flights = Flights.getInstance();
+        currentUser= users.searchUser(username, password);
+    }
+    /**
+     * overloaded constructor version for new account creation
+     * @param firstName- users first name
+     * @param lastName users last name
+     * @param username- chosen username
+     * @param password - chosen password
+     * @param email- users email address
+     * @param dob- users email address
+     * @param address- users street address
+     */
+    public FlightSystem(String firstName, String lastName, String username, String password, String email, Date dob, String address) {
          flights = Flights.getInstance();
-         if (uType.toUpperCase()=="GUEST"){
-            currentUser = new GuestUser();
-         } else{
-             currentUser = users.searchUser(username,password);
-         }
-         /*
-          * if the current user is null this means to the UI that the username or password is incorrect
-          */
+         currentUser = new RegisteredUser(firstName, lastName, username, password, email, dob, address);
     }
 
     /**
@@ -45,11 +58,24 @@ public class FlightSystem {
         return print;
     }
 
-    public User getCurrentUser (){
-        return currentUser;
+     /** Converts flight results to an array that allows user to see all important booking information as well as ability to select the flight(s) they want
+     *  @param x- the flight results arraylist
+     * @return - Flight results in a string array so that the user can enter which flight(s) they want
+     */
+    private String[] toString(ArrayList<Flight> x){
+        String[] temp= new String[x.size()];
+        for (int i = 0; i< x.size(); i++){
+            temp[i] = x.get(i).toString();
+        }
+        return temp;
+    }
+ 
+    public int seatingSelction(String[] flight){
+        int temp = 0;
+        return temp;
     }
 
-
+    
     public boolean login(){
         return true;
     }
@@ -64,12 +90,21 @@ public class FlightSystem {
         return true;
     }
 
-    public void addUser (String firstName, String lastName, String username, String password, String email,Date dob, String address){
-        users.addUser(new RegisteredUser(firstName, lastName, username, password, email, dob, address));
+    public User getCurrentUser (){
+        return currentUser;
     }
 
     public void editUser(String username,String password, Object edit) {
 
+    }
+      // Overloaded method allows you to add a user by creating a user or by entering an already existing user
+    public void addUser(RegisteredUser user){
+        users.addUser(user);
+            // this version is for when they opt to create an account
+    }
+    public void addUser (String firstName, String lastName, String username, String password, String email, String address, Date dob){
+        users.addUser(new RegisteredUser(firstName, lastName, username, password, email, address, dob));
+            // this version is for when they are a guest and want to book
     }
 
     /**
@@ -85,44 +120,7 @@ public class FlightSystem {
         return working;
     }
 
-    /**
-     * Converts flight results to an array that allows user to see all important booking information as well as ability to select the flight(s) they want
-     * @param x- the flight results arraylist
-     * @return - Flight results in a string array so that the user can enter which flight(s) they want
-     */
-    private String[] toString(ArrayList<Flight> x){
-        String[] temp = new String[x.size()];
-        for(int i = 0; i< x.size();i++){
-            if (x.get(i).getConnectionString() != null){
-                temp[i]= "Result: "+(i+1)+  "\n Airline: "+x.get(i).getAirline()+
-                                        "\n Flight Num : "+x.get(i).getFlightNum()+
-                                        "\n Departure Location: "+x.get(i).getDepartCity()+", "+x.get(i).getDepartState()+
-                                        "\n Arrival Location: "+x.get(i).getDestinationCity()+ ", "+x.get(i).getDestinationS()+
-                                        "\n Flight Duration: "+ x.get(i).getFlightDuration()+
-                                        "\n Departure Date and Time: "+ x.get(i).getDepartDate().toString()+ " at "+x.get(i).getDepartTime()+
-                                        "\n Arrival Date and Time: "+ x.get(i).getArrivalDate().toString()+ " at "+x.get(i).getArrivalTime()+
-                                        "\n Connecting Flight(s) : Result number(s) "+x.get(i).getConnectionString()
-                                        +"\n --------------------------------------------------------------------------------------------------------";
 
-            } else{
-                temp[i]= "Result: "+(i+1)+  "\n Airline: "+x.get(i).getAirline()+
-                                        "\n Flight Num : "+x.get(i).getFlightNum()+
-                                        "\n Departure Location: "+x.get(i).getDepartCity()+", "+x.get(i).getDepartState()+
-                                        "\n Arrival Location: "+x.get(i).getDestinationCity()+ ", "+x.get(i).getDestinationS()+
-                                        "\n Flight Duration: "+ x.get(i).getFlightDuration()+
-                                        "\n Departure Date and Time: "+ x.get(i).getDepartDate().toString()+ " at "+x.get(i).getDepartTime()+
-                                        "\n Arrival Date and Time: "+ x.get(i).getArrivalDate().toString()+ " at "+x.get(i).getArrivalTime()+
-                                        "\n Connecting Flight : NONE"+
-                                        "\n ---------------------------------------------------------------------------------------------------------";
-            }   
-        }
-        return temp;
-    }
- 
-    public int seatingSelction(String[] flight){
 
-    }
-
-    
 }
     

@@ -19,8 +19,8 @@ public class Flight {
  private String flightDuration;
  private String departTime;
  private String arrivalTime;
- public Date departDate;
- public Date arrivalDate;
+ private Date departDate;
+ private Date arrivalDate;
  private Seat[][] seats;
  private ArrayList<Integer> connectionIndex;
 
@@ -144,5 +144,25 @@ public class Flight {
     public void setSeats(Seat[][] seats)
     {
         this.seats = seats;
+    }
+
+    public String toString (){
+        String connections=" ";
+        if(this.connectionIndex != null){
+            for(int i = 0; i< connectionIndex.size(); i++){
+                connections += connectionIndex.get(i)+", ";
+            }
+        } else{
+            connections ="NONE";
+        }
+        return  "\n Airline: "+this.airline+
+        "\n Flight Num : "+ this.flightNum+
+        "\n Departure Location: "+this.depCity+", "+ this.depState+
+        "\n Arrival Location: "+this.arrCity+ ", "+this.arrState+
+        "\n Flight Duration: "+ this.flightDuration+
+        "\n Departure Date and Time: "+ this.departDate.toString()+ " at "+this.departTime+
+        "\n Arrival Date and Time: "+ this.arrivalDate.toString()+ " at "+this.arrivalTime+
+        "\n Connecting Flight Result Number(s): "+connections
+        +"\n --------------------------------------------------------------------------------------------------------";
     }
 }
