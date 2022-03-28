@@ -35,13 +35,14 @@ public class FlightSystem {
      * @param aDate arrival date given by user
      * @return  an arraylist showing all possible flights that fit requirements
      */
-    public ArrayList<Flight> getAllFlights (String[] dLoc,String[] aLoc, Date dDate, Date aDate) {
+    public String[] getAllFlights (String[] dLoc,String[] aLoc, Date dDate, Date aDate) {
         String dCity = dLoc[0];
         String dState = dLoc[1];
         String aCity = aLoc[0];
         String aState = aLoc[1];
         ArrayList<Flight> temp = flights.searchFlight(dCity, dState, aCity, aState, dDate, aDate);
-        return temp;
+        String[]print = toString(temp);
+        return print;
     }
 
     public User getCurrentUser (){
@@ -75,5 +76,36 @@ public class FlightSystem {
         users.deleteUser(deleteMe);
     }
 
-    
+    /**
+     * Converts flight results to an array that allows user to see all important booking information as well as ability to select the flight(s) they want
+     * @param x- the flight results arraylist
+     * @return - Flight results in a string array so that the user can enter which flight(s) they want
+     */
+    private String[] toString(ArrayList<Flight> x){
+        String[] temp = new String[x.size()];
+        for(int i = 0; i< x.size();i++){
+            if (x.get(i).getConnectionString() != null){
+                temp[i]= "Result: "+(i+1)+  "\n Airline: "+x.get(i).getAirline()+
+                                        "\n Flight Num : "+x.get(i).getFlightNum()+
+                                        "\n Departure Location: "+x.get(i).getDepartCity()+", "+x.get(i).getDepartState()+
+                                        "\n Arrival Location: "+x.get(i).getDestinationCity()+ ", "+x.get(i).getDestinationS()+
+                                        "\n Flight Duration: "+ x.get(i).getFlightDuration()+
+                                        "\n Departure Date and Time: "+ x.get(i).getDepartDate().toString()+ " at "+x.get(i).getDepartTime()+
+                                        "\n Arrival Date and Time: "+ x.get(i).getArrivalDate().toString()+ " at "+x.get(i).getArrivalTime()+
+                                        "\n Connecting Flight(s) : Result number(s) "+x.get(i).getConnectionString();
+
+            } else{
+                temp[i]= "Result: "+(i+1)+  "\n Airline: "+x.get(i).getAirline()+
+                                        "\n Flight Num : "+x.get(i).getFlightNum()+
+                                        "\n Departure Location: "+x.get(i).getDepartCity()+", "+x.get(i).getDepartState()+
+                                        "\n Arrival Location: "+x.get(i).getDestinationCity()+ ", "+x.get(i).getDestinationS()+
+                                        "\n Flight Duration: "+ x.get(i).getFlightDuration()+
+                                        "\n Departure Date and Time: "+ x.get(i).getDepartDate().toString()+ " at "+x.get(i).getDepartTime()+
+                                        "\n Arrival Date and Time: "+ x.get(i).getArrivalDate().toString()+ " at "+x.get(i).getArrivalTime()+
+                                        "\n Connecting Flight : NONE";
+            }   
+        }
+        return temp;
+    }
 }
+    

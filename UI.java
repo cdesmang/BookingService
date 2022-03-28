@@ -29,7 +29,7 @@ public class UI {
                 System.out.println("Please enter your password");
                 String pass = key.nextLine();
                 int error = registeredSearch(name, pass);
-                if()
+                if(error == 1) run = false;
             }
             else if (login == "EXIT") {
                 System.out.println("Goodbye!");
@@ -61,39 +61,45 @@ public class UI {
      */
     public static void guestSearch(){
         flightSystem= new FlightSystem("guest", "none" ,"none");
-         getFlights();
+        String[] flights= getFlights();
+        System.out.println(flights+ "\n"+"\nPlease enter the result number of the flight(s) you would liket to book: ");
+
 
     }
 
     /**
      * runs program if user selects that they are registered
+     *  - tries to login ( if username or password is incorrect 3 times then closes program)------ return 1
      */
     public static int registeredSearch(String username, String password){
         int error = 0;
         flightSystem = new FlightSystem("registered", username, password);
-        int count = 0;
-
-        while(count < 3){
-            System.out.println("Invalid username or password!");
-            System.out.println("Please re-enter your username:");
-            String x = key.nextLine();
-            System.out.println("Please re-enter your password:");
-            String y = key.nextLine();
-            flightSystem= new FlightSystem("registered", x, y);
-            if (flightSystem.getCurrentUser() != null) {
-                System.out.println("Welcome, "+flightSystem.)
-                count = 3;
-            }else {
-                System.out.println((count+1)+" / 3 failed attempts!");
-                if (count == 2){
-                    System.out.println("Exiting system... Goodbye!");
-                    error = 1;
+        if(flightSystem.getCurrentUser()== null){
+            int count = 0;
+            while(count < 3){
+                System.out.println("Invalid username or password!");
+                System.out.println("Please re-enter your username:");
+                String x = key.nextLine();
+                System.out.println("Please re-enter your password:");
+                String y = key.nextLine();
+                flightSystem= new FlightSystem("registered", x, y);
+                if (flightSystem.getCurrentUser() != null) {
+                    System.out.println("Welcome, "+flightSystem.getCurrentUser().getUsername());
                     count = 3;
+                }else {
+                    System.out.println((count+1)+" / 3 failed attempts!");
+                    if (count == 2){
+                        System.out.println("Exiting system... Goodbye!");
+                        error = 1;
+                        count = 3;
+                    }
+                    
                 }
-                
+                count++;
             }
-            count++;
         }
+
+
         return error;
     }
 
@@ -103,7 +109,7 @@ public class UI {
      * Connects to flights class to find all flights that fit the given parameters
      * @return an arraylist with all flights 
      */
-    private static ArrayList<Flight> getFlights(){
+    private static String[] getFlights(){
 
         System.out.println("Please enter your departure location in the format \"city, State\"");
         String dLString = key.nextLine();
@@ -115,7 +121,7 @@ public class UI {
         String[] aLoc = parseLoc(aLString);
         System.out.println("Getting arrival date information:");
         Date aDate = getDate();
-        ArrayList<Flight>flights = flightSystem.getAllFlights(dLoc, aLoc, dDate, aDate);
+        String []flights = flightSystem.getAllFlights(dLoc, aLoc, dDate, aDate);
         return flights;
     }
 
@@ -153,68 +159,4 @@ public class UI {
         Date created= new Date (tempI[0], tempI[1], tempI[2]);
         return created;
     }
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-   /* public static void main(String[] args) {
-        //Setting up the scanner...
-        Scanner inputReader = new Scanner(System.in);   //This initializes a Scanner object.
-        String input = "";  //This string will be updated to reflect user input.
-
-        System.out.println("Welcome to Flight Booking Service!");
-        System.out.println("What are you looking for today?");
-        System.out.println("Are you looking for flights, hotels, or to login?");
-        input = inputReader.nextLine();
-        input = input.toLowerCase();
-        if(input == "flights" || input == "f")
-        {
-            //do the flights stuff
-            System.out.println("Doing the flights stuff...");
-            return;
-        }
-        else if(input == "hotels" || input == "h")
-        {
-            //do the hotels stuff
-            System.out.println("Doing the hotels stuff...");
-            return;
-        }
-        else if(input == "login" || input == "l")
-        {
-            //do the login stuff
-            System.out.println("Doing the login stuff...");
-            return;
-        }
-        else
-        {
-            //Invalid input.
-            System.out.println("Invalid input. Terminating program...");
-            return;
-        }
-
-        
-
-    }
-
-    private ArrayList<Flights> getFlights){
-        return flightSystem.getAllFlights();
-    }
-
-   // private static */
-
-    
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> c95c199c4c4c31b47d43db7d5f51c2fa6c5993e5

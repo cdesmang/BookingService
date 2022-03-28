@@ -14,18 +14,20 @@ public class Flight {
  private String airline;
  private String arrCity;
  private String arrState;
- public String depCity;
- public String depState;
+ private String depCity;
+ private String depState;
  private String flightDuration;
  private String departTime;
  private String arrivalTime;
  public Date departDate;
  public Date arrivalDate;
  private Seat[][] seats;
+ private ArrayList<Integer> connectionIndex;
 
     public Flight(UUID flightID, int flightNum, String airline, Location destination, Location departLoc, String flightDuration, String departTime, String arrivalTime, Date departDate, Date arrivalDate, Seat[][] seats)
     {
-        
+
+        this.connectionIndex=null;
 
     }
     public UUID getFlightID()
@@ -79,6 +81,20 @@ public class Flight {
     public Seat[][] getSeats()
     {
         return seats;
+    }
+    public int getConnection(int i){
+        return this.connectionIndex.get(i);
+    }
+    public ArrayList<Integer> getConnectionString(){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        for (int i=0; i < connectionIndex.size(); i++){
+            temp.add(connectionIndex.get(i)+1);
+        }
+        return temp;
+    }
+
+    public void setConnection(int i){
+        this.connectionIndex.add(i);
     }
     public void setFlightID(UUID flightID)
     {
