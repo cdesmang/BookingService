@@ -60,4 +60,8 @@ public class Users {
         return true;
     }
 
+    /*public void addBooking(){
+        users.
+    }*/
+
 }

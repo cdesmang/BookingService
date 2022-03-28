@@ -58,7 +58,8 @@ public class FlightSystem {
         // current user = guest 
         String username = currentUser.getUsername();
         String password = currentUser.getPassword();
-        User temp =  users.searchUser(username, password);
+        //User temp =  users.searchUser(username, password);
+        
 
         return true;
     }
@@ -71,9 +72,17 @@ public class FlightSystem {
 
     }
 
-    public void deleteUser(String username, String password) {
+    /**
+     * removes users from the database if they decide to delete their accoutn
+     * @param - username = account to be deleted username
+     * @param - username = account to be deleted password
+     */
+    public boolean deleteUser(String username, String password) {
+        boolean working= true;
         User deleteMe = users.searchUser(username, password);
+        if (deleteMe == null) working = false;  
         users.deleteUser(deleteMe);
+        return working;
     }
 
     /**
@@ -92,7 +101,8 @@ public class FlightSystem {
                                         "\n Flight Duration: "+ x.get(i).getFlightDuration()+
                                         "\n Departure Date and Time: "+ x.get(i).getDepartDate().toString()+ " at "+x.get(i).getDepartTime()+
                                         "\n Arrival Date and Time: "+ x.get(i).getArrivalDate().toString()+ " at "+x.get(i).getArrivalTime()+
-                                        "\n Connecting Flight(s) : Result number(s) "+x.get(i).getConnectionString();
+                                        "\n Connecting Flight(s) : Result number(s) "+x.get(i).getConnectionString()
+                                        +"\n --------------------------------------------------------------------------------------------------------";
 
             } else{
                 temp[i]= "Result: "+(i+1)+  "\n Airline: "+x.get(i).getAirline()+
@@ -102,10 +112,17 @@ public class FlightSystem {
                                         "\n Flight Duration: "+ x.get(i).getFlightDuration()+
                                         "\n Departure Date and Time: "+ x.get(i).getDepartDate().toString()+ " at "+x.get(i).getDepartTime()+
                                         "\n Arrival Date and Time: "+ x.get(i).getArrivalDate().toString()+ " at "+x.get(i).getArrivalTime()+
-                                        "\n Connecting Flight : NONE";
+                                        "\n Connecting Flight : NONE"+
+                                        "\n ---------------------------------------------------------------------------------------------------------";
             }   
         }
         return temp;
     }
+ 
+    public int seatingSelction(String[] flight){
+
+    }
+
+    
 }
     

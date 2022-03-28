@@ -21,20 +21,21 @@ public class UI {
         while (run) {
             String login= Welcome();
             if (login == "GUEST") {
-                guestSearch();
+                run = guestSearch();
             }
             else if (login == "LOG IN"){
                 System.out.println("Please enter your username");
                 String name = key.nextLine();
                 System.out.println("Please enter your password");
                 String pass = key.nextLine();
-                int error = registeredSearch(name, pass);
-                if(error == 1) run = false;
+                run = registeredSearch(name, pass);
+                
             }
             else if (login == "EXIT") {
                 System.out.println("Goodbye!");
                 run = false;
             } else if (login == "SIGN UP"){
+                run = createUser();
                 
             }else{
                 System.out.println("Invalid input!");
@@ -59,20 +60,23 @@ public class UI {
      * runs program if user selects that they are a guess
      * will eventually force them to switch to registered user if they want to book
      */
-    public static void guestSearch(){
+    public static boolean guestSearch(){
+        boolean error = true;
         flightSystem= new FlightSystem("guest", "none" ,"none");
         String[] flights= getFlights();
-        System.out.println(flights+ "\n"+"\nPlease enter the result number of the flight(s) you would liket to book: ");
+        System.out.println(flights+ "\n"+"\nPlease enter the result number of the flight(s) you would like to book.");
 
 
+
+        return error;
     }
 
     /**
      * runs program if user selects that they are registered
      *  - tries to login ( if username or password is incorrect 3 times then closes program)------ return 1
      */
-    public static int registeredSearch(String username, String password){
-        int error = 0;
+    public static boolean registeredSearch(String username, String password){
+        boolean error = true;
         flightSystem = new FlightSystem("registered", username, password);
         if(flightSystem.getCurrentUser()== null){
             int count = 0;
@@ -90,7 +94,7 @@ public class UI {
                     System.out.println((count+1)+" / 3 failed attempts!");
                     if (count == 2){
                         System.out.println("Exiting system... Goodbye!");
-                        error = 1;
+                        error = false;
                         count = 3;
                     }
                     
@@ -98,11 +102,16 @@ public class UI {
                 count++;
             }
         }
-
+        String[] flights = getFlights();
+        System.out.println(flights+"\n"+"\n Please enter the result number of the flight(s) you would like to book.");
 
         return error;
     }
 
+    public static boolean createUser(){
+        boolean error = true;
+        return error;
+    }
 
 
     /**
