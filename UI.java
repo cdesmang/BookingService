@@ -23,13 +23,19 @@ public class UI {
             if (login == "GUEST") {
                 guestSearch();
             }
-            else if (login == "SIGN IN"){
-                registeredSearch();
+            else if (login == "LOG IN"){
+                System.out.println("Please enter your username");
+                String name = key.nextLine();
+                System.out.println("Please enter your password");
+                String pass = key.nextLine();
+                registeredSearch(name, pass);
             }
             else if (login == "EXIT") {
                 System.out.println("Goodbye!");
                 run = false;
-            } else{
+            } else if (login == "SIGN UP"){
+                
+            }else{
                 System.out.println("Invalid input!");
                 run = true;
             }
@@ -43,8 +49,7 @@ public class UI {
      */
     public static String Welcome(){ 
         System.out.println("Welcome to the Flight Booking System!"+
-        "\nWould you like to continue searching as a guest, or would you like to sign in?"+
-        "\nTo continue as a guest please enter \"guest\" ,to sign in please enter \"sign in\", or to exit please enter \"exit\"");
+        "\nTo continue as a guest please enter \"guest\" ,to log in to an existing account please enter \"log in\", to create a new account please enter \"sign up\", or to exit please enter \"exit\"");
         String login = key.nextLine().toUpperCase();
         return login;
     }
@@ -62,7 +67,12 @@ public class UI {
     /**
      * runs program if user selects that they are registered or would like to register
      */
-    public static void registeredSearch(){
+    public static void registeredSearch(String username, String password){
+        flightSystem = new FlightSystem("registered", username, password);
+        if (flightSystem.getCurrentUser()== null){
+            System.out.println("Invalid username or password!");
+        }
+
 
     }
 
@@ -71,15 +81,16 @@ public class UI {
 
         System.out.println("Please enter your departure location in the format \"city, State\"");
         String dLString = key.nextLine();
-        Location dLoc = parseLoc(dLString);
+        String[] dLoc = parseLoc(dLString);
         System.out.println("Getting departure date information:");
         Date dDate= getDate();
         System.out.println("Please enter your arrival location in the format \"city, State\"");
         String aLString= key.nextLine();
-        Location aLoc = parseLoc(aLString);
+        String[] aLoc = parseLoc(aLString);
         System.out.println("Getting arrival date information:");
         Date aDate = getDate();
-        flightSystem.getAllFlights(dLoc, aLoc, dDate, aDate);
+        ArrayList<Flight>flights = flightSystem.getAllFlights(dLoc, aLoc, dDate, aDate);
+        return flights;
     }
 
     /**
@@ -87,10 +98,9 @@ public class UI {
      * @param location User input of location(string)
      * @return Location type version of user input
      */
-    private static Location parseLoc(String location){
+    private static String[] parseLoc(String location){
         String[] splitLoc= location.split(",");
-        Location temp = new Location(splitLoc[0], splitLoc[1]);
-        return temp;
+        return splitLoc;
     }
 
     /**

@@ -2,13 +2,12 @@
  * Allows interaction between UI and backend classes
  * @author Christina Desmangles
  */
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FlightSystem {
     private static User currentUser;
-    private static ArrayList<Flight> flights;
-    private Users users= new Users();
+    private static Flights flights;
+    private static Users users= new Users();
 
     public FlightSystem(String uType, String username, String password) {
          flights = Flights.getInstance();
@@ -21,20 +20,22 @@ public class FlightSystem {
             OR PASSWORD IS INCORRECT
           */
     }
-
-    public static ArrayList<Flight> getAllFlights (String[] dLoc,String[] aLoc, Date dDate, Date aDate) {
+    /**
+     * Searches for all relevant flights using data given from user
+     * @param dLoc departure location given by user
+     * @param aLoc arrival location given by user
+     * @param dDate departure date given by user
+     * @param aDate arrival date given by user
+     * @return  an arraylist showing all possible flights that fit requirements
+     */
+    public ArrayList<Flight> getAllFlights (String[] dLoc,String[] aLoc, Date dDate, Date aDate) {
         String dCity = dLoc[0];
         String dState = dLoc[1];
         String aCity = aLoc[0];
         String aState = aLoc[1];
-        ArrayList<Flight> temp;
+        ArrayList<Flight> temp = flights.searchFlight(dCity, dState, aCity, aState, dDate, aDate);
         return temp;
     }
-
-   /* public ArrayList<Flight>searchFlights (ArrayList<Flight> broad){
-        ArrayList<Flight> temp = new ArrayList<Flight>();
-        return temp;
-    }*/
 
     public User getCurrentUser (){
         return currentUser;
@@ -50,16 +51,17 @@ public class FlightSystem {
         return true;
     }
 
-    public void addUser (){
+    public void addUser (String firstName, String lastName, String username, String password, String email,Date dob, String address){
+        users.addUser(new RegisteredUser(firstName, lastName, username, password, email, dob, address));
+    }
+
+    public void editUser(String username,String password, Object edit) {
 
     }
 
-    public void editUser() {
-
-    }
-
-    public void deleteUser() {
-        
+    public void deleteUser(String username, String password) {
+        User deleteMe = users.searchUser(username, password);
+        users.deleteUser(deleteMe);
     }
 
     

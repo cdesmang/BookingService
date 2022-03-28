@@ -1,3 +1,9 @@
+/**
+ * Does stuff involving all users
+ * @author Christina Desmangles
+ * @author Some one else but im not sure who
+ */
+
 import java.util.ArrayList;
 public class Users {
 
