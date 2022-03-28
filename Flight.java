@@ -25,6 +25,7 @@ public class Flight {
 
     public Flight(UUID flightID, int flightNum, String airline, Location destination, Location departLoc, String flightDuration, String departTime, String arrivalTime, Date departDate, Date arrivalDate, Seat[][] seats)
     {
+        
 
     }
     public UUID getFlightID()
