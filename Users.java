@@ -14,9 +14,9 @@ public class Users {
     public Users(){
         users= DL.getAllUsers();
     }
-    public User getAllUsers() {
-        return users.get(0);
-    }
+   /* public ArrayList <User> getAllUsers() {
+        
+    }*/
 
     public boolean login() {
         return true;
@@ -44,9 +44,18 @@ public class Users {
     public void addUser(RegisteredUser user) {
         users.add(user);
     }
-
+    /**
+     * edits a given user by setting that user = to another user (parameter)
+     *                  temp = user
+     * adds temp back to the array list at the same index
+     * used to logout
+     * @param- the rhs user 
+     */
     public void editUser(User user) {
-
+        int i = users.indexOf(user);
+        User temp = users.get(i);
+        temp = user;
+        users.add(i, temp); 
     }
 
     public void deleteUser(User user) {

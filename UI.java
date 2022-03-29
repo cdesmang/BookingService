@@ -64,10 +64,11 @@ public class UI {
         boolean error = true;
         flightSystem= new FlightSystem();
         String[] flights= getFlights();
-        System.out.println(flights+ "\n"+"\nPlease enter the result number of the flight(s) you would like to book.");
+        System.out.println(flights+ "\n"+"\nPlease enter the result number of the flight(s) you would like to book."+
+                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
 
 
-
+        if (error == false) System.out.println("Error in guestSearch()");
         return error;
     }
 
@@ -99,8 +100,10 @@ public class UI {
                             error = false;
                             count = 3;
                         } else if (key.nextLine().replace('\n',' ').trim().toUpperCase() == "CREATE"){
-                            String[] info = getUserInfo();
-
+                            String[] info = InfoNoBDay();
+                            System.out.println("Please enter your date of birth");
+                            Date bday = getDate();
+                            flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],bday);
                         }
                     }
                     
@@ -109,24 +112,41 @@ public class UI {
             }
         }
         String[] flights = getFlights();
-        System.out.println(flights+"\n"+"\n Please enter the result number of the flight(s) you would like to book.");
-
+        System.out.println(flights+"\n"+"\n Please enter the result number of the flight(s) you would like to book."+
+                                        "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
+        String 
+        if (error == false)System.out.println("Error in registeredUser()");
         return error;
     }
-
+    /**
+     * runs program if user initally decides to create an account
+     * @return - false if there is an error(to end program);
+     */
     private static boolean createUser( ){
         boolean error = true;
-        String [] info = getUserInfo();
-        flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],info[6]);
+        String [] info = InfoNoBDay();
+        System.out.println("Please enter your date of birth.");
+        Date bday= getDate();
+        flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],bday);
 
-
+        if (error == false) System.out.println("Error in createUser()");
         return error;
     }
 
-    // this doesnt work just my laptop is gonna die
-    private static Object[] getUserInfo(){
-
-        Object[] temp = new Object()[7];
+    /**
+     * prints logout message and ends program
+     * @return - false (to end the program)
+     */
+    private static boolean logout(){
+        System.out.println("Goodbye "+ flightSystem.getCurrentUser().getUsername());
+        return flightSystem.logout();
+    }
+    /**
+     * Collects information from user about creatiing an account(except birthday)
+     * @return an array with all necessary information to create an new registered user except for the birthdate
+     */
+    private static String[] InfoNoBDay(){
+        String[] temp = new String[6];
         System.out.println("Please enter your first name that would appear on any legal documentation: ");
         temp[0] = key.nextLine().replace('\n',' ').trim();
         System.out.println("Please enter your last name that would appear on any legal documentation: ");
@@ -139,13 +159,8 @@ public class UI {
         temp[4] = key.nextLine().replace('\n',' ').trim();
         System.out.println("Pleaes enter your Street address ie. \"100 President St. City, State 11111\"");
         temp[5]= key.nextLine().replace('\n',' ').trim();
-        System.out.println("Please enter your date of birth.");
-        Date dob = getDate();
-        temp[6]= dob;
         return temp;
     }
-
-
 
     /**
      * Connects to flights class to find all flights that fit the given parameters
@@ -191,12 +206,12 @@ public class UI {
             for (int i = 0; i<3; i++){
                 tempI[i] = Integer.parseInt(tempS[i]);
             }
-            if(tempI[0] >= 13) //invalid month
+            if(tempI[0] >= 13) {//invalid month
                 System.out.println("Invalid Month");
-                tempI[0] = 0;
-            if(tempI[1] >= 32) //invalid day
+                tempI[0] = 0;}
+            if(tempI[1] >= 32) {//invalid day
                 System.out.println("Invalid Day");
-                tempI[1] = 0;
+                tempI[1] = 0;}
         }
         Date created= new Date (tempI[0], tempI[1], tempI[2]);
         return created;

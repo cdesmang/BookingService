@@ -35,9 +35,9 @@ public class FlightSystem {
      * @param dob- users email address
      * @param address- users street address
      */
-    public FlightSystem(String firstName, String lastName, String username, String password, String email, Date dob, String address) {
+    public FlightSystem(String firstName, String lastName, String username, String password, String email, String address, Date dob) {
          flights = Flights.getInstance();
-         currentUser = new RegisteredUser(firstName, lastName, username, password, email, dob, address);
+         currentUser = new RegisteredUser(firstName, lastName, username, password, email, address, dob);
     }
 
     /**
@@ -79,15 +79,14 @@ public class FlightSystem {
     public boolean login(){
         return true;
     }
+    /**
+     * updates user information in the database and ends program 
+     */
     public boolean logout(){
-        // the registered user = current user ( to update any information that is changed )
-        // current user = guest 
-        String username = currentUser.getUsername();
-        String password = currentUser.getPassword();
-        //User temp =  users.searchUser(username, password);
-        
-
-        return true;
+        users.editUser(currentUser);
+        currentUser = null;
+        return false;
+        // false will end the program in the UI 
     }
 
     public User getCurrentUser (){
