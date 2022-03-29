@@ -9,30 +9,39 @@ import java.util.*;
 
 public class Flight {
 
- private UUID flightID;
- private int flightNum;
+ private String flightID;
+ private String flightNum;
  private String airline;
- private String arrCity;
- private String arrState;
- public String depCity;
- public String depState;
+ private String destinationCity;
+ private String destinationState;
+ private String departureCity;
+ private String departureState;
+ private Date departureDate;
+ private Date arrivalDate;
  private String flightDuration;
- private String departTime;
+ private String departureTime;
  private String arrivalTime;
- public Date departDate;
- public Date arrivalDate;
- private Seat[][] seats;
+ private ArrayList<Seat> seats;
 
-    public Flight(UUID flightID, int flightNum, String airline, Location destination, Location departLoc, String flightDuration, String departTime, String arrivalTime, Date departDate, Date arrivalDate, Seat[][] seats)
+    public Flight(String flightID, String flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats)
     {
-        
-
+        this.flightID = flightID;
+        this.flightNum = flightNum;
+        this.airline = airline;
+        this.destinationCity = destinationCity;
+        this.destinationState = destinationState;
+        this.departureDate = departureDate;
+        this.arrivalDate = arrivalDate;
+        this.flightDuration = flightDuration;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.seats = seats;
     }
-    public UUID getFlightID()
+    public String getFlightID()
     {
         return flightID;
     }
-    public int getFlightNum()
+    public String getFlightNum()
     {
         return flightNum;
     }
@@ -42,19 +51,19 @@ public class Flight {
     }
     public String getDestinationCity() 
     {
-        return arrCity;
+        return destinationCity;
     }
-    public String getDestinationS() 
+    public String getDestinationState() 
     {
-        return arrState;
+        return destinationState;
     }
     public String getDepartCity() 
     {
-        return depCity;
+        return departureCity;
     }
     public String getDepartState() 
     {
-        return depState;
+        return departureState;
     }
     public String getFlightDuration() 
     {
@@ -62,7 +71,7 @@ public class Flight {
     }
     public String getDepartTime() 
     {
-        return departTime;
+        return departureTime;
     }
     public String getArrivalTime()
     {
@@ -70,48 +79,48 @@ public class Flight {
     }
     public Date getDepartDate()
     {
-        return departDate;
+        return departureDate;
     }
     public Date getArrivalDate()
     {
         return arrivalDate;
     }
-    public Seat[][] getSeats()
+    public ArrayList<Seat> getSeats()
     {
         return seats;
     }
-    public void setFlightID(UUID flightID)
+    public void setFlightID(String flightID)
     {
         this.flightID = flightID;
     }
-    public void setFlightNum(int flightNum)
+    public void setFlightNum(String flightNum)
     {
-        if (flightNum > 0)
+        if (Integer.parseInt(flightNum) > 0)
             this.flightNum = flightNum;
     }
     public void setAirline(String airline)
     {
         this.airline = airline;
     }
-    public void setDestinationC(String city)
+    public void setDestinationCity(String city)
     {
-        this.arrCity = city;
+        this.destinationCity = city;
     }
-    public void setDestinationS(String state)
+    public void setDestinationState(String state)
     {
-        this.arrState = state;
+        this.destinationState = state;
     }
-    public void setDepartC(String city)
+    public void setDepartCity(String city)
     {
-        this.depCity = city;
+        this.departureCity = city;
     }
-    public void setDepartS(String state)
+    public void setDepartState(String state)
     {
-        this.depState = state;
+        this.departureState = state;
     }
     public void setDepartTime(String departTime)
     {
-        this.departTime = departTime;
+        this.departureTime = departTime;
     }
     public void setArrivalTime(String arrivalTime)
     {
@@ -119,13 +128,13 @@ public class Flight {
     }
     public void setDepartDate(Date departDate)
     {
-        this.departDate = departDate;
+        this.departureDate = departDate;
     }
     public void setArrivalDate(Date arrivalDate)
     {
         this.arrivalDate = arrivalDate;
     }
-    public void setSeats(Seat[][] seats)
+    public void setSeats(ArrayList<Seat> seats)
     {
         this.seats = seats;
     }
