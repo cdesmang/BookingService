@@ -7,31 +7,25 @@
 import java.util.ArrayList;
 public class Users {
 
-
+    
     private ArrayList<User> users;
     private static DataLoader DL = new DataLoader();
 
     public Users(){
         users= DL.getAllUsers();
-    
-
-    public boolean login() {
-        return true;
     }
+
 
     public User searchUser(String username, String password) {
         User search = null;
         int i = 0;
         boolean run = true;
         while(run){
-            if(users.get(i).getUsername().equalsIgnoreCase(username)&& users.get(i).getPassword().equals(password)){
+            if(i>= users.size())run=false;
+            else if(users.get(i).getUsername().equals(username)&& users.get(i).getPassword().equals(password)){
                 search = users.get(i);
                 run = false;
-            }else if (users.get(i).equals(null)){
-                run = false;
-            }else{
-                i++;
-            }
+            }else i++;
         }
         return search;
     } 
@@ -52,10 +46,13 @@ public class Users {
      * @param- the rhs user 
      */
     public void editUser(User user) {
-        int i = users.indexOf(user);
-        User temp = users.get(i);
-        temp = user;
-        users.add(i, temp); 
+        String username = user.getUsername();
+        String password = user.getPassword();
+        User search=  searchUser(username, password);
+        int index= users.indexOf(search);
+        search = user;
+        users.remove(index);
+        users.add(index, search);
     }
 
     public void deleteUser(User user) {
@@ -64,9 +61,7 @@ public class Users {
 
 
     public Boolean checkIfRegisterd(User user){
-        if (user.getType().toLowerCase().equalsIgnoreCase("guest"))
-            return false;
-        return true;
+        return user.getType().equalsIgnoreCase("registered");
     }
 
     /*public void addBooking(){

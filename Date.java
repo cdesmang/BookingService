@@ -11,6 +11,12 @@ public class Date {
     private String day;
     private String year;
 
+    public Date(String month, String day, String year){
+        this.month= month;
+        this.year = year;
+        this.day = day;
+       // this.weekday = 
+    }
 
     /**
      * initialises Date type.
@@ -37,4 +43,7 @@ public class Date {
         return month + "/" + day + "/" + year;
     }
     
+    public boolean dateMatch(Date x){
+        return this.month.equalsIgnoreCase(x.month) && this.day.equalsIgnoreCase(x.day) && this.year.equalsIgnoreCase(x.year);
+    }
 }

@@ -5,12 +5,6 @@
 import java.util.ArrayList;
 
 public class FlightSystem {
-<<<<<<< HEAD
-    private User currentUser;
-
-    public ArrayList<Flight> getAllFlights () {
-        ArrayList<Flight> temp = Flights.getInstance();
-=======
     private static User currentUser;
     private static Flights flights;
     private static Users users= new Users();
@@ -73,7 +67,6 @@ public class FlightSystem {
         for (int i = 0; i< x.size(); i++){
             temp[i] = x.get(i).toString();
         }
->>>>>>> 348380b54f7243dcc0e5bae7f27277ba04753e19
         return temp;
     }
  
@@ -82,26 +75,40 @@ public class FlightSystem {
         return temp;
     }
 
-    
-    public boolean login(){
-        return true;
+    /**
+     * Checks if the current user is a registered user (they would be logged in for this to occur)
+     * @return true if the current user is registered
+     */
+    private boolean login(){
+        return users.checkIfRegisterd(currentUser);
     }
     /**
-     * updates user information in the database and ends program 
+     * updates user information and flight information in the database and ends program 
      */
     public boolean logout(){
         users.editUser(currentUser);
         currentUser = null;
+        flights.logout();
         return false;
         // false will end the program in the UI 
     }
 
+    /**
+     * returns the current user
+     * @return- the current user
+     */
     public User getCurrentUser (){
         return currentUser;
     }
 
-    public void editUser(String username,String password, Object edit) {
-
+    /**
+     * updates registered user information without ending program
+     * @param username- account username
+     * @param password- account password
+     * @param edit- the current user information
+     */
+    public void editUser(String username,String password, User edit) {
+        users.editUser(currentUser);
     }
       // Overloaded method allows you to add a user by creating a user or by entering an already existing user
     public void addUser(RegisteredUser user){
@@ -126,6 +133,11 @@ public class FlightSystem {
         return working;
     }
 
+    public ArrayList<Friend> getAllFriends(){
+        if(login()){
+            currentUser.getFriends();
+        }
+    }
 
 
 }

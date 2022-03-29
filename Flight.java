@@ -22,7 +22,7 @@ public class Flight {
  private String departureTime;
  private String arrivalTime;
  private ArrayList<Seat> seats;
- private int connectionIndex;
+ private ArrayList<Integer> connectionIndex;
 
     public Flight(String flightID, String flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats)
     {
@@ -104,7 +104,7 @@ public class Flight {
     public void setConnection(int i){
         this.connectionIndex.add(i);
     }
-    public void setFlightID(UUID flightID)
+    public void setFlightID(String flightID)
     {
         this.flightID = flightID;
     }

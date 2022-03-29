@@ -82,28 +82,30 @@ public class UI {
         if(flightSystem.getCurrentUser()== null){
             int count = 0;
             while(count < 3){
-                System.out.println("Invalid username or password!");
+                System.out.println("Invalid username or password!\n"+(count+1)+" / 3 failed attempts");
+                count++;
                 System.out.println("Please re-enter your username:");
                 String x = key.nextLine().replace('\n',' ').trim();
                 System.out.println("Please re-enter your password:");
                 String y = key.nextLine().replace('\n', ' ').trim();
-                flightSystem= new FlightSystem( x, y);
+                flightSystem= new FlightSystem(x,y);
                 if (flightSystem.getCurrentUser() != null) {
                     System.out.println("Welcome, "+flightSystem.getCurrentUser().getUsername());
                     count = 3;
                 }else {
-                    System.out.println((count+1)+" / 3 failed attempts!");
                     if (count == 2){
                         System.out.println("To create a new account enter \"Create\" to exit the program enter \"exit\".");
-                        if (key.nextLine().replace('\n',' ').trim().toUpperCase()== "EXIT"){
+                        String choice = key.nextLine().replace('n', ' ').trim();
+                        if (choice.equalsIgnoreCase("exit")){
                             System.out.println("Exiting system... Goodbye!");
                             error = false;
                             count = 3;
-                        } else if (key.nextLine().replace('\n',' ').trim().toUpperCase() == "CREATE"){
+                        } else if (choice.equalsIgnoreCase("create")){
                             String[] info = InfoNoBDay();
                             System.out.println("Please enter your date of birth");
                             Date bday = getDate();
                             flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],bday);
+                            count++;
                         }
                     }
                     
@@ -213,7 +215,11 @@ public class UI {
                 System.out.println("Invalid Day");
                 tempI[1] = 0;}
         }
-        Date created= new Date (tempI[0], tempI[1], tempI[2]);
+        tempS= new String[3];
+        for (int i = 0; i< tempI.length; i++){
+            tempS[i]= String.valueOf(tempI[i]);
+        }
+        Date created= new Date (tempS[0], tempS[1], tempS[2]);
         return created;
     }
 }

@@ -42,7 +42,7 @@ public class Flights {
         ArrayList<Flight> temp = new ArrayList<Flight>();
         ArrayList<Flight> tempD = new ArrayList<Flight>();
         ArrayList<Flight> tempA = new ArrayList<Flight>();
-        while(allFlights.get(i) != null){
+        while(i < allFlights.size()){
             if (checkDL(dCity,dState,i) && checkAL(aCity, aState, i) && checkDD(dDate, i) && checkAD(aDate, i)){
                 temp.add(allFlights.get(i));
                 temp.get(temp.size()-1).setConnection(00);
@@ -77,7 +77,7 @@ public class Flights {
         ArrayList<Flight> temp = new ArrayList<Flight>();
         for (int i = 0; i < x.size(); i++){
             for (int j = 0; j< y.size(); j++){
-                if(x.get(i).getDestinationCity().equalsIgnoreCase(y.get(j).getDepartCity())&&x.get(i).getDestinationS().equalsIgnoreCase(y.get(j).getDepartState())){
+                if(x.get(i).getDestinationCity().equalsIgnoreCase(y.get(j).getDepartCity())&&x.get(i).getDestinationState().equalsIgnoreCase(y.get(j).getDepartState())){
                     temp.add(x.get(i));
                     temp.get(temp.size()-1).setConnection(temp.size());
                     temp.add(y.get(j));
@@ -117,7 +117,7 @@ public class Flights {
      * @return - true if the flight exists
      */
     private boolean checkDD(Date date, int i){
-        return allFlights.get(i).getDepartDate().equals(date);
+        return allFlights.get(i).getDepartDate().dateMatch(date);
     }
 
     /**
@@ -127,7 +127,7 @@ public class Flights {
      * @return - true if the flight exists
      */
     private boolean checkAD(Date date, int i){
-        return allFlights.get(i).getArrivalDate().equals(date);
+        return allFlights.get(i).getArrivalDate().dateMatch(date);
     }
     
     public ArrayList<Flight> getFlights() { 
