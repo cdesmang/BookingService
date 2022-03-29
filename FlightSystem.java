@@ -5,12 +5,6 @@
 import java.util.ArrayList;
 
 public class FlightSystem {
-<<<<<<< HEAD
-    private User currentUser;
-
-    public ArrayList<Flight> getAllFlights () {
-        ArrayList<Flight> temp = Flights.getInstance();
-=======
     private static User currentUser;
     private static Flights flights;
     private static Users users= new Users();
@@ -73,7 +67,6 @@ public class FlightSystem {
         for (int i = 0; i< x.size(); i++){
             temp[i] = x.get(i).toString();
         }
->>>>>>> 348380b54f7243dcc0e5bae7f27277ba04753e19
         return temp;
     }
  
