@@ -20,20 +20,30 @@ public class UI {
         boolean run = true;
         while (run) {
             String login= Welcome();
+<<<<<<< HEAD
             if (login == "GUEST") {
                 guestSearch();
+=======
+            if (login.equalsIgnoreCase("guest")) {
+                run = guestSearch();
+>>>>>>> aea51a541a614508ff35be09e22e1c757fd467b9
             }
-            else if (login == "LOG IN"){
+            else if (login.equalsIgnoreCase("log in")){
                 System.out.println("Please enter your username");
                 String name = key.nextLine();
                 System.out.println("Please enter your password");
                 String pass = key.nextLine();
                 registeredSearch(name, pass);
             }
-            else if (login == "EXIT") {
+            else if (login.equalsIgnoreCase("exit")) {
                 System.out.println("Goodbye!");
                 run = false;
+<<<<<<< HEAD
             } else if (login == "SIGN UP"){
+=======
+            } else if (login.equalsIgnoreCase("sign up")){
+                run =createUser();
+>>>>>>> aea51a541a614508ff35be09e22e1c757fd467b9
                 
             }else{
                 System.out.println("Invalid input!");
@@ -72,6 +82,26 @@ public class UI {
         if (flightSystem.getCurrentUser()== null){
             System.out.println("Invalid username or password!");
         }
+<<<<<<< HEAD
+=======
+        String[] flights = getFlights();
+        System.out.println(flights+"\n"+"\n Please enter the result number of the flight(s) you would like to book."+
+                                        "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
+    
+        if (error == false)System.out.println("Error in registeredUser()");
+        return error;
+    }
+    /**
+     * runs program if user initally decides to create an account
+     * @return - false if there is an error(to end program);
+     */
+    private static boolean createUser( ){
+        boolean error = true;
+        String [] info = InfoNoBDay();
+        System.out.println("Please enter your date of birth.");
+        Date bday= getDate();
+        flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],bday);
+>>>>>>> aea51a541a614508ff35be09e22e1c757fd467b9
 
 
     }
