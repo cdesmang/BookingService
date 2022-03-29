@@ -13,10 +13,7 @@ public class Users {
 
     public Users(){
         users= DL.getAllUsers();
-    }
-   /* public ArrayList <User> getAllUsers() {
-        
-    }*/
+    
 
     public boolean login() {
         return true;
@@ -27,10 +24,10 @@ public class Users {
         int i = 0;
         boolean run = true;
         while(run){
-            if(username == users.get(i).getUsername() && password == users.get(i).getPassword()){
+            if(users.get(i).getUsername().equalsIgnoreCase(username)&& users.get(i).getPassword().equals(password)){
                 search = users.get(i);
                 run = false;
-            }else if (users.get(i) == null){
+            }else if (users.get(i).equals(null)){
                 run = false;
             }else{
                 i++;
@@ -39,11 +36,14 @@ public class Users {
         return search;
     } 
 
-
-
+    /**
+     * adds a new user to the user database
+     * @param- user to be added to the arraylist
+     */
     public void addUser(RegisteredUser user) {
         users.add(user);
     }
+
     /**
      * edits a given user by setting that user = to another user (parameter)
      *                  temp = user
@@ -64,7 +64,7 @@ public class Users {
 
 
     public Boolean checkIfRegisterd(User user){
-        if (user.getType().toLowerCase() == "guest")
+        if (user.getType().toLowerCase().equalsIgnoreCase("guest"))
             return false;
         return true;
     }

@@ -96,7 +96,7 @@ public class Flights {
      * @return true if the flight exists
      */
     private boolean checkDL(String city, String state,int i){
-        return allFlights.get(i).getDepartCity().toUpperCase() == city.toUpperCase() && allFlights.get(i).getDepartState().toUpperCase() == state.toUpperCase();
+        return allFlights.get(i).getDepartCity().equalsIgnoreCase(city) && allFlights.get(i).getDepartState().equalsIgnoreCase(state);
     }
 
     /**
@@ -107,7 +107,7 @@ public class Flights {
      * @return true if the flight exists
      */
     private boolean checkAL(String city, String state,int i){
-        return allFlights.get(i).getDestinationCity().toUpperCase() == city.toUpperCase() && allFlights.get(i).getDestinationS().toUpperCase() == state.toUpperCase();
+        return allFlights.get(i).getDestinationCity().equalsIgnoreCase(city) && allFlights.get(i).getDestinationS().equalsIgnoreCase(state);
     }
 
     /**
@@ -117,7 +117,7 @@ public class Flights {
      * @return - true if the flight exists
      */
     private boolean checkDD(Date date, int i){
-        return allFlights.get(i).getDepartDate() == date;
+        return allFlights.get(i).getDepartDate().equals(date);
     }
 
     /**
@@ -127,7 +127,7 @@ public class Flights {
      * @return - true if the flight exists
      */
     private boolean checkAD(Date date, int i){
-        return allFlights.get(i).getArrivalDate() == date;
+        return allFlights.get(i).getArrivalDate().equals(date);
     }
     
 }

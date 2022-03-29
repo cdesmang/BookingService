@@ -20,10 +20,10 @@ public class UI {
         boolean run = true;
         while (run) {
             String login= Welcome();
-            if (login == "GUEST") {
+            if (login.equalsIgnoreCase("guest")) {
                 run = guestSearch();
             }
-            else if (login == "LOG IN"){
+            else if (login.equalsIgnoreCase("log in")){
                 System.out.println("Please enter your username");
                 String name =key.nextLine().replace('\n',' ').trim();
                 System.out.println("Please enter your password");
@@ -31,10 +31,10 @@ public class UI {
                 run = registeredSearch(name, pass);
                 
             }
-            else if (login == "EXIT") {
+            else if (login.equalsIgnoreCase("exit")) {
                 System.out.println("Goodbye!");
                 run = false;
-            } else if (login == "SIGN UP"){
+            } else if (login.equalsIgnoreCase("sign up")){
                 run =createUser();
                 
             }else{
@@ -114,7 +114,7 @@ public class UI {
         String[] flights = getFlights();
         System.out.println(flights+"\n"+"\n Please enter the result number of the flight(s) you would like to book."+
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
-        String 
+    
         if (error == false)System.out.println("Error in registeredUser()");
         return error;
     }
