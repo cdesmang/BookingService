@@ -45,6 +45,7 @@ public class Flights {
         while(allFlights.get(i) != null){
             if (checkDL(dCity,dState,i) && checkAL(aCity, aState, i) && checkDD(dDate, i) && checkAD(aDate, i)){
                 temp.add(allFlights.get(i));
+                temp.get(temp.size()-1).setConnection(00);
                 i++;
             } else if (checkDL(dCity,dState,i) &&checkDD(dDate, i)){
                 tempD.add(allFlights.get(i));
@@ -70,8 +71,7 @@ public class Flights {
      * @return - flights that fit OG parameters but need a connection
      * 
      * 
-     * my only concern withi this method is how will we know which flights should be connected
-     *      although i suppose they would have consecutive indices
+     * I added a connection index to the flight object ( but this may need to be an arraylist because what if there are multiple possible connections)
      */
     private ArrayList<Flight>checkConnection(ArrayList<Flight> x, ArrayList<Flight> y){
         ArrayList<Flight> temp = new ArrayList<Flight>();
@@ -79,7 +79,9 @@ public class Flights {
             for (int j = 0; j< y.size(); j++){
                 if(x.get(i).getDestinationCity().equalsIgnoreCase(y.get(j).getDepartCity())&&x.get(i).getDestinationS().equalsIgnoreCase(y.get(j).getDepartState())){
                     temp.add(x.get(i));
+                    temp.get(temp.size()-1).setConnection(temp.size());
                     temp.add(y.get(j));
+                    temp.get(temp.size()-1).setConnection(temp.size()-2);
                 }
             }
         }

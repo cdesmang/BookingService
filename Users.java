@@ -8,11 +8,15 @@ import java.util.ArrayList;
 public class Users {
 
 
-    private ArrayList<RegisteredUser> users;
+    private ArrayList<User> users;
+    private static DataLoader DL = new DataLoader();
 
-    public User getAllUsers() {
-        return users.get(0);
+    public Users(){
+        users= DL.getAllUsers();
     }
+   /* public ArrayList <User> getAllUsers() {
+        
+    }*/
 
     public boolean login() {
         return true;
@@ -23,10 +27,10 @@ public class Users {
         int i = 0;
         boolean run = true;
         while(run){
-            if(username == users.get(i-1).getUsername() && password == users.get(i-1).getPassword()){
+            if(username == users.get(i).getUsername() && password == users.get(i).getPassword()){
                 search = users.get(i);
                 run = false;
-            }else if (users.get(i) != null){
+            }else if (users.get(i) == null){
                 run = false;
             }else{
                 i++;
@@ -35,12 +39,23 @@ public class Users {
         return search;
     } 
 
+
+
     public void addUser(RegisteredUser user) {
         users.add(user);
     }
-
+    /**
+     * edits a given user by setting that user = to another user (parameter)
+     *                  temp = user
+     * adds temp back to the array list at the same index
+     * used to logout
+     * @param- the rhs user 
+     */
     public void editUser(User user) {
-
+        int i = users.indexOf(user);
+        User temp = users.get(i);
+        temp = user;
+        users.add(i, temp); 
     }
 
     public void deleteUser(User user) {
@@ -53,5 +68,9 @@ public class Users {
             return false;
         return true;
     }
+
+    /*public void addBooking(){
+        users.
+    }*/
 
 }

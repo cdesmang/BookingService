@@ -17,7 +17,7 @@ public class RegisteredUser extends User {
 
     public int seatsToBook;
 
-    public RegisteredUser(String firstName, String lastName, String username, String password, String email, Date dob, String address){
+    public RegisteredUser(String firstName, String lastName, String username, String password, String email, String address, Date dob){
         fullName = firstName + " " + lastName;
         this.username = username;
         this.password = password;

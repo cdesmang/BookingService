@@ -22,6 +22,7 @@ public class Flight {
  private String departureTime;
  private String arrivalTime;
  private ArrayList<Seat> seats;
+ private int connectionIndex;
 
     public Flight(String flightID, String flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats)
     {
@@ -89,7 +90,21 @@ public class Flight {
     {
         return seats;
     }
-    public void setFlightID(String flightID)
+    public int getConnection(int i){
+        return this.connectionIndex.get(i);
+    }
+    public ArrayList<Integer> getConnectionString(){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        for (int i=0; i < connectionIndex.size(); i++){
+            temp.add(connectionIndex.get(i)+1);
+        }
+        return temp;
+    }
+
+    public void setConnection(int i){
+        this.connectionIndex.add(i);
+    }
+    public void setFlightID(UUID flightID)
     {
         this.flightID = flightID;
     }
@@ -137,5 +152,25 @@ public class Flight {
     public void setSeats(ArrayList<Seat> seats)
     {
         this.seats = seats;
+    }
+
+    public String toString (){
+        String connections=" ";
+        if(this.connectionIndex != null){
+            for(int i = 0; i< connectionIndex.size(); i++){
+                connections += connectionIndex.get(i)+", ";
+            }
+        } else{
+            connections ="NONE";
+        }
+        return  "\n Airline: "+this.airline+
+        "\n Flight Num : "+ this.flightNum+
+        "\n Departure Location: "+this.departureCity+", "+ this.departureState+
+        "\n Arrival Location: "+this.destinationCity+ ", "+this.destinationState+
+        "\n Flight Duration: "+ this.flightDuration+
+        "\n Departure Date and Time: "+ this.departureDate.toString()+ " at "+this.departureTime+
+        "\n Arrival Date and Time: "+ this.arrivalDate.toString()+ " at "+this.arrivalTime+
+        "\n Connecting Flight Result Number(s): "+connections
+        +"\n --------------------------------------------------------------------------------------------------------";
     }
 }
