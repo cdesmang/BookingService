@@ -40,6 +40,10 @@ public class FlightSystem {
          currentUser = new RegisteredUser(firstName, lastName, username, password, email, address, dob);
     }
 
+    public boolean booking(String flightSelection, Flight[] flightResults){
+        ArrayList<Flight> selected = new ArrayList<Flight>();
+    }
+
     /**
      * Searches for all relevant flights using data given from user
      * @param dLoc departure location given by user
@@ -48,13 +52,16 @@ public class FlightSystem {
      * @param aDate arrival date given by user
      * @return  an arraylist showing all possible flights that fit requirements
      */
-    public String[] getAllFlights (String[] dLoc,String[] aLoc, Date dDate, Date aDate) {
+    public Flight[] getAllFlights (String[] dLoc,String[] aLoc, Date dDate, Date aDate) {
         String dCity = dLoc[0];
         String dState = dLoc[1];
         String aCity = aLoc[0];
         String aState = aLoc[1];
         ArrayList<Flight> temp = flights.searchFlight(dCity, dState, aCity, aState, dDate, aDate);
-        String[]print = toString(temp);
+        Flight[] print;
+        if(temp.size() == 0)print = null;
+            // if this is null there are no results.
+        else print = toFlightArray(temp);
         return print;
     }
 
@@ -62,10 +69,10 @@ public class FlightSystem {
      *  @param x- the flight results arraylist
      * @return - Flight results in a string array so that the user can enter which flight(s) they want
      */
-    private String[] toString(ArrayList<Flight> x){
-        String[] temp= new String[x.size()];
+    private Flight[] toFlightArray(ArrayList<Flight> x){
+        Flight[] temp= new Flight[x.size()];
         for (int i = 0; i< x.size(); i++){
-            temp[i] = x.get(i).toString();
+            temp[i] = x.get(i);
         }
         return temp;
     }
@@ -134,9 +141,14 @@ public class FlightSystem {
     }
 
     public ArrayList<Friend> getAllFriends(){
-        if(login()){
-            currentUser.getFriends();
-        }
+        ArrayList<Friend> friends = currentUser.getFriends();
+        return friends;
+            // will return null if the user is a guest
+    }
+
+    public void addFriends (String[]friend, Date dob){
+       Friend temp = new Friend(friend[0], friend[2], friend[4], dob, friend[5]);
+       users.addFriends(temp, currentUser);
     }
 
 

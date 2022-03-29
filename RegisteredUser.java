@@ -27,7 +27,7 @@ public class RegisteredUser extends User {
         this.userType = "registered";
     }
 
-    public void addFriend (Friend friendusername) {
+    public void addFriends (Friend friendusername) {
         friends.add(friendusername);
         seatsToBook++;
     }
@@ -48,6 +48,8 @@ public class RegisteredUser extends User {
     public String getPassword(){
         return this.password;
     }
+
+    
     /**
      * a booking has a :
      * full name

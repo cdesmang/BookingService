@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class GuestUser extends User {
 
@@ -14,6 +15,17 @@ public class GuestUser extends User {
     public String getPassword() {
         return "none";
     }
+
+    @Override
+    public ArrayList<Friend> getFriends() {
+        return null;
+    }
+
+    @Override
+    public void addFriends(Friend x) {}
+        
+    
+
     
 
 

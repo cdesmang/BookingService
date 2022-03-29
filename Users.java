@@ -64,6 +64,10 @@ public class Users {
         return user.getType().equalsIgnoreCase("registered");
     }
 
+    public void addFriends(Friend friend, User user){
+        int i= users.indexOf(user);
+        users.get(i).addFriends(friend);
+    }
     /*public void addBooking(){
         users.
     }*/

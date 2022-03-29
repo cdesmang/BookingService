@@ -45,5 +45,8 @@ public abstract class User {
 
     public abstract String getUsername();
     public abstract String getPassword();
+    public abstract ArrayList<Friend> getFriends();
+    public abstract void addFriends(Friend x);
         // For guest users both will be "none"
+
 }
