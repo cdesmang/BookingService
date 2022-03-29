@@ -13,7 +13,7 @@ public class Flights {
      * initializes the arraylist of all flights fromthe data loader
      */
     private Flights(){
-        allFlights = DL.getAllFlights();
+        allFlights = DL.loadFlights();
     }
 
     /**
@@ -128,6 +128,18 @@ public class Flights {
      */
     private boolean checkAD(Date date, int i){
         return allFlights.get(i).getArrivalDate().equals(date);
+    }
+    
+    public ArrayList<Flight> getFlights() { 
+        return allFlights;
+    }
+
+    public void addFlight(String flightID, String flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats) {
+        allFlights.add(new Flight(flightID, flightNum, airline, destinationCity, destinationState, departureCity, departureState, departureDate, arrivalDate, flightDuration, departureTime, arrivalTime, seats));
+    }
+
+    public void logout() {
+        DataWriter.saveFlights();
     }
     
 }

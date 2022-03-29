@@ -393,44 +393,44 @@
         "available": "false"
       },
       {
-        "row": "5",
+        "row": 5,
         "seat_num": "E",
-        "available": "false"
+        "available": false
       },
       {
-        "row": "5",
+        "row": 5,
         "seat_num": "F",
-        "available": "true"
+        "available": true
       },
       {
-        "row": "6",
+        "row": 6,
         "seat_num": "A",
-        "available": "true"
+        "available": true
       },
       {
-        "row": "6",
+        "row": 6,
         "seat_num": "B",
-        "available": "false"
+        "available": false
       },
       {
-        "row": "6",
+        "row": 6,
         "seat_num": "C",
-        "available": "false"
+        "available": false
       },
       {
-        "row": "6",
+        "row": 6,
         "seat_num": "D",
-        "available": "false"
+        "available": false
       },
       {
-        "row": "6",
+        "row": 6,
         "seat_num": "E",
-        "available": "false"
+        "available": false
       },
       {
-        "row": "6",
+        "row": 6,
         "seat_num": "F",
-        "available": "true"
+        "available": true
       }
     ]
   },
