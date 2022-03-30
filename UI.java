@@ -157,6 +157,11 @@ public class UI {
         System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
+        if (selection.equalsIgnoreCase("none")){
+            System.out.println("Goodbye, "+flightSystem.getCurrentUser().getUsername()+" !");
+            flightSystem.logout();
+            return false;
+        }
         System.out.println("Please enter the number of tickets you would like to book:");
         int numFriends = key.nextInt();
         String flightSeats;
@@ -169,7 +174,9 @@ public class UI {
         } else{
             flightSeats = flightSystem.flightBooking(selection, flights,null);
         }
-        System.out.println(flightSeats);
+        System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
+        System.out.println("Please enter the seats that you would like to book:");
+        String seatSelection = key.nextLine().replace('\n', ' ').trim();
     
         if (error == false)System.out.println("Error in registeredUser()");
         return error;
