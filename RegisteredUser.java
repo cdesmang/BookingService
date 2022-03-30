@@ -14,7 +14,7 @@ public class RegisteredUser extends User {
     public ArrayList<Booking> bookings;
     public int seatsToBook;
 
-    public RegisteredUser(String firstName, String lastName, String username, String password, String email, Date dob, String address){
+    public RegisteredUser(String firstName, String lastName, String username, String password, String email, String address, Date dob){
         fullName = firstName + " " + lastName;
         this.username = username;
         this.password = password;
@@ -24,7 +24,7 @@ public class RegisteredUser extends User {
         this.userType = "registered";
     }
 
-    public void addFriend (Friend friendusername) {
+    public void addFriends (Friend friendusername) {
         friends.add(friendusername);
         seatsToBook++;
     }
@@ -38,6 +38,15 @@ public class RegisteredUser extends User {
         return friends;
     }
 
+    public String getUsername(){
+        return this.username;
+    }
+
+    public String getPassword(){
+        return this.password;
+    }
+
+    
     /**
      * a booking has a :
      * full name

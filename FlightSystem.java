@@ -1,54 +1,163 @@
-import java.lang.reflect.Array;
+/**
+ * Allows interaction between UI and backend classes
+ * @author Christina Desmangles
+ */
 import java.util.ArrayList;
 
 public class FlightSystem {
     private static User currentUser;
-    private static ArrayList<Flight> flights = Flights.getInstance();
+    private static Flights flights;
+    private static Users users= new Users();
 
-    public FlightSystem() {
-         
+    /**
+     * Constructs a new instance of Flightsystem and intializes the current user based on user type (overloaded for different types)
+     */
+    public FlightSystem(){
+        flights = Flights.getInstance();
+        currentUser =new GuestUser();
+    }
+    /**
+     * Overloaded constructor version for registered users
+     * @param username- registered account username
+     * @param password- registered account password
+     */
+    public FlightSystem (String username, String password){
+        flights = Flights.getInstance();
+        currentUser= users.searchUser(username, password);
+    }
+    /**
+     * overloaded constructor version for new account creation
+     * @param firstName- users first name
+     * @param lastName users last name
+     * @param username- chosen username
+     * @param password - chosen password
+     * @param email- users email address
+     * @param dob- users email address
+     * @param address- users street address
+     */
+    public FlightSystem(String firstName, String lastName, String username, String password, String email, String address, Date dob) {
+         flights = Flights.getInstance();
+         currentUser = new RegisteredUser(firstName, lastName, username, password, email, address, dob);
+    }
+
+    public boolean booking(String flightSelection, Flight[] flightResults){
+        ArrayList<Flight> selected = new ArrayList<Flight>();
+        String[] selectIndex  = flightSelection.split(",");
+        for (int i = 0; i < selectIndex.length; i++){
+            selected.add(flightResults[Integer.parseInt(selectIndex[i])-1]);
+        }
+        
+
+        return true;
     }
 
     /**
-     * checks if an instance of Flight system exists, if not create a new one
-     * @return an instance (the only one in existance) of FlightSystem
+     * Searches for all relevant flights using data given from user
+     * @param dLoc departure location given by user
+     * @param aLoc arrival location given by user
+     * @param dDate departure date given by user
+     * @param aDate arrival date given by user
+     * @return  an arraylist showing all possible flights that fit requirements
      */
-/*public static FlightSystem getInstance(){
-        if (flightSystem == null)
-            flightSystem= new FlightSystem();
-        return flightSystem;
-    }*/
+    public Flight[] getAllFlights (String[] dLoc,String[] aLoc, Date dDate, Date aDate) {
+        String dCity = dLoc[0];
+        String dState = dLoc[1];
+        String aCity = aLoc[0];
+        String aState = aLoc[1];
+        ArrayList<Flight> temp = flights.searchFlight(dCity, dState, aCity, aState, dDate, aDate);
+        Flight[] print;
+        if(temp.size() == 0)print = null;
+            // if this is null there are no results.
+        else print = toFlightArray(temp);
+        return print;
+    }
 
-    public static ArrayList<Flight> getAllFlights (Location dLoc,Location aLoc, Date dDate, Date aDate) {
-        ArrayList<Flight> temp = new ArrayList<Flight>();
+     /** Converts flight results to an array that allows user to see all important booking information as well as ability to select the flight(s) they want
+     *  @param x- the flight results arraylist
+     * @return - Flight results in a string array so that the user can enter which flight(s) they want
+     */
+    private Flight[] toFlightArray(ArrayList<Flight> x){
+        Flight[] temp= new Flight[x.size()];
+        for (int i = 0; i< x.size(); i++){
+            temp[i] = x.get(i);
+        }
+        return temp;
+    }
+ 
+    public int seatingSelction(String[] flight){
+        int temp = 0;
         return temp;
     }
 
-    public ArrayList<Flight>searchFlights (ArrayList<Flight> broad){
-        ArrayList<Flight> temp = new ArrayList<Flight>();
-        return temp;
+    /**
+     * Checks if the current user is a registered user (they would be logged in for this to occur)
+     * @return true if the current user is registered
+     */
+    private boolean login(){
+        return users.checkIfRegisterd(currentUser);
+    }
+    /**
+     * updates user information and flight information in the database and ends program 
+     */
+    public boolean logout(){
+        users.editUser(currentUser);
+        currentUser = null;
+        flights.logout();
+        return false;
+        // false will end the program in the UI 
     }
 
+    /**
+     * returns the current user
+     * @return- the current user
+     */
     public User getCurrentUser (){
         return currentUser;
     }
 
-
-    public boolean login(){
-        return true;
+    /**
+     * updates registered user information without ending program
+     * @param username- account username
+     * @param password- account password
+     * @param edit- the current user information
+     */
+    public void editUser(String username,String password, User edit) {
+        users.editUser(currentUser);
+    }
+      // Overloaded method allows you to add a user by creating a user or by entering an already existing user
+    public void addUser(RegisteredUser user){
+        users.addUser(user);
+            // this version is for when they opt to create an account
+    }
+    public void addUser (String firstName, String lastName, String username, String password, String email, String address, Date dob){
+        users.addUser(new RegisteredUser(firstName, lastName, username, password, email, address, dob));
+            // this version is for when they are a guest and want to book
     }
 
-    public void addUser (){
-
+    /**
+     * removes users from the database if they decide to delete their accoutn
+     * @param - username = account to be deleted username
+     * @param - username = account to be deleted password
+     */
+    public boolean deleteUser(String username, String password) {
+        boolean working= true;
+        User deleteMe = users.searchUser(username, password);
+        if (deleteMe == null) working = false;  
+        users.deleteUser(deleteMe);
+        return working;
     }
 
-    public void editUser() {
-
+    public ArrayList<Friend> getAllFriends(){
+        ArrayList<Friend> friends = currentUser.getFriends();
+        return friends;
+            // will return null if the user is a guest
     }
 
-    public void deleteUser() {
-        
+    public void addFriends (String[]friend, Date dob){
+       Friend temp = new Friend(friend[0], friend[2], friend[4], dob, friend[5]);
+       users.addFriends(temp, currentUser);
     }
 
-    
+
 }
+    

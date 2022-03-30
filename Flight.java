@@ -9,27 +9,41 @@ import java.util.*;
 
 public class Flight {
 
- private UUID flightID;
- private int flightNum;
+ private String flightID;
+ private String flightNum;
  private String airline;
- private Location destination;
- private Location departLoc;
- private String flightDuration;
- private String departTime;
- private String arrivalTime;
- private Date departDate;
+ private String destinationCity;
+ private String destinationState;
+ private String departureCity;
+ private String departureState;
+ private Date departureDate;
  private Date arrivalDate;
- private Seat[][] seats;
+ private String flightDuration;
+ private String departureTime;
+ private String arrivalTime;
+ private ArrayList<Seat> seats;
+ private ArrayList<Integer> connectionIndex;
 
-    public Flight(UUID flightID, int flightNum, String airline, Location destination, Location departLoc, String flightDuration, String departTime, String arrivalTime, Date departDate, Date arrivalDate, Seat[][] seats)
+    public Flight(String flightID, String flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats)
     {
-
+        this.flightID = flightID;
+        this.flightNum = flightNum;
+        this.airline = airline;
+        this.destinationCity = destinationCity;
+        this.destinationState = destinationState;
+        this.departureDate = departureDate;
+        this.arrivalDate = arrivalDate;
+        this.flightDuration = flightDuration;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.seats = seats;
+        this.connectionIndex = null;
     }
-    public UUID getFlightID()
+    public String getFlightID()
     {
         return flightID;
     }
-    public int getFlightNum()
+    public String getFlightNum()
     {
         return flightNum;
     }
@@ -37,13 +51,21 @@ public class Flight {
     {
         return airline;
     }
-    public Location getDestination() 
+    public String getDestinationCity() 
     {
-        return destination;
+        return destinationCity;
     }
-    public Location getDepartLocation() 
+    public String getDestinationState() 
     {
-        return departLoc;
+        return destinationState;
+    }
+    public String getDepartCity() 
+    {
+        return departureCity;
+    }
+    public String getDepartState() 
+    {
+        return departureState;
     }
     public String getFlightDuration() 
     {
@@ -51,7 +73,7 @@ public class Flight {
     }
     public String getDepartTime() 
     {
-        return departTime;
+        return departureTime;
     }
     public String getArrivalTime()
     {
@@ -59,40 +81,64 @@ public class Flight {
     }
     public Date getDepartDate()
     {
-        return departDate;
+        return departureDate;
     }
     public Date getArrivalDate()
     {
         return arrivalDate;
     }
-    public Seat[][] getSeats()
+    public ArrayList<Seat> getSeats()
     {
         return seats;
     }
-    public void setFlightID(UUID flightID)
+    public int getConnection(int i){
+        return this.connectionIndex.get(i);
+    }
+    public ArrayList<Integer> getConnectionString(){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        for (int i=0; i < connectionIndex.size(); i++){
+            temp.add(connectionIndex.get(i)+1);
+        }
+        return temp;
+    }
+
+    public void setConnection(int i){
+        if (this.connectionIndex == null){
+            this.connectionIndex = new ArrayList<Integer>();}
+        this.connectionIndex.add(i);
+    }
+    public void setFlightID(String flightID)
     {
         this.flightID = flightID;
     }
-    public void setFlightNum(int flightNum)
+    public void setFlightNum(String flightNum)
     {
-        if (flightNum > 0)
+        if (Integer.parseInt(flightNum) > 0)
             this.flightNum = flightNum;
     }
     public void setAirline(String airline)
     {
         this.airline = airline;
     }
-    public void setDestination(Location destination)
+    public void setDestinationCity(String city)
     {
-        this.destination = destination;
+        this.destinationCity = city;
     }
-    public void setDepartLocation(Location departLoc)
+    public void setDestinationState(String state)
     {
-        this.departLoc = departLoc;
+        this.destinationState = state;
+    }
+    public void setDepartCity(String city)
+    {
+        this.departureCity = city;
+    }
+    public void setDepartState(String state)
+    {
+        this.departureState = state;
     }
     public void setDepartTime(String departTime)
     {
-        this.departTime = departTime;
+        this.departureTime = departTime;
     }
     public void setArrivalTime(String arrivalTime)
     {
@@ -100,14 +146,34 @@ public class Flight {
     }
     public void setDepartDate(Date departDate)
     {
-        this.departDate = departDate;
+        this.departureDate = departDate;
     }
     public void setArrivalDate(Date arrivalDate)
     {
         this.arrivalDate = arrivalDate;
     }
-    public void setSeats(Seat[][] seats)
+    public void setSeats(ArrayList<Seat> seats)
     {
         this.seats = seats;
+    }
+
+    public String toString (){
+        String connections=" ";
+        if(this.connectionIndex != null){
+            for(int i = 0; i< connectionIndex.size(); i++){
+                connections += connectionIndex.get(i)+", ";
+            }
+        } else{
+            connections ="NONE";
+        }
+        return  "\n Airline: "+this.airline+
+        "\n Flight Num : "+ this.flightNum+
+        "\n Departure Location: "+this.departureCity+", "+ this.departureState+
+        "\n Arrival Location: "+this.destinationCity+ ", "+this.destinationState+
+        "\n Flight Duration: "+ this.flightDuration+
+        "\n Departure Date and Time: "+ this.departureDate.toString()+ " at "+this.departureTime+
+        "\n Arrival Date and Time: "+ this.arrivalDate.toString()+ " at "+this.arrivalTime+
+        "\n Connecting Flight Result Number(s): "+connections
+        +"\n --------------------------------------------------------------------------------------------------------";
     }
 }

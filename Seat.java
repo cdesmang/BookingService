@@ -1,45 +1,37 @@
 public class Seat {
     private int row;
-    private int seatNum;
-    private boolean safteyExit;
-    private boolean Available;
+    private String seatNum;
+    private Boolean available;
 
-    public Seat (int row, int seatNum, boolean safteyExit) {
-        
+    public Seat() { }
+
+    public Seat (int row, String seatNum, Boolean available) {
+        this.row = row;
+        this.seatNum = seatNum;
+        this.available = available;
     }
 
     public int getRow(){
-        return this.row;
+        return row;
     }
 
-    public int getSeatNum() {
-        return this.seatNum;
+    public String getSeatNumber() {
+        return seatNum;
     }
 
-    public boolean getAvailibility (){
-        return this.Available;
+    public Boolean getAvailable() {
+        return available;
     }
 
-    public boolean getSaftey () {
-        return this.safteyExit;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public void setRow(){
-        
+    public void setSeatNumber(String seatNum) {
+        this.seatNum = seatNum;
     }
 
-    public void setSeatNum() {
-        
+    public void setAvailable(Boolean available) {
+        this.available = available;
     }
-
-    public void setAvailibility (){
-        
-    }
-
-    public void setSaftey () {
-        
-    }
-
-
-
-}
+}   
