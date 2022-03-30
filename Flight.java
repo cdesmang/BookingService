@@ -176,4 +176,29 @@ public class Flight {
         "\n Connecting Flight Result Number(s): "+connections
         +"\n --------------------------------------------------------------------------------------------------------";
     }
+
+    /**
+     * Converts the array list of seats to a 2D array with correct rows
+     * @return an array of seats
+     */
+    public Seat[][] toSeatArray(){
+        Seat[][] temp;
+        int sInRow = 0;
+        int numRow =this.seats.size() - 1; 
+        for (int i = 0 ; i < seats.size(); i++){
+            if (seats.get(i).getSeatNumber().equalsIgnoreCase("D")){
+                sInRow = 4;
+            } else if (seats.get(i).getSeatNumber().equalsIgnoreCase("F")){
+                sInRow = 6;
+            }
+        }
+            // this will end on the last one (so the variable will keep getting rewritten but the one it ends on is the true size)}
+        temp = new Seat[numRow][sInRow];
+        for (int i = 0 ; i< numRow; i++){
+            for (int ii = 0; ii<sInRow; ii++){
+                temp[i][ii]= seats.get(i);
+            }
+        }
+        return temp;
+    }
 }

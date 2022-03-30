@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public abstract class User {
     protected String userType; // "registered" or "guest"
     protected ArrayList<FilterOptions> filters = new  ArrayList<FilterOptions>();
+    protected  ArrayList<Booking> bookings= new ArrayList<Booking>();
 
     /**
      * The user constructor

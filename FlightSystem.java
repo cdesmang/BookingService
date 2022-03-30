@@ -40,15 +40,79 @@ public class FlightSystem {
          currentUser = new RegisteredUser(firstName, lastName, username, password, email, address, dob);
     }
 
-    public boolean booking(String flightSelection, Flight[] flightResults){
+    public String flightBooking(String flightSelection, Flight[] flightResults, String[] customers){
         ArrayList<Flight> selected = new ArrayList<Flight>();
         String[] selectIndex  = flightSelection.split(",");
         for (int i = 0; i < selectIndex.length; i++){
             selected.add(flightResults[Integer.parseInt(selectIndex[i])-1]);
         }
-        
+        String printSeats = "";
+        for (int i =0; i< selectIndex.length; i++){
+            printSeats+= seatsToString(selected.get(i));
+        }
+        return printSeats;
+    }
 
-        return true;
+    private String seatsToString(Flight flight){
+        char[][] seats = getSeats(flight);
+        String print = "";
+        if (seats[0].length == 5){
+            print += "  A B  C D\n";
+            for (int i  = 0; i < seats.length; i++){
+                print += (i+1) +" ";
+                for (int j = 0; j<seats[0].length; j++){
+                    print += seats[i][j]+" ";
+                }
+                print += "\n";
+            }
+        } else {
+            print+= "  A B C  D E F\n";
+            for (int i  = 0; i < seats.length; i++){
+                print += (i+1) +" ";
+                for (int j = 0; j<seats[0].length; j++){
+                    print += seats[i][j]+" ";
+                }
+                print+="\n";
+            }
+        }
+        return print;
+    }
+
+    /**
+     * Converts a seat array to an array of characters representing seat availibility
+     * @param flight - the flight for which we need to present the seats
+     * @return- a character array representing the availibility of seats on the given flight
+     */
+    private char[][] getSeats(Flight flight){
+        Seat[][] sArr = flight.toSeatArray();
+        char[][] charArr = new char[sArr.length][sArr[0].length+1];
+        char avail =  '_';
+        char full = 'X';
+        char aisle =' ';
+        for (int i = 0; i <sArr.length; i++){
+            for (int j = 0; j<sArr[0].length; j++){
+                if(sArr[0].length == 4 && j < 2){
+                    // small plane on the left side
+                    if(sArr[i][j].getAvailable()) charArr[i][j]= avail;
+                    else charArr[i][j] = full;
+                } else if (sArr[0].length == 4 && j >= 2){
+                    // small plane on the right
+                    charArr[i][2] = aisle; 
+                    if (sArr[i][j].getAvailable()) charArr[i][j+1] = avail;
+                    else charArr[i][j+1] = full;
+                } else if(sArr[0].length == 6 && j < 3){
+                    // larger plane on the left (and the aisle)
+                    if(sArr[i][j].getAvailable()) charArr[i][j] = avail;
+                    else charArr[i][j] = full;
+                } else if (sArr[0].length == 6 && j >= 3){
+                    // larger plane on the right (and the aisle)
+                    charArr[i][3] = aisle;
+                    if (sArr[i][j].getAvailable()) charArr[i][j+1] = avail;
+                    else charArr[i][j+1] = full;
+                }
+            }
+        }
+        return charArr;
     }
 
     /**

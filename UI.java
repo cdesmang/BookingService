@@ -147,7 +147,8 @@ public class UI {
         System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
-        flightSystem.booking(selection, flights);
+        
+       // flightSystem.flightBooking(selection, flights,);
 
         return error;
     }

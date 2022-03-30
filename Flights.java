@@ -13,7 +13,7 @@ public class Flights {
      * initializes the arraylist of all flights fromthe data loader
      */
     private Flights(){
-        allFlights = DL.loadFlights();
+        allFlights = DataLoader.loadFlights();
     }
 
     /**
@@ -107,7 +107,7 @@ public class Flights {
      * @return true if the flight exists
      */
     private boolean checkAL(String city, String state,int i){
-        return allFlights.get(i).getDestinationCity().equalsIgnoreCase(city) && allFlights.get(i).getDestinationS().equalsIgnoreCase(state);
+        return allFlights.get(i).getDestinationCity().equalsIgnoreCase(city) && allFlights.get(i).getDestinationState().equalsIgnoreCase(state);
     }
 
     /**
