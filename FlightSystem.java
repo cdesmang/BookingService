@@ -40,7 +40,7 @@ public class FlightSystem {
          currentUser = new RegisteredUser(firstName, lastName, username, password, email, address, dob);
     }
 
-    public String flightBooking(String flightSelection, Flight[] flightResults, String[] customers){
+    public String flightBooking(String flightSelection, Flight[] flightResults, ArrayList<String> customers){
         ArrayList<Flight> selected = new ArrayList<Flight>();
         String[] selectIndex  = flightSelection.split(",");
         for (int i = 0; i < selectIndex.length; i++){
@@ -177,6 +177,12 @@ public class FlightSystem {
      */
     public User getCurrentUser (){
         return currentUser;
+    }
+    
+    public void setCurrentUser(String[] x, Date dob){
+        RegisteredUser newUser = new RegisteredUser(x[0],x[1], x[2], x[3], x[4], x[5], dob);
+        currentUser = newUser;
+        users.addUser(newUser);
     }
 
     /**

@@ -5,6 +5,7 @@
  */
 
 import java.util.Scanner;
+import java.lang.ProcessHandle.Info;
 import java.util.ArrayList;
 public class UI {
 
@@ -71,6 +72,38 @@ public class UI {
         printArrFlights(flights);
 	    System.out.println("\n"+"\nPlease enter the result number of the flight(s) you would like to book."+
 	                                         "\nUse a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
+        String selection = key.nextLine().replace('\n', ' ');
+        boolean run = true;
+        while(run){
+            System.out.println("Oops! You must be a registered user to book a flight.\n Please enter \"register\" to create and account or enter \"exit\" to leave the Flight Booking System!");
+            if (key.nextLine().trim().equalsIgnoreCase("register")){
+                String[]x = InfoNoBDay();
+                System.out.println("Please enter your Date of Birth");
+                Date dob = getDate();
+                flightSystem.setCurrentUser(x, dob);
+                System.out.println("Welcome, "+flightSystem.getCurrentUser().getUsername()+" !");
+                System.out.println("Please enter the number of tickets you would like to book:");
+                int numFriends = key.nextInt();
+                String flightSeats;
+                if (numFriends > 1) {
+                    ArrayList<String> friendsUsernames= new ArrayList<String>();
+                    for (int i =0; i<numFriends; i++){
+                        friendsUsernames.add(addFriends());}
+                    flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
+                } else{
+                 flightSeats = flightSystem.flightBooking(selection, flights,null);}
+            System.out.println(flightSeats);
+
+
+            }else if (key.nextLine().trim().equalsIgnoreCase("exit")){
+                System.out.println("Goodbye!");
+                return false;
+            }else {
+               System.out.println("Invalid input!");
+               run = true;
+            }
+        }
+                                        
 
 
 /******/if (error == false) System.out.println("Error in guestSearch()");
@@ -108,7 +141,7 @@ public class UI {
                             count = 3;
                         } else if (choice.equalsIgnoreCase("create")){
                             String[] info = InfoNoBDay();
-                            System.out.println("Please enter your date of birth");
+                            System.out.println("Please enter your Date of Birth");
                             Date bday = getDate();
                             flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],bday);
                             count++;
@@ -124,7 +157,19 @@ public class UI {
         System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
-        flightSystem.booking(selection, flights);
+        System.out.println("Please enter the number of tickets you would like to book:");
+        int numFriends = key.nextInt();
+        String flightSeats;
+        if (numFriends > 1) {
+            ArrayList<String> friendsUsernames= new ArrayList<String>();
+            for (int i =0; i<numFriends; i++){
+                friendsUsernames.add(addFriends());
+            }
+            flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
+        } else{
+            flightSeats = flightSystem.flightBooking(selection, flights,null);
+        }
+        System.out.println(flightSeats);
     
         if (error == false)System.out.println("Error in registeredUser()");
         return error;
@@ -138,7 +183,7 @@ public class UI {
     private static boolean createUser( ){
         boolean error = true;
         String [] info = InfoNoBDay();
-        System.out.println("Please enter your date of birth.");
+        System.out.println("Please enter your Date of Birth.");
         Date bday= getDate();
         flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],bday);
         System.out.println("Welcome, "+ flightSystem.getCurrentUser().getUsername()+" !");
@@ -147,8 +192,19 @@ public class UI {
         System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
-        
-       // flightSystem.flightBooking(selection, flights,);
+        System.out.println("Please enter the number of tickets you would like to book:");
+        int numFriends = key.nextInt();
+        String flightSeats;
+        if (numFriends > 1) {
+            ArrayList<String> friendsUsernames= new ArrayList<String>();
+            for (int i =0; i<numFriends; i++){
+                friendsUsernames.add(addFriends());
+            }
+            flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
+        } else{
+            flightSeats = flightSystem.flightBooking(selection, flights,null);
+        }
+        System.out.println(flightSeats);
 
         return error;
     }
@@ -250,6 +306,15 @@ public class UI {
         }
         Date created= new Date (tempS[0], tempS[1], tempS[2]);
         return created;
+    }
+
+    private static String addFriends(){
+        System.out.println("Please enter the following information about those for whom you would like to book a ticket.");
+        String[] newFriend = InfoNoBDay();
+        Date fDate = getDate();
+        flightSystem.addFriends(newFriend, fDate);
+        return newFriend[2];
+            //friends username
     }
 
     
