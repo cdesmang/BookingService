@@ -58,7 +58,6 @@ public class UI {
         return login;
     }
 
-
     /**
      * runs program if user selects that they are a guess
      * will eventually force them to switch to registered user if they want to book
@@ -140,6 +139,7 @@ public class UI {
         System.out.println("Please enter your date of birth.");
         Date bday= getDate();
         flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],bday);
+        System.out.println("Welcome, "+ flightSystem.getCurrentUser().getUsername()+" !");
         Flight[] flights = getFlights();
         printArrFlights(flights);
         System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
@@ -184,7 +184,7 @@ public class UI {
         
         System.out.println("Search Results:");
         for (int i = 0; i<x.length;i++) {
-            System.out.println("Result"+(i+1)+"\t"+x[i]);
+            System.out.println("Result "+(i+1)+"\t"+x[i]);
         }
     }
    

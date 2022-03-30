@@ -42,6 +42,13 @@ public class FlightSystem {
 
     public boolean booking(String flightSelection, Flight[] flightResults){
         ArrayList<Flight> selected = new ArrayList<Flight>();
+        String[] selectIndex  = flightSelection.split(",");
+        for (int i = 0; i < selectIndex.length; i++){
+            selected.add(flightResults[Integer.parseInt(selectIndex[i])-1]);
+        }
+        
+
+        return true;
     }
 
     /**

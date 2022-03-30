@@ -37,6 +37,7 @@ public class Flight {
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.seats = seats;
+        this.connectionIndex = null;
     }
     public String getFlightID()
     {
@@ -102,6 +103,8 @@ public class Flight {
     }
 
     public void setConnection(int i){
+        if (this.connectionIndex == null){
+            this.connectionIndex = new ArrayList<Integer>();}
         this.connectionIndex.add(i);
     }
     public void setFlightID(String flightID)
