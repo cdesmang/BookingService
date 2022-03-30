@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 public class Booking {
@@ -7,12 +8,20 @@ public class Booking {
     private ArrayList<Flight> journey;
     private ArrayList<Hotel> reservations;
 
+    private UUID flightID; // used for JSON file
+    private String seat; // used for JSON file
+
 
     public Booking(String booker_username, String customer_username, ArrayList<Flight> journey, ArrayList<Hotel> reservations) {
         this.booker_username = booker_username;
         this.customer_username = customer_username;
         this.journey = journey;
         this.reservations = reservations;
+    }
+
+    public Booking(UUID flightID, String seat) {
+        this.flightID = flightID;
+        this.seat = seat;
     }
     
     /**
@@ -36,5 +45,14 @@ public class Booking {
 
     public void removeReservation(Hotel hotel) {
         reservations.remove(hotel);
+    }
+
+    public UUID getFlightID() {
+        return this.flightID;
+    }
+
+    public String getSeat() {
+        return seat;
+
     }
 }

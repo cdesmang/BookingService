@@ -4,6 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import java.util.Iterator;
+import java.util.UUID;
 
 /**
  * @author Tommy Ecker
@@ -21,8 +22,8 @@ public class DataLoader extends DataConstants {
 
             for(int i = 0; i < flightsJSON.size(); i++) {
                 JSONObject flightJSON = (JSONObject)flightsJSON.get(i);
-                String id = (String)flightJSON.get(FLIGHT_ID);
-                String flightNumber = (String)flightJSON.get(FLIGHT_NUM);
+                UUID id = UUID.fromString((String)flightJSON.get(FLIGHT_ID));
+                int flightNumber = ((Long)flightJSON.get(FLIGHT_NUM)).intValue();
                 String airline = (String)flightJSON.get(AIRLINE);
                
                 JSONObject jsonDestination = (JSONObject)flightJSON.get("destination");
@@ -36,8 +37,8 @@ public class DataLoader extends DataConstants {
                 JSONObject jsonDeptDate = (JSONObject)flightJSON.get("departureDate");
                 String deptWeekday = (String)jsonDeptDate.get("day_of_week");
                 String deptMonth = (String)jsonDeptDate.get("month");
-                String deptDay = (String)jsonDeptDate.get("day");
-                String deptYear = (String)jsonDeptDate.get("year");
+                int deptDay = ((Long)jsonDeptDate.get("day")).intValue();
+                int deptYear = ((Long)jsonDeptDate.get("year")).intValue();
 
                 Date deptDate = new Date(deptWeekday, deptMonth, deptDay, deptYear);
 
@@ -45,8 +46,8 @@ public class DataLoader extends DataConstants {
                 JSONObject jsonArrivalDate = (JSONObject)flightJSON.get("arrivalDate");
                 String arrWeekday = (String)jsonArrivalDate.get("day_of_week");
                 String arrMonth = (String)jsonArrivalDate.get("month");
-                String arrDay = (String)jsonArrivalDate.get("day");
-                String arrYear = (String)jsonArrivalDate.get("year");
+                int arrDay = ((Long)jsonArrivalDate.get("day")).intValue();
+                int arrYear = ((Long)jsonArrivalDate.get("year")).intValue();
 
                 Date arrDate = new Date(arrWeekday, arrMonth, arrDay, arrYear);
                 
@@ -71,12 +72,6 @@ public class DataLoader extends DataConstants {
 
                 }
 
-                //Location dest = new Location(destinationCity, destinationState);
-                //Location dept = new Location(departureCity, departureState);
-
-               // System.out.println("Destination: " + l.getCity() + ", " + l.getState());
-                //Flight f = new Flight(id, flightNumber, airline, l.getCity(), l.getState(), duration, deptTime, arrTime);
-
 
                 flights.add(new Flight(id, flightNumber, airline, destinationCity, destinationState, departureCity, departureState, deptDate, arrDate, duration, deptTime, arrTime, seatsList));
             }
@@ -91,12 +86,80 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
-    /*
-    public static ArrayList<Users> loadUsers() {
+    
+    public static ArrayList<RegisteredUser> getAllUsers() {
+        ArrayList<RegisteredUser> users = new ArrayList<RegisteredUser>();
+
+        try {
+            FileReader reader = new FileReader(USER_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray usersJSON = (JSONArray)parser.parse(reader);
+
+            for (int i = 0; i < usersJSON.size(); i++) {
+                JSONObject userJSON = (JSONObject)usersJSON.get(i);
+                UUID userID = UUID.fromString((String)userJSON.get(USER_ID));
+                String firstName = (String)userJSON.get(FIRST_NAME);
+                String lastName = (String)userJSON.get(LAST_NAME);
+                String username = (String)userJSON.get(USERNAME);
+                String password = (String)userJSON.get(PASSWORD);
+                String email = (String)userJSON.get(EMAIL);
+                String dateOfBirth = (String)userJSON.get(DATE_OF_BIRTH);
+            
+                JSONObject jsonAddress = (JSONObject)userJSON.get(ADDRESS);
+                String streetAddress = (String)jsonAddress.get(STREET_ADDRESS);
+                String addressCity = (String)jsonAddress.get(ADDRESS_CITY);
+                String addressState = (String)jsonAddress.get(ADDRESS_STATE);
+                int addressZip = ((Long)jsonAddress.get(ADDRESS_ZIP)).intValue();
+
+                ArrayList<Booking> bookings = new ArrayList<>();
+                JSONArray bookingsList = (JSONArray)userJSON.get(BOOKINGS);
+                
+                for (int j = 0; j < bookingsList.size(); j++) {
+                    JSONObject jsonBooking = (JSONObject) bookingsList.get(j);
+                    UUID flightID = UUID.fromString((String)jsonBooking.get("flight_ID"));
+                    String flightSeat = (String)jsonBooking.get("seat");
+
+                    Booking booking = new Booking(flightID, flightSeat);
+                    bookings.add(booking);
+                
+                }
+
+                ArrayList<Friend> friendList = new ArrayList<Friend>();
+                JSONArray jsonFriends = (JSONArray)userJSON.get("friends");
+                 if (jsonFriends != null) {
+                    for (int j = 0; j < jsonFriends.size(); j++) {
+                        JSONObject jsonFriend = (JSONObject) jsonFriends.get(j);
+                        String friendFirstName = (String)jsonFriend.get("first_name");
+                        String friendLastName = (String)jsonFriend.get("last_name");
+
+                        ArrayList<Booking> friendBookings = new ArrayList<Booking>();
+                        JSONArray jsonFriendBookings = (JSONArray)jsonFriend.get("friend_bookings");
+                        if (jsonFriendBookings != null) {
+                            for (int k = 0; k < jsonFriendBookings.size(); k++) {
+                                JSONObject friendBooking = (JSONObject) jsonFriendBookings.get(k);
+                                UUID friendFlightID = UUID.fromString((String)friendBooking.get("flight_ID"));
+                                String friendSeat = (String)friendBooking.get("seat");
+
+                                Booking friendFlightBooking = new Booking(friendFlightID, friendSeat);
+
+                                friendBookings.add(friendFlightBooking);
+                            }
+                        }
+                        friendList.add(new Friend(friendFirstName, friendLastName,friendBookings));
+
+                    }
+
+                }
+                users.add(new RegisteredUser(userID, firstName, lastName, username, password, email, dateOfBirth, streetAddress, addressCity, addressState, addressZip, bookings, friendList));
+
+            }
+            return users;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
 
     }
-    
-    public static ArrayList<Hotels> hotels() {
-
-    } */
 }

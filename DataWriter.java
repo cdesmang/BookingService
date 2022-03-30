@@ -1,8 +1,10 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.attribute.UserPrincipalLookupService;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import java.util.UUID;
 
 /**
  * @author Tommy Ecker
@@ -27,6 +29,26 @@ public class DataWriter extends DataConstants {
             file.flush();
             file.close();
             
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveUsers() {
+        RegisteredUsers users = RegisteredUsers.getInstance();
+        ArrayList<RegisteredUser> accounts = users.getRegisteredUsers();
+        JSONArray jsonAccounts = new JSONArray();
+
+        // Creates all of the JSON files
+        for (int i = 0; i < accounts.size(); i++) {
+            jsonAccounts.add(getRegisteredUserJSON(accounts.get(i)));
+        }
+
+        // Writes to the JSON file
+        try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
+            file.append(jsonAccounts.toJSONString());
+            file.flush();
+            file.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -75,7 +97,59 @@ public class DataWriter extends DataConstants {
         }
 
         flightDetails.put(SEATS, list);
-
+       
         return flightDetails;
+    }
+
+    public static JSONObject getRegisteredUserJSON (RegisteredUser user) {
+
+        RegisteredUsers users = RegisteredUsers.getInstance();
+
+        ArrayList<RegisteredUser> accounts = users.getRegisteredUsers();
+
+        JSONObject userDetails = new JSONObject();
+
+        //userDetails.put(FLIGHT_ID, user.getID());
+        userDetails.put(FIRST_NAME, user.getFirstName());
+        userDetails.put(LAST_NAME, user.getLastName());
+        userDetails.put(USERNAME, user.getUsername());
+        userDetails.put(PASSWORD, user.getPassword());
+        userDetails.put(EMAIL, user.getEmail());
+        userDetails.put(DATE_OF_BIRTH, user.getDateOfBirth());
+
+        JSONObject addressObject = new JSONObject();
+        addressObject.put(STREET_ADDRESS, user.getStreetAddress());
+        addressObject.put(ADDRESS_CITY, user.getAddressCity());
+        addressObject.put(ADDRESS_STATE, user.getAddressState());
+        addressObject.put(ADDRESS_ZIP, user.getAddressZip());
+
+        userDetails.put(ADDRESS, addressObject);
+
+        JSONArray bookingList = new JSONArray();
+
+        /*for (int i = 0; i < user.getBookings().size(); i++) {
+            JSONObject bookingObject = new JSONObject();
+            UUID bookingID = user.getBookings().get(i).getFlight().getID();
+            int row = user.getBookings().get(i).getFlight().getSeats().get(i).getRow();
+            String seatNum = user.getBookings().get(i).getFlight().getSeats().get(i).getSeatNumber();
+            String seat = row + seatNum;
+            bookingObject.put(USER_FLIGHT, bookingID);
+            bookingObject.put(USER_SEAT, seat);
+
+            bookingList.add(bookingObject);
+
+        } */
+
+        userDetails.put(BOOKINGS, bookingList);
+
+        /*JSONArray friendList = new JSONArray();
+
+        for (int i = 0; i < user.getFriends().size(); i++) {
+            JSONObject friendObject = new JSONObject();
+            String bookingID = user.getFriends().get
+        } */
+
+        return userDetails;
+
     }
 }

@@ -1,18 +1,29 @@
+import java.util.ArrayList;
+
 public class Friend {
     
     private String email;
     private Date dob;
     private String address;
     private String username;
-    private String fullName;
+    private String firstName;
+    private String lastName;
+    private ArrayList<Booking> bookings = new ArrayList<>();
     
     
-    public Friend(String fullName, String username, String email, Date DOB, String address) {
-        this.fullName = fullName;
+    public Friend(String firstName, String lastName, String username, String email, Date DOB, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.dob = DOB;
         this.address = address;
+    }
+
+    public Friend(String firstName, String lastName, ArrayList<Booking> bookings) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.bookings = bookings;
     }
 
     /**
@@ -47,6 +58,27 @@ public class Friend {
      * @return Returns the full name
      */
     public String getFullName() {
-        return fullName;
+        return firstName + " " + lastName;
+    }
+
+    /**
+    * @return Returns the first name
+    */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * @return Returns the last name
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * @return Returns the array of bookings
+     */
+    public ArrayList<Booking> getBookings() {
+        return bookings;
     }
 }

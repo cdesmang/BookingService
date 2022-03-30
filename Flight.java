@@ -9,8 +9,8 @@ import java.util.*;
 
 public class Flight {
 
- private String flightID;
- private String flightNum;
+ private UUID flightID;
+ private int flightNum;
  private String airline;
  private String destinationCity;
  private String destinationState;
@@ -24,7 +24,7 @@ public class Flight {
  private ArrayList<Seat> seats;
  private ArrayList<Integer> connectionIndex;
 
-    public Flight(String flightID, String flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats)
+    public Flight(UUID flightID, int flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats)
     {
         this.flightID = flightID;
         this.flightNum = flightNum;
@@ -39,11 +39,11 @@ public class Flight {
         this.seats = seats;
         this.connectionIndex = null;
     }
-    public String getFlightID()
+    public UUID getFlightID()
     {
         return flightID;
     }
-    public String getFlightNum()
+    public int getFlightNum()
     {
         return flightNum;
     }
@@ -107,13 +107,13 @@ public class Flight {
             this.connectionIndex = new ArrayList<Integer>();}
         this.connectionIndex.add(i);
     }
-    public void setFlightID(String flightID)
+    public void setFlightID(UUID flightID)
     {
         this.flightID = flightID;
     }
-    public void setFlightNum(String flightNum)
+    public void setFlightNum(int flightNum)
     {
-        if (Integer.parseInt(flightNum) > 0)
+        if (flightNum > 0)
             this.flightNum = flightNum;
     }
     public void setAirline(String airline)

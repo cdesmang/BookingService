@@ -15,7 +15,6 @@ public class Users {
         users= DL.getAllUsers();
     }
 
-
     public User searchUser(String username, String password) {
         User search = null;
         int i = 0;
