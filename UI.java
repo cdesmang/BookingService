@@ -104,7 +104,7 @@ public class UI {
                 logout();
             }else if (key.nextLine().trim().equalsIgnoreCase("exit")){
                 System.out.println("Goodbye!");
-                return false;
+                run = false;
             }else {
                System.out.println("Invalid input!");
                run = true;
@@ -266,11 +266,14 @@ public class UI {
      * prints the search results
      * @param x- string arr
      */
-    private static void printArrFlights(Flight[]x) {
-        
-        System.out.println("Search Results:");
-        for (int i = 0; i<x.length;i++) {
-            System.out.println("Result "+(i+1)+"\t"+x[i]);
+    private static void printArrFlights(Object[]x) {
+        if (x == null){
+            System.out.println("No results found");
+        }else{ 
+            System.out.println("Search Results:");
+            for (int i = 0; i<x.length;i++) {
+                System.out.println("Result "+(i+1)+"\t"+x[i]);
+            }
         }
     }
     /**
