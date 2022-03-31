@@ -30,14 +30,18 @@ public class Flight {
         this.airline = airline;
         this.destinationCity = destinationCity;
         this.destinationState = destinationState;
+        this.departureCity = departureCity;
+        this.departureState = departureState;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
         this.flightDuration = flightDuration;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.seats = seats;
-        this.connectionIndex = null;
     }
+
+
+
     public UUID getFlightID() {
         return flightID;
     }

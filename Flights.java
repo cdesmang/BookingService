@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 public class Flights {
 
-    private static Flights flights = Flights.getInstance();
-    private static ArrayList<Flight> allFlights;
+    private static Flights flights = null;
+    private static ArrayList<Flight> allFlights = new ArrayList<>();
    // private static DataLoader DL = new DataLoader();
 
     /**
@@ -22,8 +22,9 @@ public class Flights {
      * @return the instance of Flight class
      */
     public static Flights getInstance(){
-        if (flights == null)
+        if (flights == null) {
             flights = new Flights();
+        }
         return flights;
 
     }
@@ -109,14 +110,8 @@ public class Flights {
      */
     private boolean checkDL(String city, String state,int i){
         try{
-
-            if (allFlights != null) {}
-
-            System.out.println(allFlights.get(i).getDepartCity());
-
-
-
-            return allFlights.get(i).getDepartCity().equalsIgnoreCase(city) && allFlights.get(i).getDepartState().equalsIgnoreCase(state);
+           return allFlights.get(i).getDepartCity().equalsIgnoreCase(city) && allFlights.get(i).getDepartState().equalsIgnoreCase(state);
+           
         } catch(Exception e){
             return false;
         }

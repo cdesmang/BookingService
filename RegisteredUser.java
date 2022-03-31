@@ -8,8 +8,8 @@ public class RegisteredUser extends User {
      */
     private ArrayList<Friend> friends = new ArrayList<Friend>();
     private UUID userID;
-    private String firstName;
-    private String lastName;
+    public String firstName;
+    public String lastName;
     private String fullName;
     private String username;
     private String password;
@@ -27,7 +27,7 @@ public class RegisteredUser extends User {
     
 
     public RegisteredUser(String firstName, String lastName, String username, String password, String email, String address, Date dob){
-        fullName = firstName + " " + lastName;
+        this.fullName = firstName + " " + lastName;
         this.username = username;
         this.password = password;
         this.email = email;
