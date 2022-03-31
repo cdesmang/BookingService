@@ -76,7 +76,8 @@ public class UI {
         boolean run = true;
         while(run){
             System.out.println("Oops! You must be a registered user to book a flight.\n Please enter \"register\" to create and account or enter \"exit\" to leave the Flight Booking System!");
-            if (key.nextLine().trim().equalsIgnoreCase("register")){
+            String guestRegistry = key.nextLine().replaceAll("\n"," ").trim();
+            if (guestRegistry.equalsIgnoreCase("register")){
                 String[]x = InfoNoBDay();
                 System.out.println("Please enter your Date of Birth");
                 Date dob = getDate();
@@ -102,7 +103,7 @@ public class UI {
                 }
                 System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
                 logout();
-            }else if (key.nextLine().trim().equalsIgnoreCase("exit")){
+            }else if (guestRegistry.equalsIgnoreCase("exit")){
                 System.out.println("Goodbye!");
                 run = false;
             }else {
