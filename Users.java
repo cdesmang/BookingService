@@ -8,11 +8,11 @@ import java.util.ArrayList;
 public class Users {
 
     
-    private ArrayList<User> users;
+    private ArrayList<RegisteredUser> users;
     private static DataLoader DL = new DataLoader();
 
     public Users(){
-        users= DL.getAllUsers();
+        users= DataLoader.getAllUsers();
     }
 
     public User searchUser(String username, String password) {
@@ -47,7 +47,7 @@ public class Users {
     public void editUser(User user) {
         String username = user.getUsername();
         String password = user.getPassword();
-        User search=  searchUser(username, password);
+        User search =  searchUser(username, password);
         int index= users.indexOf(search);
         search = user;
         users.remove(index);

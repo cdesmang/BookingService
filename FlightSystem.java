@@ -54,8 +54,9 @@ public class FlightSystem {
     }
 
     private String seatsToString(Flight flight){
+        String flightID = "Airline: "+flight.getAirline()+"\tFlight Number: "+String.valueOf(flight.getFlightNum())+"\n";
         char[][] seats = getSeats(flight);
-        String print = "";
+        String print = flightID;
         if (seats[0].length == 5){
             print += "  A B  C D\n";
             for (int i  = 0; i < seats.length; i++){
@@ -148,9 +149,10 @@ public class FlightSystem {
         return temp;
     }
  
-    public int seatingSelction(String[] flight){
-        int temp = 0;
-        return temp;
+    public int seatingSelction(Flight[]flights, String selection, ArrayList<Friend> friends){
+        String[]selectionparse = selection.split(",");
+
+        return 0;
     }
 
     /**
@@ -224,7 +226,7 @@ public class FlightSystem {
     }
 
     public void addFriends (String[]friend, Date dob){
-       Friend temp = new Friend(friend[0], friend[2], friend[4], dob, friend[5]);
+       Friend temp = new Friend(friend[0],friend[1], friend[2], friend[4], dob, friend[5]);
        users.addFriends(temp, currentUser);
     }
 

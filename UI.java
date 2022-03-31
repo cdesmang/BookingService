@@ -165,18 +165,20 @@ public class UI {
         System.out.println("Please enter the number of tickets you would like to book:");
         int numFriends = key.nextInt();
         String flightSeats;
+        ArrayList<String> friendsUsernames= new ArrayList<String>();
         if (numFriends > 1) {
-            ArrayList<String> friendsUsernames= new ArrayList<String>();
             for (int i =0; i<numFriends; i++){
                 friendsUsernames.add(addFriends());
             }
             flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
         } else{
+            friendsUsernames = null;
             flightSeats = flightSystem.flightBooking(selection, flights,null);
         }
         System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
-        System.out.println("Please enter the seats that you would like to book:");
+        System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Fligh Number, seat1, seat2 ,etc.\"");
         String seatSelection = key.nextLine().replace('\n', ' ').trim();
+        flightSystem.seatingSelction(flights, seatselection,friendsUsernames);
     
         if (error == false)System.out.println("Error in registeredUser()");
         return error;
