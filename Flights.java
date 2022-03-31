@@ -107,7 +107,7 @@ public class Flights {
      * @return true if the flight exists
      */
     private boolean checkAL(String city, String state,int i){
-        return allFlights.get(i).getDestinationCity().equalsIgnoreCase(city) && allFlights.get(i).getDestinationS().equalsIgnoreCase(state);
+        return allFlights.get(i).getDestinationCity().equalsIgnoreCase(city) && allFlights.get(i).getDestinationState().equalsIgnoreCase(state);
     }
 
     /**

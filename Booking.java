@@ -2,24 +2,16 @@ import java.util.ArrayList;
 
 
 public class Booking {
-    private String booker_username; // this booking goes into this user's bookings list
-    private String customer_username; // this booking is for this customer
-    private ArrayList<Flight> journey;
-    private ArrayList<Hotel> reservations;
+    public String booker_username; // this booking goes into this user's bookings list
+    public String customer_username; // this booking is for this customer
+    public ArrayList<Flight> journey;
+    public ArrayList<Room> reservations;
+    public Seat seat;
 
 
-    public Booking(String booker_username, String customer_username, ArrayList<Flight> journey, ArrayList<Hotel> reservations) {
+    public Booking(String booker_username, String customer_username) {
         this.booker_username = booker_username;
         this.customer_username = customer_username;
-        this.journey = journey;
-        this.reservations = reservations;
-    }
-    
-    /**
-     * Prints out the booking (a ticket)
-     */
-    public void printBooking(){
-
     }
 
     public void addFlight(Flight flight) {
@@ -30,11 +22,11 @@ public class Booking {
         journey.remove(flight);
     }
 
-    public void addReservation(Hotel hotel) {
-        reservations.add(hotel);
+    public void addReservation(Room room) {
+        reservations.add(room);
     }
 
-    public void removeReservation(Hotel hotel) {
-        reservations.remove(hotel);
+    public void removeReservation(Room room) {
+        reservations.remove(room);
     }
 }
