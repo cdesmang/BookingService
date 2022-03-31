@@ -15,7 +15,12 @@ public class Date {
         this.month= month;
         this.year = year;
         this.day = day;
-       // this.weekday = 
+    }
+
+    public Date (String month,String day , String year){
+        this.month = month;
+        this.day = Integer.parseInt(day);
+        this.year = Integer.parseInt(year);
     }
 
     /**

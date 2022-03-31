@@ -3,11 +3,12 @@
  * @author Christina Desmangles
  */
 import java.util.ArrayList;
+import java.util.UUID;
 public class Flights {
 
     private static Flights flights;
     private static ArrayList<Flight> allFlights;
-    private static DataLoader DL = new DataLoader();
+   // private static DataLoader DL = new DataLoader();
 
     /**
      * initializes the arraylist of all flights fromthe data loader
@@ -60,6 +61,15 @@ public class Flights {
         while(connection.get(j) != null){
             temp.add(connection.get(i));
             j++;
+        }
+        return temp;
+    }
+    public Flight[] searchOneFlight(String airline, int flightNum, Flight[] flights){
+        Flight[] temp = new Flight[1];
+        for (int i = 0; i< flights.length; i++){
+            if(flights[i].getAirline().equalsIgnoreCase(airline) && flights[i].getFlightNum()==flightNum){
+               temp[0]=flights[i];
+            }
         }
         return temp;
     }
@@ -134,7 +144,7 @@ public class Flights {
         return allFlights;
     }
 
-    public void addFlight(String flightID, String flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats) {
+    public void addFlight(UUID flightID, int flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats) {
         allFlights.add(new Flight(flightID, flightNum, airline, destinationCity, destinationState, departureCity, departureState, departureDate, arrivalDate, flightDuration, departureTime, arrivalTime, seats));
     }
 

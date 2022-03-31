@@ -31,11 +31,11 @@ public class RegisteredUsers {
     }
 
     public void addUser(UUID id, String firstName, String lastName, String username, String password, String email, String dob, String streetAddress, String addressCity, String addressState, int addressZip) {
-        usersList.add(new RegisteredUser(id, firstName, lastName, username, password, email, dob, streetAddress, addressCity, addressState, addressZip));
+        usersList.add(new RegisteredUser(id, firstName, lastName, username, password, email, dob, streetAddress, addressCity, addressState, addressZip,null, null));
     }
 
     public void addUser(UUID id, String firstName, String lastName, String username, String password, String email, String dob, String streetAddress, String addressCity, String addressState, int addressZip, ArrayList<Booking> bookings) {
-        usersList.add(new RegisteredUser(id, firstName, lastName, username, password, email, dob, streetAddress, addressCity, addressState, addressZip, bookings));
+        usersList.add(new RegisteredUser(id, firstName, lastName, username, password, email, dob, streetAddress, addressCity, addressState, addressZip, bookings,null));
     }
 
     public void logout() {

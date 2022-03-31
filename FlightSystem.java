@@ -149,24 +149,44 @@ public class FlightSystem {
         return temp;
     }
  
-    public int seatingSelction(Flight[]flights, String selection, ArrayList<Friend> friends){
-        String[]selectionparse = selection.split(",");
+    public String seatingSelction(Flight[]flights, ArrayList<String> selection, ArrayList<String> friends){
+        String [] temp;
+        String print = "";
+        for(int i=0; i<selection.size();i++){
+            temp= selection.get(i).split(",");
+            String [] temp2 = new String[temp.length-2];
+            if(flights[i].getAirline().equalsIgnoreCase(temp[0]) && flights[i].getFlightNum()==Integer.parseInt(temp[1])){
+                print += flights[i].toString()+"\n"+currentUser.getUsername()+"\tSeat: ";
+                for (int j = 0; j<temp2.length;j++){
+                    temp2[j]=temp[j+2];
+                    print+=temp2[j];
+                    if (j>0){
+                        print += "\n"+friends.get(i-1)+"\tSeat: "+temp2[j];
+                    }
+                }
 
-        return 0;
+            
+            }
+
+        }
+        return print;
     }
 
     /**
      * Checks if the current user is a registered user (they would be logged in for this to occur)
      * @return true if the current user is registered
      */
-    private boolean login(){
+   /* private boolean login(){
         return users.checkIfRegisterd(currentUser);
-    }
+    }*/
     /**
      * updates user information and flight information in the database and ends program 
      */
     public boolean logout(){
-        users.editUser(currentUser);
+        String username= currentUser.getUsername();
+        String password =currentUser.getPassword();
+        RegisteredUser edit = users.searchUser(username, password);
+        users.editUser(edit);
         currentUser = null;
         flights.logout();
         return false;
@@ -193,8 +213,8 @@ public class FlightSystem {
      * @param password- account password
      * @param edit- the current user information
      */
-    public void editUser(String username,String password, User edit) {
-        users.editUser(currentUser);
+    public void editUser(String username,String password, RegisteredUser edit) {
+        users.editUser(edit);
     }
       // Overloaded method allows you to add a user by creating a user or by entering an already existing user
     public void addUser(RegisteredUser user){

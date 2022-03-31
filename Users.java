@@ -7,16 +7,14 @@
 import java.util.ArrayList;
 public class Users {
 
-    
     private ArrayList<RegisteredUser> users;
-    private static DataLoader DL = new DataLoader();
 
     public Users(){
         users= DataLoader.getAllUsers();
     }
 
-    public User searchUser(String username, String password) {
-        User search = null;
+    public RegisteredUser searchUser(String username, String password) {
+        RegisteredUser search = null;
         int i = 0;
         boolean run = true;
         while(run){
@@ -44,10 +42,10 @@ public class Users {
      * used to logout
      * @param- the rhs user 
      */
-    public void editUser(User user) {
+    public void editUser(RegisteredUser user) {
         String username = user.getUsername();
         String password = user.getPassword();
-        User search =  searchUser(username, password);
+        RegisteredUser search =  searchUser(username, password);
         int index= users.indexOf(search);
         search = user;
         users.remove(index);

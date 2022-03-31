@@ -73,6 +73,7 @@ public class UI {
 	    System.out.println("\n"+"\nPlease enter the result number of the flight(s) you would like to book."+
 	                                         "\nUse a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
+        String[]y = selection.split(",");
         boolean run = true;
         while(run){
             System.out.println("Oops! You must be a registered user to book a flight.\n Please enter \"register\" to create and account or enter \"exit\" to leave the Flight Booking System!");
@@ -85,16 +86,23 @@ public class UI {
                 System.out.println("Please enter the number of tickets you would like to book:");
                 int numFriends = key.nextInt();
                 String flightSeats;
+                ArrayList<String> friendsUsernames= new ArrayList<String>();
                 if (numFriends > 1) {
-                    ArrayList<String> friendsUsernames= new ArrayList<String>();
                     for (int i =0; i<numFriends; i++){
                         friendsUsernames.add(addFriends());}
                     flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
                 } else{
                  flightSeats = flightSystem.flightBooking(selection, flights,null);}
-            System.out.println(flightSeats);
 
-
+                 System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
+                 ArrayList<String> picked = new ArrayList<String>();
+                 for (int i=0 ;i< y.length; i++){
+                     System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
+                    String seatSelection = key.nextLine().replace('\n', ' ').trim();
+                    picked.add(seatSelection);
+                }
+                System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
+                logout();
             }else if (key.nextLine().trim().equalsIgnoreCase("exit")){
                 System.out.println("Goodbye!");
                 return false;
@@ -103,9 +111,6 @@ public class UI {
                run = true;
             }
         }
-                                        
-
-
 /******/if (error == false) System.out.println("Error in guestSearch()");
 	    return error;
 
@@ -157,9 +162,9 @@ public class UI {
         System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
+        String[] x = selection.split(",");
         if (selection.equalsIgnoreCase("none")){
-            System.out.println("Goodbye, "+flightSystem.getCurrentUser().getUsername()+" !");
-            flightSystem.logout();
+            logout();
             return false;
         }
         System.out.println("Please enter the number of tickets you would like to book:");
@@ -176,10 +181,14 @@ public class UI {
             flightSeats = flightSystem.flightBooking(selection, flights,null);
         }
         System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
-        System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Fligh Number, seat1, seat2 ,etc.\"");
-        String seatSelection = key.nextLine().replace('\n', ' ').trim();
-        flightSystem.seatingSelction(flights, seatselection,friendsUsernames);
-    
+        ArrayList<String> picked = new ArrayList<String>();
+        for (int i=0 ;i< x.length; i++){
+            System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
+            String seatSelection = key.nextLine().replace('\n', ' ').trim();
+            picked.add(seatSelection);
+        }
+        System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
+        logout();
         if (error == false)System.out.println("Error in registeredUser()");
         return error;
     }
@@ -198,14 +207,15 @@ public class UI {
         System.out.println("Welcome, "+ flightSystem.getCurrentUser().getUsername()+" !");
         Flight[] flights = getFlights();
         printArrFlights(flights);
-        System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
-                                        "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
+        System.out.println("\n"+"\nPlease enter the result number of the flight(s) you would like to book."+
+                                        "\nPlease use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
+        String[]x = selection.split(",");
         System.out.println("Please enter the number of tickets you would like to book:");
         int numFriends = key.nextInt();
         String flightSeats;
+        ArrayList<String> friendsUsernames= new ArrayList<String>();
         if (numFriends > 1) {
-            ArrayList<String> friendsUsernames= new ArrayList<String>();
             for (int i =0; i<numFriends; i++){
                 friendsUsernames.add(addFriends());
             }
@@ -213,8 +223,15 @@ public class UI {
         } else{
             flightSeats = flightSystem.flightBooking(selection, flights,null);
         }
-        System.out.println(flightSeats);
-
+        System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
+        ArrayList<String> picked = new ArrayList<String>();
+        for (int i=0 ;i< x.length; i++){
+            System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
+            String seatSelection = key.nextLine().replace('\n', ' ').trim();
+            picked.add(seatSelection);
+        }
+        System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
+        logout();
         return error;
     }
 
