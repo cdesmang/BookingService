@@ -265,10 +265,13 @@ public class UI {
      * @param x- string arr
      */
     private static void printArrFlights(Object[]x) {
-        
-        System.out.println("Search Results:");
-        for (int i = 0; i<x.length;i++) {
-            System.out.println("Result "+(i+1)+"\t"+x[i]);
+        if (x == null){
+            System.out.println("No results found");
+        }else{ 
+            System.out.println("Search Results:");
+            for (int i = 0; i<x.length;i++) {
+                System.out.println("Result "+(i+1)+"\t"+x[i]);
+            }
         }
     }
     /**
