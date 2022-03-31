@@ -251,7 +251,4 @@ public class FlightSystem {
        Friend temp = new Friend(friend[0],friend[1], friend[2], friend[4], dob, friend[5]);
        users.addFriends(temp, currentUser);
     }
-
-
 }
-    

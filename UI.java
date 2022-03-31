@@ -157,7 +157,9 @@ public class UI {
             }
         }
         Flight[] flights = getFlights();
-        printArrFlights(flights);
+        if (flights != null) {
+            printArrFlights(flights);
+        }
         System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
@@ -247,12 +249,12 @@ public class UI {
     private static Flight[] getFlights(){
 
         System.out.println("Please enter your departure location in the format \"city, State\"");
-        String dLString = key.nextLine();
+        String dLString = key.nextLine().replaceAll("\n", " ").trim();
         String[] dLoc = parseLoc(dLString);
         System.out.println("Getting departure date information:");
         Date dDate= getDate();
         System.out.println("Please enter your arrival location in the format \"city, State\"");
-        String aLString= key.nextLine();
+        String aLString= key.nextLine().replaceAll("\n", " ").trim();
         String[] aLoc = parseLoc(aLString);
         System.out.println("Getting arrival date information:");
         Date aDate = getDate();
@@ -264,7 +266,7 @@ public class UI {
      * prints the search results
      * @param x- string arr
      */
-    private static void printArrFlights(Object[]x) {
+    private static void printArrFlights(Flight[]x) {
         
         System.out.println("Search Results:");
         for (int i = 0; i<x.length;i++) {
@@ -299,6 +301,8 @@ public class UI {
      */
     private static String[] parseLoc(String location){
         String[] splitLoc= location.split(",");
+        splitLoc[0] = splitLoc[0].trim();
+        splitLoc[1] = splitLoc[1].trim();
         return splitLoc;
     }
 
@@ -327,7 +331,7 @@ public class UI {
         for (int i = 0; i< tempI.length; i++){
             tempS[i]= String.valueOf(tempI[i]);
         }
-        Date created= new Date (tempS[0], tempS[1], tempS[2]);
+        Date created= new Date (tempI[0], tempI[1], tempI[2]);
         return created;
     }
     /**

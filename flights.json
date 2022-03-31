@@ -15,14 +15,12 @@
     "departureTime": "12:45 PM EST",
     "arrivalTime": "2:55 PM EST",
     "departureDate": {
-      "day_of_week": "Wednesday",
-      "month": "5",
+      "month": 5,
       "day": 11,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Wednesday",
-      "month": "5",
+      "month": 5,
       "day": 11,
       "year": 2022
     },
@@ -120,14 +118,12 @@
     "departureTime": "5:30 AM EST",
     "arrivalTime": "6:30 AM EST",
     "departureDate": {
-      "day_of_week": "Thursday",
-      "month": "3",
+      "month": 3,
       "day": 24,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Thursday",
-      "month": "3",
+      "month": 3,
       "day": 24,
       "year": 2022
     },
@@ -240,14 +236,12 @@
     "departureTime": "2:50 PM EST",
     "arrivalTime": "5:00 PM MDT",
     "departureDate": {
-      "day_of_week": "Saturday",
-      "month": "2",
+      "month": 2,
       "day": 4,
       "year": 2023
     },
     "arrivalDate": {
-      "day_of_week": "Saturday",
-      "month": "2",
+      "month": 2,
       "day": 4,
       "year": 2023
     },
@@ -450,14 +444,12 @@
     "departureTime": "10:20 AM MST",
     "arrivalTime": "11:50 AM PDT",
     "departureDate": {
-      "day_of_week": "Monday",
-      "month": "7",
+      "month": 7,
       "day": 2,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Monday",
-      "month": "7",
+      "month": 7,
       "day": 2,
       "year": 2022
     },
@@ -620,14 +612,12 @@
     "departureTime": "11:05 AM EST",
     "arrivalTime": "12:55 CDT",
     "departureDate": {
-      "day_of_week": "Monday",
-      "month": "8",
+      "month": 8,
       "day": 8,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Monday",
-      "month": "8",
+      "month": 8,
       "day": 8,
       "year": 2022
     },
@@ -750,14 +740,12 @@
     "departureTime": "4:25 PM EST",
     "arrivalTime": "4:55 PM EST",
     "departureDate": {
-      "day_of_week": "Tuesday",
-      "month": "4",
+      "month": 4,
       "day": 19,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Tuesday",
-      "month": "4",
+      "month": 4,
       "day": 19,
       "year": 2022
     },
@@ -960,14 +948,12 @@
     "departureTime": "10:15 AM MDT",
     "arrivalTime": "11:45 AM PDT",
     "departureDate": {
-      "day_of_week": "Friday",
-      "month": "1",
+      "month": 1,
       "day": 23,
       "year": 2023
     },
     "arrivalDate": {
-      "day_of_week": "Friday",
-      "month": "1",
+      "month": 1,
       "day": 6,
       "year": 2023
     },
@@ -1190,14 +1176,12 @@
     "departureTime": "3:37 PM EST",
     "arrivalTime": "5:37 PM PDT",
     "departureDate": {
-      "day_of_week": "Tuesday",
-      "month": "6",
+      "month": 6,
       "day": 21,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Tuesday",
-      "month": "6",
+      "month": 6,
       "day": 21,
       "year": 2022
     },
@@ -1400,14 +1384,12 @@
     "departureTime": "11:35 AM PDT",
     "arrivalTime": "10:24 PM EST",
     "departureDate": {
-      "day_of_week": "Wednesday",
-      "month": "6",
+      "month": 6,
       "day": 29,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Wednesday",
-      "month": "6",
+      "month": 6,
       "day": 29,
       "year": 2022
     },
@@ -1510,14 +1492,12 @@
     "departureTime": "6:30 PM EST",
     "arrivalTime": "11:50 AM",
     "departureDate": {
-      "day_of_week": "Wednesday",
-      "month": "5",
+      "month": 5,
       "day": 25,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Thursday",
-      "month": "5",
+      "month": 5,
       "day": 26,
       "year": 2022
     },
@@ -1840,14 +1820,12 @@
     "departureTime": "4:20 PM CDT",
     "arrivalTime": "7:35 AM",
     "departureDate": {
-      "day_of_week": "Friday",
-      "month": "10",
+      "month": 10,
       "day": 28,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Saturday",
-      "month": "10",
+      "month": 10,
       "day": 29,
       "year": 2022
     },
@@ -2070,14 +2048,12 @@
     "departureTime": "3:40 PM CDT",
     "arrivalTime": "12:25 AM",
     "departureDate": {
-      "day_of_week": "Sunday",
-      "month": "11",
+      "month": 11,
       "day": 5,
       "year": 2023
     },
     "arrivalDate": {
-      "day_of_week": "Tuesday",
-      "month": "11",
+      "month": 11,
       "day": 6,
       "year": 2023
     },
@@ -2350,14 +2326,12 @@
     "departureTime": "11:40 AM EST",
     "arrivalTime": "3:50 PM PDT",
     "departureDate": {
-      "day_of_week": "Sunday",
-      "month": "11",
+      "month": 11,
       "day": 31,
       "year": 2022
     },
     "arrivalDate": {
-      "day_of_week": "Sunday",
-      "month": "11",
+      "month": 11,
       "day": 31,
       "year": 2022
     },

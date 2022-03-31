@@ -38,21 +38,19 @@ public class DataLoader extends DataConstants {
                 String departureState = (String)jsonDeparture.get("State");
 
                 JSONObject jsonDeptDate = (JSONObject)flightJSON.get("departureDate");
-                String deptWeekday = (String)jsonDeptDate.get("day_of_week");
-                String deptMonth = (String)jsonDeptDate.get("month");
+                int deptMonth = ((Long)jsonDeptDate.get("month")).intValue();
                 int deptDay = ((Long)jsonDeptDate.get("day")).intValue();
                 int deptYear = ((Long)jsonDeptDate.get("year")).intValue();
 
-                Date deptDate = new Date(deptWeekday, deptMonth, deptDay, deptYear);
+                Date deptDate = new Date(deptMonth, deptDay, deptYear);
 
 
                 JSONObject jsonArrivalDate = (JSONObject)flightJSON.get("arrivalDate");
-                String arrWeekday = (String)jsonArrivalDate.get("day_of_week");
-                String arrMonth = (String)jsonArrivalDate.get("month");
+                int arrMonth = ((Long)jsonArrivalDate.get("month")).intValue();
                 int arrDay = ((Long)jsonArrivalDate.get("day")).intValue();
                 int arrYear = ((Long)jsonArrivalDate.get("year")).intValue();
 
-                Date arrDate = new Date(arrWeekday, arrMonth, arrDay, arrYear);
+                Date arrDate = new Date(arrMonth, arrDay, arrYear);
                 
                 String duration = (String)flightJSON.get(FLIGHT_DURATION);
                 String deptTime = (String)flightJSON.get(DEPT_TIME);
