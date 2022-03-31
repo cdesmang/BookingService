@@ -11,7 +11,10 @@ import java.util.UUID;
  */
 
 public class DataLoader extends DataConstants {
-
+    
+    /**
+     * @return Returns an array list of all current flights in the system
+     */
     public static ArrayList<Flight> loadFlights() {
         ArrayList<Flight> flights = new ArrayList<Flight>();
 
@@ -87,6 +90,9 @@ public class DataLoader extends DataConstants {
     }
 
     
+    /**
+     * @return Returns an array list of all registered users that are currently in the system
+     */
     public static ArrayList<RegisteredUser> getAllUsers() {
         ArrayList<RegisteredUser> users = new ArrayList<RegisteredUser>();
 

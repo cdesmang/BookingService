@@ -127,29 +127,47 @@ public class DataWriter extends DataConstants {
 
         JSONArray bookingList = new JSONArray();
 
-        /*for (int i = 0; i < user.getBookings().size(); i++) {
+        for (int i = 0; i < user.getBookings().size(); i++) {
             JSONObject bookingObject = new JSONObject();
-            UUID bookingID = user.getBookings().get(i).getFlight().getID();
-            int row = user.getBookings().get(i).getFlight().getSeats().get(i).getRow();
-            String seatNum = user.getBookings().get(i).getFlight().getSeats().get(i).getSeatNumber();
-            String seat = row + seatNum;
-            bookingObject.put(USER_FLIGHT, bookingID);
-            bookingObject.put(USER_SEAT, seat);
+            UUID bookingFlightID =  user.getBookings().get(i).getFlightID();
+            String bookingFlightSeat = user.getBookings().get(i).getSeat();
+
+            bookingObject.put(USER_FLIGHT, bookingFlightID);
+            bookingObject.put(USER_SEAT, bookingFlightSeat);
 
             bookingList.add(bookingObject);
-
-        } */
-
+        }
         userDetails.put(BOOKINGS, bookingList);
 
-        /*JSONArray friendList = new JSONArray();
+
+        JSONObject friendsObject = new JSONObject();
+        JSONArray friendList = new JSONArray();
 
         for (int i = 0; i < user.getFriends().size(); i++) {
             JSONObject friendObject = new JSONObject();
-            String bookingID = user.getFriends().get
-        } */
+            String friendFirstName = user.getFriends().get(i).getFirstName();
+            String friendLastName = user.getFriends().get(i).getLastName();
+
+            JSONArray friendBookings = new JSONArray();
+
+            for (int j = 0; j < user.getFriends().get(j).getBookings().size(); j++) {
+                JSONObject friendBookingObject = new JSONObject();
+                UUID friendFlightID = user.getFriends().get(j).getBookings().get(j).getFlightID();
+                String friendFlightSeat = user.getFriends().get(j).getBookings().get(j).getSeat();
+
+                friendBookingObject.put(FRIENDS_FLIGHT_ID, friendFlightID);
+                friendBookingObject.put(FRIENDS_FLIGHT_SEAT, friendFlightSeat);
+
+                friendBookings.add(friendBookingObject);
+            }
+            friendObject.put(FRIENDS_FIRST_NAME, friendFirstName);
+            friendObject.put(FRIENDS_LAST_NAME, friendLastName);
+            friendObject.put(FRIENDS_BOOKINGS, friendBookings);
+
+            friendList.add(friendObject);
+        }
+        userDetails.put(FRIENDS, friendList);
 
         return userDetails;
-
     }
 }

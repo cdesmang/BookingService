@@ -20,6 +20,16 @@ public class Friend {
         this.address = address;
     }
 
+    /**
+     * @param firstName the first name of the friend
+     * @param lastName the last name of the friend
+     * @param bookings an array list of the bookings associated with the friend
+     * 
+     * 
+     * This constructor is used for reading and writing to/from the JSON file
+     * 
+     * 
+     */
     public Friend(String firstName, String lastName, ArrayList<Booking> bookings) {
         this.firstName = firstName;
         this.lastName = lastName;

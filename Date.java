@@ -11,19 +11,30 @@ public class Date {
     private int day;
     private int year;
 
-    public Date(String month, int day, int year){
-        this.month= month;
-        this.year = year;
-        this.day = day;
-       // this.weekday = 
-    }
-
     /**
      * initialises Date type.
      * @param month the full month in string format.
      * @param date the day of the month.
      * @param year
      */
+    public Date(String month, int day, int year){
+        this.month= month;
+        this.year = year;
+        this.day = day;
+       // this.weekday = 
+    }
+    
+     /**
+      * @param weekday a string value indicating the day of the week the flight will be on
+      * @param month a string value indicating the month
+      * @param day the day of the month
+      * @param year the year
+      * 
+      *
+      * This constructor is used for reading and writing to/from the JSON file
+      *
+      *
+      */
     public Date(String weekday, String month, int day, int year) {
         this.weekday = weekday;
         this.month = month;
