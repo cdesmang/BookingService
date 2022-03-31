@@ -36,4 +36,10 @@ public abstract class DataConstants {
     protected static final String BOOKINGS = "bookings";
     protected static final String USER_FLIGHT = "flight_ID";
     protected static final String USER_SEAT = "seat";
+    protected static final String FRIENDS = "friends";
+    protected static final String FRIENDS_BOOKINGS = "friend_bookings";
+    protected static final String FRIENDS_FLIGHT_ID = "flight_ID";
+    protected static final String FRIENDS_FLIGHT_SEAT = "seat";
+    protected static final String FRIENDS_FIRST_NAME = "first_name";
+    protected static final String FRIENDS_LAST_NAME = "last_name";
 }

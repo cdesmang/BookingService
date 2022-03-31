@@ -19,6 +19,15 @@ public class Booking {
         this.reservations = reservations;
     }
 
+    /**
+     * @param flightID the UUID associated with the flight
+     * @param seat the seat on the flight associated with the user
+     * 
+     * 
+     * This constructor is used for reading and writing to/from the JSON file
+     * 
+     * 
+     */
     public Booking(UUID flightID, String seat) {
         this.flightID = flightID;
         this.seat = seat;

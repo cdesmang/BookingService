@@ -69,4 +69,8 @@ public class Users {
         users.
     }*/
 
+    public void logout() {
+        DataWriter.saveUsers();
+    }
+
 }
