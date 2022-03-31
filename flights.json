@@ -1,0 +1,2442 @@
+[
+  {
+    "id": "d6069430-0a73-4fed-baa4-144cf4b1defc",
+    "flightNumber": 3812,
+    "airline": "DL",
+    "destination": {
+      "City": "Boston",
+      "State": "MA"
+    },
+    "departLocation": {
+      "City": "Charlotte",
+      "State": "NC"
+    },
+    "flightDuration": "2 hours 10 minutes",
+    "departureTime": "12:45 PM EST",
+    "arrivalTime": "2:55 PM EST",
+    "departureDate": {
+      "day_of_week": "Wednesday",
+      "month": "May",
+      "day": 11,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Wednesday",
+      "month": "May",
+      "day": 11,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": false
+      }
+    ]
+  },
+  {
+    "id": "0e12cd96-d189-4e9e-be6e-1fbd7410ea49",
+    "flightNumber": 9254,
+    "airline": "AA",
+    "destination": {
+      "City": "Columbia",
+      "State": "SC"
+    },
+    "departLocation": {
+      "City": "Charlotte",
+      "State": "NC"
+    },
+    "flightDuration": "1 hour",
+    "departureTime": "5:30 AM EST",
+    "arrivalTime": "6:30 AM EST",
+    "departureDate": {
+      "day_of_week": "Thursday",
+      "month": "March",
+      "day": 24,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Thursday",
+      "month": "March",
+      "day": 24,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 7,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 7,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 8,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 8,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 9,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 9,
+        "seatNum": "B",
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": "0c634af1-265b-4f8a-8ab2-63d6d3735f80",
+    "flightNumber": 7450,
+    "airline": "SW",
+    "destination": {
+      "City": "Denver",
+      "State": "CO"
+    },
+    "departLocation": {
+      "City": "Orlando",
+      "State": "FL"
+    },
+    "flightDuration": "4 hours 10 minutes",
+    "departureTime": "2:50 PM EST",
+    "arrivalTime": "5:00 PM MDT",
+    "departureDate": {
+      "day_of_week": "Saturday",
+      "month": "February",
+      "day": 4,
+      "year": 2023
+    },
+    "arrivalDate": {
+      "day_of_week": "Saturday",
+      "month": "February",
+      "day": 4,
+      "year": 2023
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "F",
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": "12dfa4f7-edf3-483c-8be3-7cb4c2e18dbe",
+    "flightNumber": 5517,
+    "airline": "AA",
+    "destination": {
+      "City": "Los Angeles",
+      "State": "CA"
+    },
+    "departLocation": {
+      "City": "Phoenix",
+      "State": "AZ"
+    },
+    "flightDuration": "1 hour 30 minutes",
+    "departureTime": "10:20 AM MST",
+    "arrivalTime": "11:50 AM PDT",
+    "departureDate": {
+      "day_of_week": "Monday",
+      "month": "July",
+      "day": 2,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Monday",
+      "month": "July",
+      "day": 2,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 7,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 7,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 7,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 7,
+        "seatNum": "D",
+        "available": false
+      }
+    ]
+  },
+  {
+    "id": "d9a1cca2-8bad-4ad0-a936-71e606d7f622",
+    "flightNumber": 1996,
+    "airline": "DL",
+    "destination": {
+      "City": "Houston",
+      "State": "TX"
+    },
+    "departLocation": {
+      "City": "Charlotte",
+      "State": "NC"
+    },
+    "flightDuration": "2 hours 50 minutes",
+    "departureTime": "11:05 AM EST",
+    "arrivalTime": "12:55 CDT",
+    "departureDate": {
+      "day_of_week": "Monday",
+      "month": "August",
+      "day": 8,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Monday",
+      "month": "August",
+      "day": 8,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "D",
+        "available": false
+      }
+    ]
+  },
+  {
+    "id": "7947447b-c1f5-4c35-a18f-0e3a9ea365de",
+    "flightNumber": 8842,
+    "airline": "NW",
+    "destination": {
+      "City": "Philadelphia",
+      "State": "PA"
+    },
+    "departLocation": {
+      "City": "Queens",
+      "State": "NY"
+    },
+    "flightDuration": "30 minutes",
+    "departureTime": "4:25 PM EST",
+    "arrivalTime": "4:55 PM EST",
+    "departureDate": {
+      "day_of_week": "Tuesday",
+      "month": "April",
+      "day": 19,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Tuesday",
+      "month": "April",
+      "day": 19,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "F",
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": "12dfa4f7-edf3-483c-8be3-7cb4c2e18dbe",
+    "flightNumber": 5517,
+    "airline": "AA",
+    "destination": {
+      "City": "Los Angeles",
+      "State": "CA"
+    },
+    "departLocation": {
+      "City": "Phoenix",
+      "State": "AZ"
+    },
+    "flightDuration": "1 hour 30 minutes",
+    "departureTime": "10:15 AM MDT",
+    "arrivalTime": "11:45 AM PDT",
+    "departureDate": {
+      "day_of_week": "Friday",
+      "month": "January",
+      "day": 23,
+      "year": 2023
+    },
+    "arrivalDate": {
+      "day_of_week": "Friday",
+      "month": "January",
+      "day": 6,
+      "year": 2023
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 7,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 7,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 7,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 7,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 8,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 8,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 8,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 8,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 9,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 9,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 9,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 9,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 10,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 10,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 10,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 10,
+        "seatNum": "D",
+        "available": false
+      }
+    ]
+  },
+  {
+    "id": "a9d866db-bacf-44be-934b-1b2169fdbaf8",
+    "flightNumber": 7001,
+    "airline": "AA",
+    "destination": {
+      "City": "San Francisco",
+      "State": "CA"
+    },
+    "departLocation": {
+      "City": "Charlotte",
+      "State": "NC"
+    },
+    "flightDuration": "5 hours",
+    "departureTime": "3:37 PM EST",
+    "arrivalTime": "5:37 PM PDT",
+    "departureDate": {
+      "day_of_week": "Tuesday",
+      "month": "June",
+      "day": 21,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Tuesday",
+      "month": "June",
+      "day": 21,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "F",
+        "available": false
+      }
+    ]
+  },
+  {
+    "id": "553a168f-d59a-4843-bdd4-2bb6900da600",
+    "flightNumber": 8824,
+    "airline": "DL",
+    "destination": {
+      "City": "Miami",
+      "State": "FL"
+    },
+    "departLocation": {
+      "City": "San Francisco",
+      "State": "CA"
+    },
+    "flightDuration": "7 hours 49 minutes",
+    "departureTime": "11:35 AM PDT",
+    "arrivalTime": "10:24 PM EST",
+    "departureDate": {
+      "day_of_week": "Wednesday",
+      "month": "June",
+      "day": 29,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Wednesday",
+      "month": "June",
+      "day": 29,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": "9f239da7-93c4-4a9b-8948-369301486571",
+    "flightNumber": 9871,
+    "airline": "AA",
+    "destination": {
+      "City": "Rome",
+      "State": "Italy"
+    },
+    "departLocation": {
+      "City": "Charlotte",
+      "State": "NC"
+    },
+    "flightDuration": "11 hours 20 minutes",
+    "departureTime": "6:30 PM EST",
+    "arrivalTime": "11:50 AM",
+    "departureDate": {
+      "day_of_week": "Wednesday",
+      "month": "May",
+      "day": 25,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Thursday",
+      "month": "May",
+      "day": 26,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "G",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "J",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "G",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "I",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "J",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "G",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "H",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "I",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "J",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "G",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "H",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "J",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "G",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "J",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 6,
+        "seatNum": "G",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 6,
+        "seatNum": "J",
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": "8c724731-ab3e-4848-a02e-5d2a33e52926",
+    "flightNumber": 2905,
+    "airline": "DL",
+    "destination": {
+      "City": "Paris",
+      "State": "France"
+    },
+    "departLocation": {
+      "City": "Dallas",
+      "State": "TX"
+    },
+    "flightDuration": "9 hours 15 minutes",
+    "departureTime": "4:20 PM CDT",
+    "arrivalTime": "7:35 AM",
+    "departureDate": {
+      "day_of_week": "Friday",
+      "month": "October",
+      "day": 28,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Saturday",
+      "month": "October",
+      "day": 29,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "G",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "J",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "G",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "J",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "G",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "I",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "J",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "G",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "J",
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": "89953bc8-5655-41a9-a62f-b360ad1aa695",
+    "flightNumber": 3518,
+    "airline": "NW",
+    "destination": {
+      "City": "Sydney",
+      "State": "Australia"
+    },
+    "departLocation": {
+      "City": "Dallas",
+      "State": "TX"
+    },
+    "flightDuration": "16 hours 45 minutes",
+    "departureTime": "3:40 PM CDT",
+    "arrivalTime": "12:25 AM",
+    "departureDate": {
+      "day_of_week": "Sunday",
+      "month": "November",
+      "day": 5,
+      "year": 2023
+    },
+    "arrivalDate": {
+      "day_of_week": "Tuesday",
+      "month": "November",
+      "day": 6,
+      "year": 2023
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "G",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "I",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "J",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "G",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "J",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "G",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "H",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "J",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "D",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "E",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "F",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "G",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "H",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "I",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "J",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "D",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "E",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "F",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "G",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "H",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "I",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "J",
+        "available": true
+      }
+    ]
+  },
+  {
+    "id": "1f5c4560-f6e4-4bae-8cc7-98592c1a9f70",
+    "flightNumber": 7797,
+    "airline": "SW",
+    "destination": {
+      "City": "Seattle",
+      "State": "Washington"
+    },
+    "departLocation": {
+      "City": "Columbia",
+      "State": "SC"
+    },
+    "flightDuration": "5 hours and 10 minutes",
+    "departureTime": "11:40 AM EST",
+    "arrivalTime": "3:50 PM PDT",
+    "departureDate": {
+      "day_of_week": "Sunday",
+      "month": "November",
+      "day": 31,
+      "year": 2022
+    },
+    "arrivalDate": {
+      "day_of_week": "Sunday",
+      "month": "November",
+      "day": 31,
+      "year": 2022
+    },
+    "seats": [
+      {
+        "row": 1,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 1,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 1,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 2,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 2,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 3,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 3,
+        "seatNum": "C",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "A",
+        "available": true
+      },
+      {
+        "row": 4,
+        "seatNum": "B",
+        "available": false
+      },
+      {
+        "row": 4,
+        "seatNum": "C",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "A",
+        "available": false
+      },
+      {
+        "row": 5,
+        "seatNum": "B",
+        "available": true
+      },
+      {
+        "row": 5,
+        "seatNum": "C",
+        "available": true
+      }
+    ]
+  }
+]
