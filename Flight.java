@@ -24,8 +24,7 @@ public class Flight {
  private ArrayList<Seat> seats;
  private ArrayList<Integer> connectionIndex;
 
-    public Flight(UUID flightID, int flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats)
-    {
+    public Flight(UUID flightID, int flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats) {
         this.flightID = flightID;
         this.flightNum = flightNum;
         this.airline = airline;
@@ -39,62 +38,49 @@ public class Flight {
         this.seats = seats;
         this.connectionIndex = null;
     }
-    public UUID getFlightID()
-    {
+    public UUID getFlightID() {
         return flightID;
     }
-    public int getFlightNum()
-    {
+    public int getFlightNum() {
         return flightNum;
     }
-    public String getAirline()
-    {
+    public String getAirline() {
         return airline;
     }
-    public String getDestinationCity() 
-    {
+    public String getDestinationCity()  {
         return destinationCity;
     }
-    public String getDestinationState() 
-    {
+    public String getDestinationState()  {
         return destinationState;
     }
-    public String getDepartCity() 
-    {
+    public String getDepartCity()  {
         return departureCity;
     }
-    public String getDepartState() 
-    {
+    public String getDepartState()  {
         return departureState;
     }
-    public String getFlightDuration() 
-    {
+    public String getFlightDuration()  {
         return flightDuration;
     }
-    public String getDepartTime() 
-    {
+    public String getDepartTime()  {
         return departureTime;
     }
-    public String getArrivalTime()
-    {
+    public String getArrivalTime() {
         return arrivalTime;
     }
-    public Date getDepartDate()
-    {
+    public Date getDepartDate() {
         return departureDate;
     }
-    public Date getArrivalDate()
-    {
+    public Date getArrivalDate() {
         return arrivalDate;
     }
-    public ArrayList<Seat> getSeats()
-    {
+    public ArrayList<Seat> getSeats() {
         return seats;
     }
-    public int getConnection(int i){
+    public int getConnection(int i) {
         return this.connectionIndex.get(i);
     }
-    public ArrayList<Integer> getConnectionString(){
+    public ArrayList<Integer> getConnectionString() {
         ArrayList<Integer> temp = new ArrayList<Integer>();
         for (int i=0; i < connectionIndex.size(); i++){
             temp.add(connectionIndex.get(i)+1);
@@ -102,64 +88,53 @@ public class Flight {
         return temp;
     }
 
-    public void setConnection(int i){
+    public void setConnection(int i) {
         if (this.connectionIndex == null){
             this.connectionIndex = new ArrayList<Integer>();}
         this.connectionIndex.add(i);
     }
-    public void setFlightID(UUID flightID)
-    {
+    public void setFlightID(UUID flightID) {
         this.flightID = flightID;
     }
-    public void setFlightNum(int flightNum)
-    {
+    public void setFlightNum(int flightNum) {
         if (flightNum > 0)
             this.flightNum = flightNum;
     }
-    public void setAirline(String airline)
-    {
+    public void setAirline(String airline) {
         this.airline = airline;
     }
-    public void setDestinationCity(String city)
-    {
+    public void setDestinationCity(String city) {
         this.destinationCity = city;
     }
-    public void setDestinationState(String state)
-    {
+    public void setDestinationState(String state) {
         this.destinationState = state;
     }
-    public void setDepartCity(String city)
-    {
+    public void setDepartCity(String city) {
         this.departureCity = city;
     }
-    public void setDepartState(String state)
-    {
+    public void setDepartState(String state) {
         this.departureState = state;
     }
-    public void setDepartTime(String departTime)
-    {
+    public void setDepartTime(String departTime) {
         this.departureTime = departTime;
     }
-    public void setArrivalTime(String arrivalTime)
-    {
+    public void setArrivalTime(String arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
-    public void setDepartDate(Date departDate)
-    {
+    public void setDepartDate(Date departDate) {
         this.departureDate = departDate;
     }
     public void setArrivalDate(Date arrivalDate)
     {
         this.arrivalDate = arrivalDate;
     }
-    public void setSeats(ArrayList<Seat> seats)
-    {
+    public void setSeats(ArrayList<Seat> seats) {
         this.seats = seats;
     }
     /**
      * Puts the flight information in a string
      */
-    public String toString (){
+    public String toString () {
         String connections=" ";
         if(this.connectionIndex != null){
             for(int i = 0; i< connectionIndex.size(); i++){
@@ -183,7 +158,7 @@ public class Flight {
      * Converts the array list of seats to a 2D array with correct rows
      * @return an array of seats
      */
-    public Seat[][] toSeatArray(){
+    public Seat[][] toSeatArray() {
         Seat[][] temp;
         int sInRow = 0;
         int numRow =this.seats.size() - 1; 
