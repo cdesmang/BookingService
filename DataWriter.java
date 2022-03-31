@@ -1,8 +1,10 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.attribute.UserPrincipalLookupService;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import java.util.UUID;
 
 /**
  * @author Tommy Ecker
@@ -27,6 +29,26 @@ public class DataWriter extends DataConstants {
             file.flush();
             file.close();
             
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveUsers() {
+        RegisteredUsers users = RegisteredUsers.getInstance();
+        ArrayList<RegisteredUser> accounts = users.getRegisteredUsers();
+        JSONArray jsonAccounts = new JSONArray();
+
+        // Creates all of the JSON files
+        for (int i = 0; i < accounts.size(); i++) {
+            jsonAccounts.add(getRegisteredUserJSON(accounts.get(i)));
+        }
+
+        // Writes to the JSON file
+        try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
+            file.append(jsonAccounts.toJSONString());
+            file.flush();
+            file.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -75,7 +97,77 @@ public class DataWriter extends DataConstants {
         }
 
         flightDetails.put(SEATS, list);
-
+       
         return flightDetails;
+    }
+
+    public static JSONObject getRegisteredUserJSON (RegisteredUser user) {
+
+        RegisteredUsers users = RegisteredUsers.getInstance();
+
+        ArrayList<RegisteredUser> accounts = users.getRegisteredUsers();
+
+        JSONObject userDetails = new JSONObject();
+
+        //userDetails.put(FLIGHT_ID, user.getID());
+        userDetails.put(FIRST_NAME, user.getFirstName());
+        userDetails.put(LAST_NAME, user.getLastName());
+        userDetails.put(USERNAME, user.getUsername());
+        userDetails.put(PASSWORD, user.getPassword());
+        userDetails.put(EMAIL, user.getEmail());
+        userDetails.put(DATE_OF_BIRTH, user.getDateOfBirth());
+
+        JSONObject addressObject = new JSONObject();
+        addressObject.put(STREET_ADDRESS, user.getStreetAddress());
+        addressObject.put(ADDRESS_CITY, user.getAddressCity());
+        addressObject.put(ADDRESS_STATE, user.getAddressState());
+        addressObject.put(ADDRESS_ZIP, user.getAddressZip());
+
+        userDetails.put(ADDRESS, addressObject);
+
+        JSONArray bookingList = new JSONArray();
+
+        for (int i = 0; i < user.getBookings().size(); i++) {
+            JSONObject bookingObject = new JSONObject();
+            UUID bookingFlightID =  user.getBookings().get(i).getFlightID();
+            String bookingFlightSeat = user.getBookings().get(i).getSeat();
+
+            bookingObject.put(USER_FLIGHT, bookingFlightID);
+            bookingObject.put(USER_SEAT, bookingFlightSeat);
+
+            bookingList.add(bookingObject);
+        }
+        userDetails.put(BOOKINGS, bookingList);
+
+
+        JSONObject friendsObject = new JSONObject();
+        JSONArray friendList = new JSONArray();
+
+        for (int i = 0; i < user.getFriends().size(); i++) {
+            JSONObject friendObject = new JSONObject();
+            String friendFirstName = user.getFriends().get(i).getFirstName();
+            String friendLastName = user.getFriends().get(i).getLastName();
+
+            JSONArray friendBookings = new JSONArray();
+
+            for (int j = 0; j < user.getFriends().get(j).getBookings().size(); j++) {
+                JSONObject friendBookingObject = new JSONObject();
+                UUID friendFlightID = user.getFriends().get(j).getBookings().get(j).getFlightID();
+                String friendFlightSeat = user.getFriends().get(j).getBookings().get(j).getSeat();
+
+                friendBookingObject.put(FRIENDS_FLIGHT_ID, friendFlightID);
+                friendBookingObject.put(FRIENDS_FLIGHT_SEAT, friendFlightSeat);
+
+                friendBookings.add(friendBookingObject);
+            }
+            friendObject.put(FRIENDS_FIRST_NAME, friendFirstName);
+            friendObject.put(FRIENDS_LAST_NAME, friendLastName);
+            friendObject.put(FRIENDS_BOOKINGS, friendBookings);
+
+            friendList.add(friendObject);
+        }
+        userDetails.put(FRIENDS, friendList);
+
+        return userDetails;
     }
 }

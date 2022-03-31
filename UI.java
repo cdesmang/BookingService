@@ -5,6 +5,7 @@
  */
 
 import java.util.Scanner;
+import java.lang.ProcessHandle.Info;
 import java.util.ArrayList;
 public class UI {
 
@@ -71,8 +72,45 @@ public class UI {
         printArrFlights(flights);
 	    System.out.println("\n"+"\nPlease enter the result number of the flight(s) you would like to book."+
 	                                         "\nUse a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
+        String selection = key.nextLine().replace('\n', ' ');
+        String[]y = selection.split(",");
+        boolean run = true;
+        while(run){
+            System.out.println("Oops! You must be a registered user to book a flight.\n Please enter \"register\" to create and account or enter \"exit\" to leave the Flight Booking System!");
+            if (key.nextLine().trim().equalsIgnoreCase("register")){
+                String[]x = InfoNoBDay();
+                System.out.println("Please enter your Date of Birth");
+                Date dob = getDate();
+                flightSystem.setCurrentUser(x, dob);
+                System.out.println("Welcome, "+flightSystem.getCurrentUser().getUsername()+" !");
+                System.out.println("Please enter the number of tickets you would like to book:");
+                int numFriends = key.nextInt();
+                String flightSeats;
+                ArrayList<String> friendsUsernames= new ArrayList<String>();
+                if (numFriends > 1) {
+                    for (int i =0; i<numFriends; i++){
+                        friendsUsernames.add(addFriends());}
+                    flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
+                } else{
+                 flightSeats = flightSystem.flightBooking(selection, flights,null);}
 
-
+                 System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
+                 ArrayList<String> picked = new ArrayList<String>();
+                 for (int i=0 ;i< y.length; i++){
+                     System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
+                    String seatSelection = key.nextLine().replace('\n', ' ').trim();
+                    picked.add(seatSelection);
+                }
+                System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
+                logout();
+            }else if (key.nextLine().trim().equalsIgnoreCase("exit")){
+                System.out.println("Goodbye!");
+                return false;
+            }else {
+               System.out.println("Invalid input!");
+               run = true;
+            }
+        }
 /******/if (error == false) System.out.println("Error in guestSearch()");
 	    return error;
 
@@ -108,7 +146,7 @@ public class UI {
                             count = 3;
                         } else if (choice.equalsIgnoreCase("create")){
                             String[] info = InfoNoBDay();
-                            System.out.println("Please enter your date of birth");
+                            System.out.println("Please enter your Date of Birth");
                             Date bday = getDate();
                             flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],bday);
                             count++;
@@ -124,8 +162,33 @@ public class UI {
         System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
-        flightSystem.booking(selection, flights);
-    
+        String[] x = selection.split(",");
+        if (selection.equalsIgnoreCase("none")){
+            logout();
+            return false;
+        }
+        System.out.println("Please enter the number of tickets you would like to book:");
+        int numFriends = key.nextInt();
+        String flightSeats;
+        ArrayList<String> friendsUsernames= new ArrayList<String>();
+        if (numFriends > 1) {
+            for (int i =0; i<numFriends; i++){
+                friendsUsernames.add(addFriends());
+            }
+            flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
+        } else{
+            friendsUsernames = null;
+            flightSeats = flightSystem.flightBooking(selection, flights,null);
+        }
+        System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
+        ArrayList<String> picked = new ArrayList<String>();
+        for (int i=0 ;i< x.length; i++){
+            System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
+            String seatSelection = key.nextLine().replace('\n', ' ').trim();
+            picked.add(seatSelection);
+        }
+        System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
+        logout();
         if (error == false)System.out.println("Error in registeredUser()");
         return error;
     }
@@ -138,17 +201,37 @@ public class UI {
     private static boolean createUser( ){
         boolean error = true;
         String [] info = InfoNoBDay();
-        System.out.println("Please enter your date of birth.");
+        System.out.println("Please enter your Date of Birth.");
         Date bday= getDate();
         flightSystem = new FlightSystem(info[0], info[1], info[2], info[3], info[4], info[5],bday);
         System.out.println("Welcome, "+ flightSystem.getCurrentUser().getUsername()+" !");
         Flight[] flights = getFlights();
         printArrFlights(flights);
-        System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
-                                        "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
+        System.out.println("\n"+"\nPlease enter the result number of the flight(s) you would like to book."+
+                                        "\nPlease use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
-        flightSystem.booking(selection, flights);
-
+        String[]x = selection.split(",");
+        System.out.println("Please enter the number of tickets you would like to book:");
+        int numFriends = key.nextInt();
+        String flightSeats;
+        ArrayList<String> friendsUsernames= new ArrayList<String>();
+        if (numFriends > 1) {
+            for (int i =0; i<numFriends; i++){
+                friendsUsernames.add(addFriends());
+            }
+            flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
+        } else{
+            flightSeats = flightSystem.flightBooking(selection, flights,null);
+        }
+        System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
+        ArrayList<String> picked = new ArrayList<String>();
+        for (int i=0 ;i< x.length; i++){
+            System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
+            String seatSelection = key.nextLine().replace('\n', ' ').trim();
+            picked.add(seatSelection);
+        }
+        System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
+        logout();
         return error;
     }
 
@@ -189,8 +272,6 @@ public class UI {
             System.out.println("Result "+(i+1)+"\t"+x[i]);
         }
     }
-   
-
     /**
 	 * Collects information from user about creatiing an account(except birthday)
 	 * @return an array with all necessary information to create an new registered user except for the birthdate
@@ -236,12 +317,12 @@ public class UI {
             for (int i = 0; i<3; i++){
                 tempI[i] = Integer.parseInt(tempS[i]);
             }
-            if(tempI[0] >= 13) //invalid month
+            if(tempI[0] >= 13){ //invalid month
                 System.out.println("Invalid Month");
-                tempI[0] = 0;
-            if(tempI[1] >= 32) //invalid day
+                tempI[0] = 0;}
+            if(tempI[1] >= 32) {//invalid day
                 System.out.println("Invalid Day");
-                tempI[1] = 0;
+                tempI[1] = 0;}
         }
         tempS= new String[3];
         for (int i = 0; i< tempI.length; i++){
@@ -249,6 +330,18 @@ public class UI {
         }
         Date created= new Date (tempS[0], tempS[1], tempS[2]);
         return created;
+    }
+    /**
+     * Creates a new friend for the user and adds them to the arraylist
+     * @return - new friends username
+     */
+    private static String addFriends(){
+        System.out.println("Please enter the following information about those for whom you would like to book a ticket.");
+        String[] newFriend = InfoNoBDay();
+        Date fDate = getDate();
+        flightSystem.addFriends(newFriend, fDate);
+        return newFriend[2];
+            //friends username
     }
 
     
