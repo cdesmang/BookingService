@@ -109,6 +109,7 @@ public class UI {
                System.out.println("Invalid input!");
                run = true;
             }
+
         }
 /******/if (error == false) System.out.println("Error in guestSearch()");
 	    return error;
