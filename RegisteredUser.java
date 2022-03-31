@@ -36,6 +36,26 @@ public class RegisteredUser extends User {
         this.userType = "registered";
     }
 
+    /**
+     * @param userID a UUID used to identify the user as a registered user
+     * @param firstName the user's first name
+     * @param lastName the user's last name
+     * @param username the username associated with the registered user's account
+     * @param password the password associated with the registered user's account
+     * @param email the user's email address
+     * @param dateOfBirth the user's date of birth represented as a string
+     * @param streetAddress the street address associated with the user's address
+     * @param addressCity the city associated with the user's address
+     * @param addressState the state associated with the user's address
+     * @param addressZip the zip code associated with the user's address
+     * @param bookings an array list of all of the user's bookings
+     * @param friends an array list of all of the user's friends associated with their account
+     * 
+     * 
+     * This constructor is used for reading and writing to/from the JSON file
+     * 
+     * 
+     */
     public RegisteredUser(UUID userID, String firstName, String lastName, String username, String password, String email, String dateOfBirth, String streetAddress, String addressCity, String addressState, int addressZip, ArrayList<Booking> bookings, ArrayList<Friend> friends) {
         this.userID = userID;
         this.firstName = firstName;
