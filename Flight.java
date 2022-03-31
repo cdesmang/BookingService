@@ -156,7 +156,9 @@ public class Flight {
     {
         this.seats = seats;
     }
-
+    /**
+     * Puts the flight information in a string
+     */
     public String toString (){
         String connections=" ";
         if(this.connectionIndex != null){
