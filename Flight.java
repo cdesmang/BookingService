@@ -165,7 +165,7 @@ public class Flight {
     public Seat[][] toSeatArray() {
         Seat[][] temp;
         int sInRow = 0;
-        int numRow =this.seats.size() - 1; 
+        int numRow =this.seats.get(seats.size()-1).getRow()-1; 
         for (int i = 0 ; i < seats.size(); i++){
             if (seats.get(i).getSeatNumber().equalsIgnoreCase("D")){
                 sInRow = 4;
