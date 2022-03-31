@@ -60,6 +60,6 @@ public class Date {
     }
     
     public boolean dateMatch(Date x){
-        return this.month.equalsIgnoreCase(x.month) && (this.day == x.day) && (this.year == x.year);
+        return this.month == x.month && (this.day == x.day) && (this.year == x.year);
     }
 }
