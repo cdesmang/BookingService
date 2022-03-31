@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch UI",
+            "request": "launch",
+            "mainClass": "UI",
+            "projectName": "BookingService_89a84eac"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"

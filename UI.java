@@ -105,7 +105,8 @@ public class UI {
                 logout();
             }else if (guestRegistry.equalsIgnoreCase("exit")){
                 System.out.println("Goodbye!");
-                run = false;
+                run= false;
+                error = false;
             }else {
                System.out.println("Invalid input!");
                run = true;
@@ -166,6 +167,7 @@ public class UI {
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
         String[] x = selection.split(",");
+        int intX = Integer.parseInt(selection);
         if (selection.equalsIgnoreCase("none")){
             logout();
             return false;
@@ -185,14 +187,15 @@ public class UI {
         }
         System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
         ArrayList<String> picked = new ArrayList<String>();
-        for (int i=0 ;i< x.length; i++){
+        for (int i=0 ;i< intX; i++){
             System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
+            String buffer = key.nextLine();
             String seatSelection = key.nextLine().replace('\n', ' ').trim();
             picked.add(seatSelection);
         }
         System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
         logout();
-        if (error == false)System.out.println("Error in registeredUser()");
+
         return error;
     }
 
@@ -285,8 +288,9 @@ public class UI {
 	private static String[] InfoNoBDay(){
 	    String[] temp = new String[6];
 	    System.out.println("Please enter the first name that would appear on any legal documentation: ");
+        String buffer = key.nextLine();
 	    temp[0] = key.nextLine().replace('\n',' ').trim();
-	    System.out.println("Please enter the last name that would appear on any legal documentation: ");
+	    System.out.println("Please enter the last name that would appear on any legal documentation: \n");
 	    temp[1] = key.nextLine().replace('\n', ' ').trim();
 	    System.out.println("Please enter a username: ");
 	    temp[2] = key.nextLine().replace('\n',' ').trim();
