@@ -131,8 +131,10 @@ public class FlightSystem {
         String aState = aLoc[1];
         ArrayList<Flight> temp = flights.searchFlight(dCity, dState, aCity, aState, dDate, aDate);
         Flight[] print;
-        if(temp.size() == 0)print = null;
+        if(temp.size() == 0) { print = null;
             // if this is null there are no results.
+            System.out.println("No results");
+        }
         else print = toFlightArray(temp);
         return print;
     }

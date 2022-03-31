@@ -7,7 +7,7 @@ public class Booking {
     public String customer_username; // this booking is for this customer
     public ArrayList<Flight> journey;
     public ArrayList<Room> reservations;
-    public Seat seat; // used for JSON file
+    public String seat; // used for JSON file
 
     private UUID flightID; // used for JSON file
 
@@ -15,6 +15,11 @@ public class Booking {
     public Booking(String booker_username, String customer_username) {
         this.booker_username = booker_username;
         this.customer_username = customer_username;
+    }
+
+    public Booking(UUID flightID, String seat) {
+        this.flightID = flightID;
+        this.seat = seat;
     }
 
     public void addFlight(Flight flight) {
@@ -38,7 +43,7 @@ public class Booking {
     }
 
     public String getSeat() {
-        return seat.getSeatNumber();
+        return this.seat;
 
     }
 }

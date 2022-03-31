@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 public class Flights {
 
-    private static Flights flights;
+    private static Flights flights = Flights.getInstance();
     private static ArrayList<Flight> allFlights;
    // private static DataLoader DL = new DataLoader();
 
@@ -107,6 +107,13 @@ public class Flights {
      */
     private boolean checkDL(String city, String state,int i){
         try{
+
+            if (allFlights != null) {}
+
+            System.out.println(allFlights.get(i).getDepartCity());
+
+
+
             return allFlights.get(i).getDepartCity().equalsIgnoreCase(city) && allFlights.get(i).getDepartState().equalsIgnoreCase(state);
         } catch(Exception e){
             return false;
