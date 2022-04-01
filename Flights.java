@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 public class Flights {
 
-    private static Flights flights;
-    private static ArrayList<Flight> allFlights;
+    private static Flights flights = null;
+    private static ArrayList<Flight> allFlights = new ArrayList<>();
    // private static DataLoader DL = new DataLoader();
 
     /**
@@ -22,8 +22,9 @@ public class Flights {
      * @return the instance of Flight class
      */
     public static Flights getInstance(){
-        if (flights == null)
+        if (flights == null) {
             flights = new Flights();
+        }
         return flights;
 
     }
@@ -54,11 +55,13 @@ public class Flights {
             } else if (checkAL(aCity, aState, i)&&checkAD(aDate, i)){
                 tempA.add(allFlights.get(i));
                 i++;
+            }else{
+                i++;
             }
         }
         int j = 0;
         ArrayList<Flight> connection = checkConnection(tempD, tempA);
-        while(connection.get(j) != null){
+        while(j<connection.size()){
             temp.add(connection.get(i));
             j++;
         }
@@ -89,7 +92,7 @@ public class Flights {
             for (int j = 0; j< y.size(); j++){
                 if(x.get(i).getDestinationCity().equalsIgnoreCase(y.get(j).getDepartCity())&&x.get(i).getDestinationState().equalsIgnoreCase(y.get(j).getDepartState())){
                     temp.add(x.get(i));
-                    temp.get(temp.size()-1).setConnection(temp.size());
+                    temp.get(temp.size()-1).setConnection(temp.size()-1);
                     temp.add(y.get(j));
                     temp.get(temp.size()-1).setConnection(temp.size()-2);
                 }
@@ -106,7 +109,13 @@ public class Flights {
      * @return true if the flight exists
      */
     private boolean checkDL(String city, String state,int i){
-        return allFlights.get(i).getDepartCity().equals(city) && allFlights.get(i).getDepartState().equals(state);
+        try{
+           return allFlights.get(i).getDepartCity().equalsIgnoreCase(city) && allFlights.get(i).getDepartState().equalsIgnoreCase(state);
+           
+        } catch(Exception e){
+            return false;
+        }
+        
     }
 
     /**

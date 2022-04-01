@@ -5,7 +5,6 @@
  */
 
 import java.util.Scanner;
-import java.lang.ProcessHandle.Info;
 import java.util.ArrayList;
 public class UI {
 
@@ -17,9 +16,6 @@ public class UI {
      * @param args
      */
     public static void main(String[] args) {
-
-        DataLoader dl = new DataLoader();
-        dl.loadFlights();
 
         boolean run = true;
         while (run) {
@@ -80,7 +76,8 @@ public class UI {
         boolean run = true;
         while(run){
             System.out.println("Oops! You must be a registered user to book a flight.\n Please enter \"register\" to create and account or enter \"exit\" to leave the Flight Booking System!");
-            if (key.nextLine().trim().equalsIgnoreCase("register")){
+            String guestRegistry = key.nextLine().replaceAll("\n"," ").trim();
+            if (guestRegistry.equalsIgnoreCase("register")){
                 String[]x = InfoNoBDay();
                 System.out.println("Please enter your Date of Birth");
                 Date dob = getDate();
@@ -106,13 +103,27 @@ public class UI {
                 }
                 System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
                 logout();
-            }else if (key.nextLine().trim().equalsIgnoreCase("exit")){
+                boolean end= false;
+                while (!end) {
+                    System.out.println("Thank you for booking with Flight Booking Service! \nTo restart the program please enter \"again\" and to exit please enter \"exit\".");
+                    String repeat =  key.nextLine().replaceAll("\n", " ").trim();
+                    if (repeat.equalsIgnoreCase("again")){ 
+                        error = true;
+                        end = true;}
+                    else if (repeat.equalsIgnoreCase("exit")){
+                        error = false;
+                        end = true;}
+                    else end = false;
+                }
+            }else if (guestRegistry.equalsIgnoreCase("exit")){
                 System.out.println("Goodbye!");
-                return false;
+                run= false;
+                error = false;
             }else {
                System.out.println("Invalid input!");
                run = true;
             }
+
         }
 /******/if (error == false) System.out.println("Error in guestSearch()");
 	    return error;
@@ -161,11 +172,14 @@ public class UI {
             }
         }
         Flight[] flights = getFlights();
-        printArrFlights(flights);
+        if (flights != null) {
+            printArrFlights(flights);
+        }
         System.out.println("\n"+"\n Please enter the result number of the flight(s) you would like to book."+
                                         "\n Please use a comma to separate choice(s), or enter \"none\" if you would not like to book a flight.");
         String selection = key.nextLine().replace('\n', ' ');
         String[] x = selection.split(",");
+        int intX = Integer.parseInt(selection);
         if (selection.equalsIgnoreCase("none")){
             logout();
             return false;
@@ -185,14 +199,25 @@ public class UI {
         }
         System.out.println(flightSeats+"\n In this chart, \"X\" represents a seat that is not available and \"_\" represents a seat that is available.");
         ArrayList<String> picked = new ArrayList<String>();
-        for (int i=0 ;i< x.length; i++){
+        for (int i=0 ;i< intX; i++){
             System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
+            key.nextLine();
             String seatSelection = key.nextLine().replace('\n', ' ').trim();
             picked.add(seatSelection);
         }
         System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
-        logout();
-        if (error == false)System.out.println("Error in registeredUser()");
+        boolean end= false;
+                while (!end) {
+                    System.out.println("Thank you for booking with Flight Booking Service! \nTo restart the program please enter \"again\" and to exit please enter \"exit\".");
+                    String repeat =  key.nextLine().replaceAll("\n", " ").trim();
+                    if (repeat.equalsIgnoreCase("again")){ 
+                        error = true;
+                        end = true;}
+                    else if (repeat.equalsIgnoreCase("exit")){
+                        error = false;
+                        end = true;}
+                    else end = false;
+                }
         return error;
     }
 
@@ -219,7 +244,7 @@ public class UI {
         String flightSeats;
         ArrayList<String> friendsUsernames= new ArrayList<String>();
         if (numFriends > 1) {
-            for (int i =0; i<numFriends; i++){
+            for (int i =0; i<numFriends-1; i++){
                 friendsUsernames.add(addFriends());
             }
             flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
@@ -234,7 +259,18 @@ public class UI {
             picked.add(seatSelection);
         }
         System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
-        logout();
+        boolean end= false;
+        while (!end) {
+            System.out.println("Thank you for booking with Flight Booking Service! \nTo restart the program please enter \"again\" and to exit please enter \"exit\".");
+            String repeat =  key.nextLine().replaceAll("\n", " ").trim();
+            if (repeat.equalsIgnoreCase("again")){ 
+                error = true;
+                end = true;}
+            else if (repeat.equalsIgnoreCase("exit")){
+                error = false;
+                end = true;}
+            else end = false;
+        }
         return error;
     }
 
@@ -251,12 +287,12 @@ public class UI {
     private static Flight[] getFlights(){
 
         System.out.println("Please enter your departure location in the format \"city, State\"");
-        String dLString = key.nextLine();
+        String dLString = key.nextLine().replaceAll("\n", " ").trim();
         String[] dLoc = parseLoc(dLString);
         System.out.println("Getting departure date information:");
         Date dDate= getDate();
         System.out.println("Please enter your arrival location in the format \"city, State\"");
-        String aLString= key.nextLine();
+        String aLString= key.nextLine().replaceAll("\n", " ").trim();
         String[] aLoc = parseLoc(aLString);
         System.out.println("Getting arrival date information:");
         Date aDate = getDate();
@@ -269,10 +305,13 @@ public class UI {
      * @param x- string arr
      */
     private static void printArrFlights(Object[]x) {
-        
-        System.out.println("Search Results:");
-        for (int i = 0; i<x.length;i++) {
-            System.out.println("Result "+(i+1)+"\t"+x[i]);
+        if (x == null){
+            System.out.println("No results found");
+        }else{ 
+            System.out.println("Search Results:");
+            for (int i = 0; i<x.length;i++) {
+                System.out.println("Result "+(i+1)+"\t"+x[i]);
+            }
         }
     }
     /**
@@ -282,8 +321,9 @@ public class UI {
 	private static String[] InfoNoBDay(){
 	    String[] temp = new String[6];
 	    System.out.println("Please enter the first name that would appear on any legal documentation: ");
+        key.nextLine();
 	    temp[0] = key.nextLine().replace('\n',' ').trim();
-	    System.out.println("Please enter the last name that would appear on any legal documentation: ");
+	    System.out.println("Please enter the last name that would appear on any legal documentation: \n");
 	    temp[1] = key.nextLine().replace('\n', ' ').trim();
 	    System.out.println("Please enter a username: ");
 	    temp[2] = key.nextLine().replace('\n',' ').trim();
@@ -303,6 +343,8 @@ public class UI {
      */
     private static String[] parseLoc(String location){
         String[] splitLoc= location.split(",");
+        splitLoc[0] = splitLoc[0].trim();
+        splitLoc[1] = splitLoc[1].trim();
         return splitLoc;
     }
 
@@ -331,7 +373,7 @@ public class UI {
         for (int i = 0; i< tempI.length; i++){
             tempS[i]= String.valueOf(tempI[i]);
         }
-        Date created= new Date (tempS[0], Integer.parseInt(tempS[1]), Integer.parseInt(tempS[2]));
+        Date created= new Date (tempI[0], tempI[1], tempI[2]);
         return created;
     }
     /**

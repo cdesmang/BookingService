@@ -132,8 +132,10 @@ public class FlightSystem {
         String aState = aLoc[1];
         ArrayList<Flight> temp = flights.searchFlight(dCity, dState, aCity, aState, dDate, aDate);
         Flight[] print;
-        if(temp.size() == 0)print = null;
+        if(temp.size() == 0) { print = null;
             // if this is null there are no results.
+            System.out.println("No results");
+        }
         else print = toFlightArray(temp);
         return print;
     }
@@ -154,7 +156,8 @@ public class FlightSystem {
         String [] temp;
         String print = "";
         for(int i=0; i<selection.size();i++){
-            temp= selection.get(i).split(",");
+
+            temp = selection.get(i).replace(", ", ",").split(",");
             String [] temp2 = new String[temp.length-2];
             if(flights[i].getAirline().equalsIgnoreCase(temp[0]) && flights[i].getFlightNum()==Integer.parseInt(temp[1])){
                 print += flights[i].toString()+"\n"+currentUser.getUsername()+"\tSeat: ";
@@ -250,7 +253,4 @@ public class FlightSystem {
        Friend temp = new Friend(friend[0],friend[1], friend[2], friend[4], dob, friend[5]);
        users.addFriends(temp, currentUser);
     }
-
-
 }
-    
