@@ -103,6 +103,18 @@ public class UI {
                 }
                 System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
                 logout();
+                boolean end= false;
+                while (!end) {
+                    System.out.println("Thank you for booking with Flight Booking Service! \nTo restart the program please enter \"again\" and to exit please enter \"exit\".");
+                    String repeat =  key.nextLine().replaceAll("\n", " ").trim();
+                    if (repeat.equalsIgnoreCase("again")){ 
+                        error = true;
+                        end = true;}
+                    else if (repeat.equalsIgnoreCase("exit")){
+                        error = false;
+                        end = true;}
+                    else end = false;
+                }
             }else if (guestRegistry.equalsIgnoreCase("exit")){
                 System.out.println("Goodbye!");
                 run= false;
@@ -189,13 +201,23 @@ public class UI {
         ArrayList<String> picked = new ArrayList<String>();
         for (int i=0 ;i< intX; i++){
             System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
-            String buffer = key.nextLine();
+            key.nextLine();
             String seatSelection = key.nextLine().replace('\n', ' ').trim();
             picked.add(seatSelection);
         }
         System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
-        logout();
-
+        boolean end= false;
+                while (!end) {
+                    System.out.println("Thank you for booking with Flight Booking Service! \nTo restart the program please enter \"again\" and to exit please enter \"exit\".");
+                    String repeat =  key.nextLine().replaceAll("\n", " ").trim();
+                    if (repeat.equalsIgnoreCase("again")){ 
+                        error = true;
+                        end = true;}
+                    else if (repeat.equalsIgnoreCase("exit")){
+                        error = false;
+                        end = true;}
+                    else end = false;
+                }
         return error;
     }
 
@@ -222,7 +244,7 @@ public class UI {
         String flightSeats;
         ArrayList<String> friendsUsernames= new ArrayList<String>();
         if (numFriends > 1) {
-            for (int i =0; i<numFriends; i++){
+            for (int i =0; i<numFriends-1; i++){
                 friendsUsernames.add(addFriends());
             }
             flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
@@ -237,7 +259,18 @@ public class UI {
             picked.add(seatSelection);
         }
         System.out.println(flightSystem.seatingSelction(flights, picked,friendsUsernames));
-        logout();
+        boolean end= false;
+        while (!end) {
+            System.out.println("Thank you for booking with Flight Booking Service! \nTo restart the program please enter \"again\" and to exit please enter \"exit\".");
+            String repeat =  key.nextLine().replaceAll("\n", " ").trim();
+            if (repeat.equalsIgnoreCase("again")){ 
+                error = true;
+                end = true;}
+            else if (repeat.equalsIgnoreCase("exit")){
+                error = false;
+                end = true;}
+            else end = false;
+        }
         return error;
     }
 
@@ -288,7 +321,7 @@ public class UI {
 	private static String[] InfoNoBDay(){
 	    String[] temp = new String[6];
 	    System.out.println("Please enter the first name that would appear on any legal documentation: ");
-        String buffer = key.nextLine();
+        key.nextLine();
 	    temp[0] = key.nextLine().replace('\n',' ').trim();
 	    System.out.println("Please enter the last name that would appear on any legal documentation: \n");
 	    temp[1] = key.nextLine().replace('\n', ' ').trim();
