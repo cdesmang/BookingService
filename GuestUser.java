@@ -24,8 +24,12 @@ public class GuestUser extends User {
 
     @Override
     public void addFriends(Friend x) {}
-        
-    
+
+    @Override
+    public String getFullName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
     
 
