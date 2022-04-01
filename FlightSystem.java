@@ -154,7 +154,7 @@ public class FlightSystem {
  
     public String seatingSelction(Flight[]flights, ArrayList<String> selection, ArrayList<String> friends){
         String [] temp;
-        String print = "";
+        String print = "------------------------BOOKINGS--------------------------------\n";
         for(int i=0; i<selection.size();i++){
 
             temp = selection.get(i).replace(", ", ",").split(",");
