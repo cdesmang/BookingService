@@ -106,7 +106,7 @@ public class Flights {
      * @return true if the flight exists
      */
     private boolean checkDL(String city, String state,int i){
-        return allFlights.get(i).getDepartCity().equalsIgnoreCase(city) && allFlights.get(i).getDepartState().equalsIgnoreCase(state);
+        return allFlights.get(i).getDepartCity().equals(city) && allFlights.get(i).getDepartState().equals(state);
     }
 
     /**

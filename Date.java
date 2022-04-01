@@ -12,11 +12,7 @@ public class Date {
     private int year;
 
 
-    public Date (String month,String day ,String year){
-        this.month = month;
-        this.day = Integer.parseInt(day);
-        this.year = Integer.parseInt(year);
-    }
+   
 
     /**
      * initialises Date type.
@@ -24,11 +20,10 @@ public class Date {
      * @param date the day of the month.
      * @param year
      */
-    public Date(String month, int day, int year){
-        this.month= month;
-        this.year = year;
+    public Date (String month,int day ,int year){
+        this.month = month;
         this.day = day;
-       // this.weekday = 
+        this.year = year;
     }
     
      /**
@@ -60,6 +55,6 @@ public class Date {
     }
     
     public boolean dateMatch(Date x){
-        return this.month.equalsIgnoreCase(x.month) && (this.day == x.day) && (this.year == x.year);
+        return (this.month == x.month) && (this.day == x.day) && (this.year == x.year);
     }
 }

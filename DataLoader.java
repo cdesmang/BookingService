@@ -58,9 +58,6 @@ public class DataLoader extends DataConstants {
                 String deptTime = (String)flightJSON.get(DEPT_TIME);
                 String arrTime = (String)flightJSON.get(ARR_TIME);
 
-                          
-
-
                ArrayList<Seat> seatsList = new ArrayList<Seat>();
 
                 JSONArray jsonSeats = (JSONArray)flightJSON.get("seats");

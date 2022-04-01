@@ -18,6 +18,9 @@ public class UI {
      */
     public static void main(String[] args) {
 
+        DataLoader dl = new DataLoader();
+        dl.loadFlights();
+
         boolean run = true;
         while (run) {
             String login= Welcome();
@@ -272,8 +275,6 @@ public class UI {
             System.out.println("Result "+(i+1)+"\t"+x[i]);
         }
     }
-   
-
     /**
 	 * Collects information from user about creatiing an account(except birthday)
 	 * @return an array with all necessary information to create an new registered user except for the birthdate
@@ -319,21 +320,24 @@ public class UI {
             for (int i = 0; i<3; i++){
                 tempI[i] = Integer.parseInt(tempS[i]);
             }
-            if(tempI[0] >= 13) //invalid month
+            if(tempI[0] >= 13){ //invalid month
                 System.out.println("Invalid Month");
-                tempI[0] = 0;
-            if(tempI[1] >= 32) //invalid day
+                tempI[0] = 0;}
+            if(tempI[1] >= 32) {//invalid day
                 System.out.println("Invalid Day");
-                tempI[1] = 0;
+                tempI[1] = 0;}
         }
         tempS= new String[3];
         for (int i = 0; i< tempI.length; i++){
             tempS[i]= String.valueOf(tempI[i]);
         }
-        Date created= new Date (tempS[0], tempS[1], tempS[2]);
+        Date created= new Date (tempS[0], Integer.parseInt(tempS[1]), Integer.parseInt(tempS[2]));
         return created;
     }
-
+    /**
+     * Creates a new friend for the user and adds them to the arraylist
+     * @return - new friends username
+     */
     private static String addFriends(){
         System.out.println("Please enter the following information about those for whom you would like to book a ticket.");
         String[] newFriend = InfoNoBDay();

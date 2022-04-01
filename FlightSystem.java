@@ -8,6 +8,7 @@ public class FlightSystem {
     private static User currentUser;
     private static Flights flights;
     private static Users users= new Users();
+    private static ArrayList<Flight> flightList;
 
     /**
      * Constructs a new instance of Flightsystem and intializes the current user based on user type (overloaded for different types)
