@@ -41,6 +41,13 @@ public class FlightSystem {
          currentUser = new RegisteredUser(firstName, lastName, username, password, email, address, dob);
     }
 
+    /**
+     * prints the seats
+     * @param flightSelection
+     * @param flightResults
+     * @param customers
+     * @return
+     */
     public String flightBooking(String flightSelection, Flight[] flightResults, ArrayList<String> customers){
         ArrayList<Flight> selected = new ArrayList<Flight>();
         String[] selectIndex  = flightSelection.split(",");
@@ -54,6 +61,10 @@ public class FlightSystem {
         return printSeats;
     }
 
+    /**
+     * @param flight
+     * @return string representation of the seat layout of a flight
+     */
     private String seatsToString(Flight flight){
         String flightID = "Airline: "+flight.getAirline()+"\tFlight Number: "+String.valueOf(flight.getFlightNum())+"\n";
         char[][] seats = getSeats(flight);
@@ -168,10 +179,7 @@ public class FlightSystem {
                         print += "\n"+friends.get(i-1)+"\tSeat: "+temp2[j];
                     }
                 }
-
-            
             }
-
         }
         return print;
     }

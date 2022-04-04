@@ -24,6 +24,9 @@ public class Flight {
  private ArrayList<Seat> seats;
  private ArrayList<Integer> connectionIndex;
 
+    /**
+     * Constructs a new instance of a flight.
+     */
     public Flight(UUID flightID, int flightNum, String airline, String destinationCity, String destinationState, String departureCity, String departureState, Date departureDate, Date arrivalDate, String flightDuration, String departureTime, String arrivalTime, ArrayList<Seat> seats) {
         this.flightID = flightID;
         this.flightNum = flightNum;
@@ -40,38 +43,79 @@ public class Flight {
         this.seats = seats;
     }
 
-
-
+    /**
+     * @return flight ID
+     */
     public UUID getFlightID() {
         return flightID;
     }
+
+    /**
+     * @return flight number
+     */
     public int getFlightNum() {
         return flightNum;
     }
+
+    /**
+     * @return name of airline
+     */
     public String getAirline() {
         return airline;
     }
+
+    /**
+     * @return destination city
+     */
     public String getDestinationCity()  {
         return destinationCity;
     }
+
+    /**
+     * @return destination state
+     */
     public String getDestinationState()  {
         return destinationState;
     }
+
+    /**
+     * @return departure city
+     */
     public String getDepartCity()  {
         return departureCity;
     }
+
+    /**
+     * @return departure state
+     */
     public String getDepartState()  {
         return departureState;
     }
+
+    /**
+     * @return flight duration
+     */
     public String getFlightDuration()  {
         return flightDuration;
     }
+
+    /**
+     * @return departure time
+     */
     public String getDepartTime()  {
         return departureTime;
     }
+
+    /**
+     * @return arrival time
+     */
     public String getArrivalTime() {
         return arrivalTime;
     }
+
+    /**
+     * @return flight ID
+     */
     public Date getDepartDate() {
         return departureDate;
     }
