@@ -88,7 +88,7 @@ public class UI {
                 String flightSeats;
                 ArrayList<String> friendsUsernames= new ArrayList<String>();
                 if (numFriends > 1) {
-                    for (int i =0; i<numFriends; i++){
+                    for (int i =0; i<numFriends-1; i++){
                         friendsUsernames.add(addFriends());}
                     flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
                 } else{
@@ -189,7 +189,7 @@ public class UI {
         String flightSeats;
         ArrayList<String> friendsUsernames= new ArrayList<String>();
         if (numFriends > 1) {
-            for (int i =0; i<numFriends; i++){
+            for (int i =0; i<numFriends-1; i++){
                 friendsUsernames.add(addFriends());
             }
             flightSeats = flightSystem.flightBooking(selection, flights,friendsUsernames);
@@ -201,7 +201,7 @@ public class UI {
         ArrayList<String> picked = new ArrayList<String>();
         for (int i=0 ;i< intX; i++){
             System.out.println("Please enter the Airline and Flight number followed by the seats that you would like to book."+"\nThe format should be \"Airline, Flight Number, 1A, 1B ,etc.\"");
-            key.nextLine();
+            //key.nextLine();
             String seatSelection = key.nextLine().replace('\n', ' ').trim();
             picked.add(seatSelection);
         }

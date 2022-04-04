@@ -168,17 +168,23 @@ public class FlightSystem {
         String print = "------------------------BOOKINGS--------------------------------\n";
         for(int i=0; i<selection.size();i++){
 
-            temp = selection.get(i).replace(", ", ",").split(",");
+            temp = selection.get(i).replaceAll(", ", ",").split(",");
             String [] temp2 = new String[temp.length-2];
             if(flights[i].getAirline().equalsIgnoreCase(temp[0]) && flights[i].getFlightNum()==Integer.parseInt(temp[1])){
-                print += flights[i].toString()+"\n"+currentUser.getUsername()+"\tSeat: ";
+                print += flights[i].toString()+"\n"+currentUser.getFullName() +"\tSeat: ";
                 for (int j = 0; j<temp2.length;j++){
                     temp2[j]=temp[j+2];
-                    print+=temp2[j];
+                    if (j == 0) {
+                        print+=temp2[j];
+                    }
                     if (j>0){
-                        print += "\n"+friends.get(i-1)+"\tSeat: "+temp2[j];
+                        print += "\n"+friends.get(j-1)+"\tSeat: "+temp2[j];
                     }
                 }
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 1fc484156644efbae9c1c92943b4f5d762649b22
             }
         }
         return print;

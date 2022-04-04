@@ -130,6 +130,10 @@ public class RegisteredUser extends User {
         return this.bookings;
     }
 
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
     
     /**
      * a booking has a :
